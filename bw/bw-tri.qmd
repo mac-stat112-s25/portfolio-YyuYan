@@ -3,3 +3,26 @@ title: "Trivariate Viz"
 ---
 
 Use this file to generate a professional looking **trivariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+```{r}
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+```
+
+```{r}
+ggplot(education, aes(x = salary, y = sat, color = expend)) +
+  geom_point(size = 3, alpha = 0.8) + 
+  geom_smooth(method = "lm", color = "black", linetype = "dashed") +  
+  scale_color_gradient(low = "blue", high = "red") + 
+  labs(
+    title = "SAT Scores vs Teacher Salaries & Per Pupil Expenditures",
+    subtitle = "Higher salaries are linked to lower SAT scores, but expenditure provides further insights",
+    x = "Teacher Salary ($)",
+    y = "Average SAT Score",
+    color = "Per Pupil Expenditure ($)"
+  )
+```

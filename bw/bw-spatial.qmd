@@ -3,3 +3,37 @@ title: "Spatial Viz"
 ---
 
 Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(maps)
+library(RColorBrewer)
+library(ggthemes)
+```
+
+```{r}
+states_map <- map_data("state")
+```
+
+```{r}
+starbucks_with_2018_pop_est <- starbucks_with_2018_pop_est |> 
+  mutate(state_name = str_to_lower(state_name))
+```
+
+```{r}
+ggplot(starbucks_with_2018_pop_est, aes(map_id = state_name, fill = starbucks_per_10000)) +
+  geom_map(map = states_map, color = "black", size = 0.3) + 
+  expand_limits(x = states_map$long, y = states_map$lat) +
+  scale_fill_distiller(palette = "RdBu", direction = 1, name = "Starbucks per 10k") +  
+  labs(
+    title = "Starbucks Density Across the US",
+    subtitle = "Number of Starbucks per 10,000 People",
+    caption = "Plot created by Yu Yan | Data: US Census & Starbucks Locations") +
+  theme_map() + 
+  theme(
+    legend.position = "right",
+    plot.title = element_text(size = 14, face = "bold"))
+```

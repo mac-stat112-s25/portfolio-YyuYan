@@ -3,3 +3,26 @@ title: "Quadvariate Viz"
 ---
 
 Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+```{r}
+education <- read.csv("https://mac-stat.github.io/data/sat.csv")
+```
+
+```{r}
+ggplot(education, aes(x = salary, y = sat, color = fracCat, size = expend)) +
+  geom_point(alpha = 0.7) +  
+  geom_smooth(method = "lm", se = FALSE) +  
+  labs(
+    title = "SAT Scores vs. Teacher Salary, Expenditures & Fraction Taking SAT",
+    subtitle = "Higher SAT participation is linked to lower scores; expenditure effects vary",
+    x = "Teacher Salary ($)",
+    y = "Average SAT Score",
+    color = "SAT Participation Rate",
+    size = "Per Pupil Expenditure ($)"
+  ) +
+  facet_wrap(~ fracCat) 
+```
