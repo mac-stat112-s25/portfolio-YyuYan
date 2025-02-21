@@ -5,13 +5,43 @@ title: "Spatial Viz"
 Use this file to generate a professional looking **spatial** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.
 
 
-
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(maps)
 library(RColorBrewer)
 library(ggthemes)
+library(openintro)
+```
+
+```{r}
+# Import starbucks location data
+starbucks <- read.csv("https://mac-stat.github.io/data/starbucks.csv")
+```
+
+The code below creates the dataset `starbucks_us_by_state` that gives the number of Starbucks in each state. 
+
+```{r}
+starbucks_us_by_state <- starbucks |>
+  filter(Country == "US") |>
+  count(State.Province) |>
+  mutate(state_name = str_to_lower(abbr2state(State.Province)))
+```
+
+The code below adds the variable `starbucks_per_10000` that gives the number of Starbucks per 10,000 people to the dataest `starbucks_with_2018_pop_est` which will be used for the spatial visualization.
+
+```{r}
+census_pop_est_2018 <- read_csv("https://mac-stat.github.io/data/us_census_2018_state_pop_est.csv") |>
+  separate(state, into = c("dot", "state"), extra = "merge") |>
+  select(-dot) |>
+  mutate(state = str_to_lower(state))
+
+starbucks_with_2018_pop_est <-
+  starbucks_us_by_state |>
+  left_join(census_pop_est_2018,
+    by = c("state_name" = "state")
+  ) |>
+  mutate(starbucks_per_10000 = (n / est_pop_2018) * 10000)
 ```
 
 ```{r}
@@ -19,13 +49,8 @@ states_map <- map_data("state")
 ```
 
 ```{r}
-starbucks_with_2018_pop_est <- starbucks_with_2018_pop_est |> 
-  mutate(state_name = str_to_lower(state_name))
-```
-
-```{r}
 ggplot(starbucks_with_2018_pop_est, aes(map_id = state_name, fill = starbucks_per_10000)) +
-  geom_map(map = states_map, color = "black", size = 0.3) + 
+  geom_map(map = states_map, color = "black", linewidth = 0.3) + 
   expand_limits(x = states_map$long, y = states_map$lat) +
   scale_fill_distiller(palette = "RdBu", direction = 1, name = "Starbucks per 10k") +  
   labs(

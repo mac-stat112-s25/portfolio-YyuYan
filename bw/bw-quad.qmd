@@ -13,9 +13,9 @@ education <- read.csv("https://mac-stat.github.io/data/sat.csv")
 ```
 
 ```{r}
-ggplot(education, aes(x = salary, y = sat, color = fracCat, size = expend)) +
-  geom_point(alpha = 0.7) +  
-  geom_smooth(method = "lm", se = FALSE) +  
+ggplot(education, aes(x = salary, y = sat, color = fracCat)) +
+  geom_point(aes(size = expend), alpha = 0.7) + 
+  geom_smooth(method = "lm", se = FALSE, aes(group = fracCat)) + 
   labs(
     title = "SAT Scores vs. Teacher Salary, Expenditures & Fraction Taking SAT",
     subtitle = "Higher SAT participation is linked to lower scores; expenditure effects vary",
@@ -24,5 +24,5 @@ ggplot(education, aes(x = salary, y = sat, color = fracCat, size = expend)) +
     color = "SAT Participation Rate",
     size = "Per Pupil Expenditure ($)"
   ) +
-  facet_wrap(~ fracCat) 
+  facet_wrap(~ fracCat)  
 ```
