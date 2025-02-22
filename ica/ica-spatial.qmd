@@ -4,44 +4,7 @@ title: "Spatial Viz"
 
 Use this file for practice with the **spatial viz** in-class activity.  Refer to the class website for details.
 
-## Exercises
 
-
-### Preview
-
-You'll explore some R spatial viz tools below.
-In general, there are two important pieces to every map:
-
-**Piece 1: A dataset**
-
-This dataset must include either:
-
--   location coordinates for your points of interest (for point maps); or
--   variable outcomes for your regions of interest (for  maps)
-
-\
-
-**Piece 2: A background map**
-
-We need latitude and longitude coordinates to specify the boundaries for your regions of interest (eg: countries, states).
-This is where it gets really sticky!
-
--   County-level, state-level, country-level, continent-level info live in multiple places.
--   Where we grab this info *can* depend upon whether we want to make a point map or a choropleth map.
-    (The background maps can be used somewhat interchangeably, but it requires extra code :/)
--   Where we grab this info can also depend upon the structure of our data and how much data wrangling / cleaning we're up for.
-    For choropleth maps, the labels of regions in our data must match those in the background map.
-    For example, if our data labels states with their abbreviations (eg: MN) and the background map refers to them as full names in lower case (eg: minnesota), we have to wrangle our data so that it matches the background map.
-
-In short, the code for spatial viz gets very specialized.
-The goal of these exercises is to:
-
--   play around and experience the wide variety of spatial viz tools out there
--   understand the difference between point maps and choropleth maps
--   have fun
-
-You can skip around as you wish and it's totally fine if you don't finish everything.
-Just come back at some point to play around.
 
 ### Part 1: Interactive points on a map with `leaflet` {-}
 
