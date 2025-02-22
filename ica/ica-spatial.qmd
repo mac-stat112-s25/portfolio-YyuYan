@@ -65,8 +65,6 @@ Let's load [the data](../data/our_fave_places.csv) and map it!
 
 
 ```{r}
-#| eval: false
-
 fave_places <- read.csv("https://hash-mac.github.io/stat112site-s25/data/our_fave_places.csv")
 
 # Check it out
@@ -82,7 +80,7 @@ You can use a "two-finger scroll" to zoom in and out.
 library(leaflet)
 
 # Just a plotting frame
-leaflet(data = fave_places)
+#leaflet(data = fave_places)
 ```
 
 ```{r}
