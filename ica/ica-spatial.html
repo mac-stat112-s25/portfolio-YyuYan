@@ -228,11 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li>
-<a href="#exercises" id="toc-exercises" class="nav-link active" data-scroll-target="#exercises"><span class="header-section-number">9.1</span> Exercises</a>
-  <ul class="collapse">
-<li><a href="#preview" id="toc-preview" class="nav-link" data-scroll-target="#preview"><span class="header-section-number">9.1.1</span> Preview</a></li>
-  <li><a href="#part-1-interactive-points-on-a-map-with-leaflet" id="toc-part-1-interactive-points-on-a-map-with-leaflet" class="nav-link" data-scroll-target="#part-1-interactive-points-on-a-map-with-leaflet">Part 1: Interactive points on a map with <code>leaflet</code></a></li>
+<li><a href="#part-1-interactive-points-on-a-map-with-leaflet" id="toc-part-1-interactive-points-on-a-map-with-leaflet" class="nav-link active" data-scroll-target="#part-1-interactive-points-on-a-map-with-leaflet">Part 1: Interactive points on a map with <code>leaflet</code></a></li>
   <li><a href="#exercise-1-a-leaflet-with-markers-points" id="toc-exercise-1-a-leaflet-with-markers-points" class="nav-link" data-scroll-target="#exercise-1-a-leaflet-with-markers-points">Exercise 1: A leaflet with markers / points</a></li>
   <li><a href="#exercise-3-your-turn" id="toc-exercise-3-your-turn" class="nav-link" data-scroll-target="#exercise-3-your-turn">Exercise 3: Your turn</a></li>
   <li><a href="#part-2-static-points-on-a-map" id="toc-part-2-static-points-on-a-map" class="nav-link" data-scroll-target="#part-2-static-points-on-a-map">Part 2: Static points on a map</a></li>
@@ -246,8 +242,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exercise-9-county-level-choropleth-maps" id="toc-exercise-9-county-level-choropleth-maps" class="nav-link" data-scroll-target="#exercise-9-county-level-choropleth-maps">Exercise 9: County-level choropleth maps</a></li>
   <li><a href="#exercise-10-play-around" id="toc-exercise-10-play-around" class="nav-link" data-scroll-target="#exercise-10-play-around">Exercise 10: Play around!</a></li>
   <li><a href="#exercise-11-choropleth-maps-with-leaflet" id="toc-exercise-11-choropleth-maps-with-leaflet" class="nav-link" data-scroll-target="#exercise-11-choropleth-maps-with-leaflet">Exercise 11: Choropleth maps with leaflet</a></li>
-  </ul>
-</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -269,33 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p>Use this file for practice with the <strong>spatial viz</strong> in-class activity. Refer to the class website for details.</p>
-<section id="exercises" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="exercises">
-<span class="header-section-number">9.1</span> Exercises</h2>
-<section id="preview" class="level3" data-number="9.1.1"><h3 data-number="9.1.1" class="anchored" data-anchor-id="preview">
-<span class="header-section-number">9.1.1</span> Preview</h3>
-<p>You’ll explore some R spatial viz tools below. In general, there are two important pieces to every map:</p>
-<p><strong>Piece 1: A dataset</strong></p>
-<p>This dataset must include either:</p>
-<ul>
-<li>location coordinates for your points of interest (for point maps); or</li>
-<li>variable outcomes for your regions of interest (for maps)</li>
-</ul>
-<p><br></p>
-<p><strong>Piece 2: A background map</strong></p>
-<p>We need latitude and longitude coordinates to specify the boundaries for your regions of interest (eg: countries, states). This is where it gets really sticky!</p>
-<ul>
-<li>County-level, state-level, country-level, continent-level info live in multiple places.</li>
-<li>Where we grab this info <em>can</em> depend upon whether we want to make a point map or a choropleth map. (The background maps can be used somewhat interchangeably, but it requires extra code :/)</li>
-<li>Where we grab this info can also depend upon the structure of our data and how much data wrangling / cleaning we’re up for. For choropleth maps, the labels of regions in our data must match those in the background map. For example, if our data labels states with their abbreviations (eg: MN) and the background map refers to them as full names in lower case (eg: minnesota), we have to wrangle our data so that it matches the background map.</li>
-</ul>
-<p>In short, the code for spatial viz gets very specialized. The goal of these exercises is to:</p>
-<ul>
-<li>play around and experience the wide variety of spatial viz tools out there</li>
-<li>understand the difference between point maps and choropleth maps</li>
-<li>have fun</li>
-</ul>
-<p>You can skip around as you wish and it’s totally fine if you don’t finish everything. Just come back at some point to play around.</p>
-</section><section id="part-1-interactive-points-on-a-map-with-leaflet" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="part-1-interactive-points-on-a-map-with-leaflet">Part 1: Interactive points on a map with <code>leaflet</code>
+<section id="part-1-interactive-points-on-a-map-with-leaflet" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="part-1-interactive-points-on-a-map-with-leaflet">Part 1: Interactive points on a map with <code>leaflet</code>
 </h3>
 <p><a href="https://leafletjs.com/">Leaflet</a> is an open-source JavaScript library for creating maps. We can use it inside R through the <code>leaflet</code> package.</p>
 <p>This uses a different plotting framework than <code>ggplot2</code>, but still has a <code>tidyverse</code> feel (which will become more clear as we learn other tidyverse tools!).</p>
@@ -336,8 +304,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
 <span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">addTiles</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-bec7c081f00920a16cee" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-bec7c081f00920a16cee">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-fd2e6042662eeb9f580b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-fd2e6042662eeb9f580b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -347,8 +315,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, <span class="at">lat =</span> <span class="sc">~</span>latitude)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-791eb7f2d4dc00371566" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-791eb7f2d4dc00371566">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20],[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[0,59],"lng":[-155,127]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-943dbd13af1fc0405237" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-943dbd13af1fc0405237">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20],[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[0,59],"lng":[-155,127]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -358,8 +326,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">addMarkers</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-d4d05714bf9046c12a50" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d4d05714bf9046c12a50">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20],[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[0,59],"lng":[-155,127]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-3775e0f9dcddf33a8a5e" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3775e0f9dcddf33a8a5e">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20],[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[0,59],"lng":[-155,127]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section><section id="part-b" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-b">Part b</h4>
@@ -383,8 +351,8 @@ Attaching package: 'gplots'</code></pre>
 <span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">addCircles</span>(<span class="at">color =</span> <span class="fu">col2hex</span>(<span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-7cc00baec2af6fc5a38a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7cc00baec2af6fc5a38a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircles","args":[[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20],[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#FF0000","weight":5,"opacity":0.5,"fill":true,"fillColor":"#FF0000","fillOpacity":0.2},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[0,59],"lng":[-155,127]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-05b59fcfaa96c45eb870" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-05b59fcfaa96c45eb870">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addCircles","args":[[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20],[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#FF0000","weight":5,"opacity":0.5,"fill":true,"fillColor":"#FF0000","fillOpacity":0.2},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]}],"limits":{"lat":[0,59],"lng":[-155,127]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -401,8 +369,8 @@ Attaching package: 'gplots'</code></pre>
 <span id="cb11-11"><a href="#cb11-11"></a>    <span class="at">color =</span> <span class="fu">col2hex</span>(<span class="st">"green"</span>)</span>
 <span id="cb11-12"><a href="#cb11-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-fdf77c8463683c684837" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-fdf77c8463683c684837">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["USGS",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircles","args":[[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20],[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#FFFF00","weight":10,"opacity":1,"fill":true,"fillColor":"#FFFF00","fillOpacity":0.2},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]},{"method":"addPolylines","args":[[[[{"lng":[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],"lat":[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#00FF00","weight":5,"opacity":0.5,"fill":false,"fillColor":"#00FF00","fillOpacity":0.2,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[0,59],"lng":[-155,127]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-3633da058337cbafd485" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3633da058337cbafd485">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["USGS",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircles","args":[[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20],[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#FFFF00","weight":10,"opacity":1,"fill":true,"fillColor":"#FFFF00","fillOpacity":0.2},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]},{"method":"addPolylines","args":[[[[{"lng":[18,-93,-117,116,106,-122,-106,24,5,-90,122,29,-118,-111,7,-93,101,-70,5,-90,122,-122,-117,-80,123,107,119,-85,0,68,-100,104,127,-123,-123,7,-124,-155],"lat":[59,45,33,40,40,37,33,38,52,35,25,41,34,46,50,45,14,44,52,45,38,48,33,33,48,39,32,46,0,16,30,36,38,38,38,50,45,20]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#00FF00","weight":5,"opacity":0.5,"fill":false,"fillColor":"#00FF00","fillOpacity":0.2,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[0,59],"lng":[-155,127]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>In general:</p>
@@ -1025,7 +993,7 @@ minnesota,big stone minnesota,big stone MULTIPOLYGON (((-96.10794 4...</code></p
 
 <!-- -->
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1658,624 +1626,587 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb69-4"><a href="#cb69-4"></a></span>
 <span id="cb69-5"><a href="#cb69-5"></a>Use this file for practice with the **spatial viz** in-class activity.  Refer to the class website for details.</span>
 <span id="cb69-6"><a href="#cb69-6"></a></span>
-<span id="cb69-7"><a href="#cb69-7"></a><span class="fu">## Exercises</span></span>
+<span id="cb69-7"><a href="#cb69-7"></a></span>
 <span id="cb69-8"><a href="#cb69-8"></a></span>
-<span id="cb69-9"><a href="#cb69-9"></a></span>
-<span id="cb69-10"><a href="#cb69-10"></a><span class="fu">### Preview</span></span>
-<span id="cb69-11"><a href="#cb69-11"></a></span>
-<span id="cb69-12"><a href="#cb69-12"></a>You'll explore some R spatial viz tools below.</span>
-<span id="cb69-13"><a href="#cb69-13"></a>In general, there are two important pieces to every map:</span>
-<span id="cb69-14"><a href="#cb69-14"></a></span>
-<span id="cb69-15"><a href="#cb69-15"></a>**Piece 1: A dataset**</span>
-<span id="cb69-16"><a href="#cb69-16"></a></span>
-<span id="cb69-17"><a href="#cb69-17"></a>This dataset must include either:</span>
-<span id="cb69-18"><a href="#cb69-18"></a></span>
-<span id="cb69-19"><a href="#cb69-19"></a><span class="ss">-   </span>location coordinates for your points of interest (for point maps); or</span>
-<span id="cb69-20"><a href="#cb69-20"></a><span class="ss">-   </span>variable outcomes for your regions of interest (for  maps)</span>
-<span id="cb69-21"><a href="#cb69-21"></a></span>
-<span id="cb69-22"><a href="#cb69-22"></a>\</span>
-<span id="cb69-23"><a href="#cb69-23"></a></span>
-<span id="cb69-24"><a href="#cb69-24"></a>**Piece 2: A background map**</span>
-<span id="cb69-25"><a href="#cb69-25"></a></span>
-<span id="cb69-26"><a href="#cb69-26"></a>We need latitude and longitude coordinates to specify the boundaries for your regions of interest (eg: countries, states).</span>
-<span id="cb69-27"><a href="#cb69-27"></a>This is where it gets really sticky!</span>
+<span id="cb69-9"><a href="#cb69-9"></a><span class="fu">### Part 1: Interactive points on a map with `leaflet` {-}</span></span>
+<span id="cb69-10"><a href="#cb69-10"></a></span>
+<span id="cb69-11"><a href="#cb69-11"></a><span class="co">[</span><span class="ot">Leaflet</span><span class="co">](https://leafletjs.com/)</span> is an open-source JavaScript library for creating maps.</span>
+<span id="cb69-12"><a href="#cb69-12"></a>We can use it inside R through the <span class="in">`leaflet`</span> package.</span>
+<span id="cb69-13"><a href="#cb69-13"></a></span>
+<span id="cb69-14"><a href="#cb69-14"></a>This uses a different plotting framework than <span class="in">`ggplot2`</span>, but still has a <span class="in">`tidyverse`</span> feel (which will become more clear as we learn other tidyverse tools!).</span>
+<span id="cb69-15"><a href="#cb69-15"></a></span>
+<span id="cb69-16"><a href="#cb69-16"></a>The general steps are as follows:</span>
+<span id="cb69-17"><a href="#cb69-17"></a></span>
+<span id="cb69-18"><a href="#cb69-18"></a><span class="ss">1.  </span>Create a *map widget* by calling <span class="in">`leaflet()`</span> and telling it the data to use.</span>
+<span id="cb69-19"><a href="#cb69-19"></a><span class="ss">2.  </span>Add a *base map* using <span class="in">`addTiles()`</span> (the default) or <span class="in">`addProviderTiles()`</span>.</span>
+<span id="cb69-20"><a href="#cb69-20"></a><span class="ss">3.  </span>Add *layers* to the map using layer functions (e.g. <span class="in">`addMarkers()`</span>, <span class="in">`addPolygons()`</span>).</span>
+<span id="cb69-21"><a href="#cb69-21"></a><span class="ss">4.  </span>Print the map widget to *display* it.</span>
+<span id="cb69-22"><a href="#cb69-22"></a></span>
+<span id="cb69-23"><a href="#cb69-23"></a><span class="fu">### Exercise 1: A leaflet with markers / points {.unnumbered}</span></span>
+<span id="cb69-24"><a href="#cb69-24"></a></span>
+<span id="cb69-25"><a href="#cb69-25"></a>Earlier this semester, I asked for the latitude and longitude of one of your favorite places.</span>
+<span id="cb69-26"><a href="#cb69-26"></a>I rounded these to the nearest whole number, so that they're near to but not exactly at those places.</span>
+<span id="cb69-27"><a href="#cb69-27"></a>Let's load <span class="co">[</span><span class="ot">the data</span><span class="co">](../data/our_fave_places.csv)</span> and map it!</span>
 <span id="cb69-28"><a href="#cb69-28"></a></span>
-<span id="cb69-29"><a href="#cb69-29"></a><span class="ss">-   </span>County-level, state-level, country-level, continent-level info live in multiple places.</span>
-<span id="cb69-30"><a href="#cb69-30"></a><span class="ss">-   </span>Where we grab this info *can* depend upon whether we want to make a point map or a choropleth map.</span>
-<span id="cb69-31"><a href="#cb69-31"></a>    (The background maps can be used somewhat interchangeably, but it requires extra code :/)</span>
-<span id="cb69-32"><a href="#cb69-32"></a><span class="ss">-   </span>Where we grab this info can also depend upon the structure of our data and how much data wrangling / cleaning we're up for.</span>
-<span id="cb69-33"><a href="#cb69-33"></a>    For choropleth maps, the labels of regions in our data must match those in the background map.</span>
-<span id="cb69-34"><a href="#cb69-34"></a>    For example, if our data labels states with their abbreviations (eg: MN) and the background map refers to them as full names in lower case (eg: minnesota), we have to wrangle our data so that it matches the background map.</span>
-<span id="cb69-35"><a href="#cb69-35"></a></span>
-<span id="cb69-36"><a href="#cb69-36"></a>In short, the code for spatial viz gets very specialized.</span>
-<span id="cb69-37"><a href="#cb69-37"></a>The goal of these exercises is to:</span>
+<span id="cb69-29"><a href="#cb69-29"></a></span>
+<span id="cb69-32"><a href="#cb69-32"></a><span class="in">```{r}</span></span>
+<span id="cb69-33"><a href="#cb69-33"></a>fave_places <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://hash-mac.github.io/stat112site-s25/data/our_fave_places.csv"</span>)</span>
+<span id="cb69-34"><a href="#cb69-34"></a></span>
+<span id="cb69-35"><a href="#cb69-35"></a><span class="co"># Check it out</span></span>
+<span id="cb69-36"><a href="#cb69-36"></a><span class="fu">head</span>(fave_places)</span>
+<span id="cb69-37"><a href="#cb69-37"></a><span class="in">```</span></span>
 <span id="cb69-38"><a href="#cb69-38"></a></span>
-<span id="cb69-39"><a href="#cb69-39"></a><span class="ss">-   </span>play around and experience the wide variety of spatial viz tools out there</span>
-<span id="cb69-40"><a href="#cb69-40"></a><span class="ss">-   </span>understand the difference between point maps and choropleth maps</span>
-<span id="cb69-41"><a href="#cb69-41"></a><span class="ss">-   </span>have fun</span>
+<span id="cb69-39"><a href="#cb69-39"></a><span class="fu">#### Part a {.unnumbered}</span></span>
+<span id="cb69-40"><a href="#cb69-40"></a></span>
+<span id="cb69-41"><a href="#cb69-41"></a>You can use a "two-finger scroll" to zoom in and out.</span>
 <span id="cb69-42"><a href="#cb69-42"></a></span>
-<span id="cb69-43"><a href="#cb69-43"></a>You can skip around as you wish and it's totally fine if you don't finish everything.</span>
-<span id="cb69-44"><a href="#cb69-44"></a>Just come back at some point to play around.</span>
-<span id="cb69-45"><a href="#cb69-45"></a></span>
-<span id="cb69-46"><a href="#cb69-46"></a><span class="fu">### Part 1: Interactive points on a map with `leaflet` {-}</span></span>
-<span id="cb69-47"><a href="#cb69-47"></a></span>
-<span id="cb69-48"><a href="#cb69-48"></a><span class="co">[</span><span class="ot">Leaflet</span><span class="co">](https://leafletjs.com/)</span> is an open-source JavaScript library for creating maps.</span>
-<span id="cb69-49"><a href="#cb69-49"></a>We can use it inside R through the <span class="in">`leaflet`</span> package.</span>
-<span id="cb69-50"><a href="#cb69-50"></a></span>
-<span id="cb69-51"><a href="#cb69-51"></a>This uses a different plotting framework than <span class="in">`ggplot2`</span>, but still has a <span class="in">`tidyverse`</span> feel (which will become more clear as we learn other tidyverse tools!).</span>
+<span id="cb69-45"><a href="#cb69-45"></a><span class="in">```{r}</span></span>
+<span id="cb69-46"><a href="#cb69-46"></a><span class="co"># Load the leaflet package</span></span>
+<span id="cb69-47"><a href="#cb69-47"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb69-48"><a href="#cb69-48"></a></span>
+<span id="cb69-49"><a href="#cb69-49"></a><span class="co"># Just a plotting frame</span></span>
+<span id="cb69-50"><a href="#cb69-50"></a><span class="co">#leaflet(data = fave_places)</span></span>
+<span id="cb69-51"><a href="#cb69-51"></a><span class="in">```</span></span>
 <span id="cb69-52"><a href="#cb69-52"></a></span>
-<span id="cb69-53"><a href="#cb69-53"></a>The general steps are as follows:</span>
-<span id="cb69-54"><a href="#cb69-54"></a></span>
-<span id="cb69-55"><a href="#cb69-55"></a><span class="ss">1.  </span>Create a *map widget* by calling <span class="in">`leaflet()`</span> and telling it the data to use.</span>
-<span id="cb69-56"><a href="#cb69-56"></a><span class="ss">2.  </span>Add a *base map* using <span class="in">`addTiles()`</span> (the default) or <span class="in">`addProviderTiles()`</span>.</span>
-<span id="cb69-57"><a href="#cb69-57"></a><span class="ss">3.  </span>Add *layers* to the map using layer functions (e.g. <span class="in">`addMarkers()`</span>, <span class="in">`addPolygons()`</span>).</span>
-<span id="cb69-58"><a href="#cb69-58"></a><span class="ss">4.  </span>Print the map widget to *display* it.</span>
-<span id="cb69-59"><a href="#cb69-59"></a></span>
-<span id="cb69-60"><a href="#cb69-60"></a><span class="fu">### Exercise 1: A leaflet with markers / points {.unnumbered}</span></span>
-<span id="cb69-61"><a href="#cb69-61"></a></span>
-<span id="cb69-62"><a href="#cb69-62"></a>Earlier this semester, I asked for the latitude and longitude of one of your favorite places.</span>
-<span id="cb69-63"><a href="#cb69-63"></a>I rounded these to the nearest whole number, so that they're near to but not exactly at those places.</span>
-<span id="cb69-64"><a href="#cb69-64"></a>Let's load <span class="co">[</span><span class="ot">the data</span><span class="co">](../data/our_fave_places.csv)</span> and map it!</span>
-<span id="cb69-65"><a href="#cb69-65"></a></span>
-<span id="cb69-66"><a href="#cb69-66"></a></span>
-<span id="cb69-69"><a href="#cb69-69"></a><span class="in">```{r}</span></span>
-<span id="cb69-70"><a href="#cb69-70"></a>fave_places <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://hash-mac.github.io/stat112site-s25/data/our_fave_places.csv"</span>)</span>
-<span id="cb69-71"><a href="#cb69-71"></a></span>
-<span id="cb69-72"><a href="#cb69-72"></a><span class="co"># Check it out</span></span>
-<span id="cb69-73"><a href="#cb69-73"></a><span class="fu">head</span>(fave_places)</span>
-<span id="cb69-74"><a href="#cb69-74"></a><span class="in">```</span></span>
-<span id="cb69-75"><a href="#cb69-75"></a></span>
-<span id="cb69-76"><a href="#cb69-76"></a><span class="fu">#### Part a {.unnumbered}</span></span>
-<span id="cb69-77"><a href="#cb69-77"></a></span>
-<span id="cb69-78"><a href="#cb69-78"></a>You can use a "two-finger scroll" to zoom in and out.</span>
-<span id="cb69-79"><a href="#cb69-79"></a></span>
-<span id="cb69-82"><a href="#cb69-82"></a><span class="in">```{r}</span></span>
-<span id="cb69-83"><a href="#cb69-83"></a><span class="co"># Load the leaflet package</span></span>
-<span id="cb69-84"><a href="#cb69-84"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb69-85"><a href="#cb69-85"></a></span>
-<span id="cb69-86"><a href="#cb69-86"></a><span class="co"># Just a plotting frame</span></span>
-<span id="cb69-87"><a href="#cb69-87"></a><span class="co">#leaflet(data = fave_places)</span></span>
-<span id="cb69-88"><a href="#cb69-88"></a><span class="in">```</span></span>
+<span id="cb69-55"><a href="#cb69-55"></a><span class="in">```{r}</span></span>
+<span id="cb69-56"><a href="#cb69-56"></a><span class="co"># Now what do we have? a map</span></span>
+<span id="cb69-57"><a href="#cb69-57"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
+<span id="cb69-58"><a href="#cb69-58"></a>  <span class="fu">addTiles</span>()</span>
+<span id="cb69-59"><a href="#cb69-59"></a><span class="in">```</span></span>
+<span id="cb69-60"><a href="#cb69-60"></a></span>
+<span id="cb69-63"><a href="#cb69-63"></a><span class="in">```{r}</span></span>
+<span id="cb69-64"><a href="#cb69-64"></a><span class="co"># Now what do we have? the points/location on the map</span></span>
+<span id="cb69-65"><a href="#cb69-65"></a><span class="co"># longitude and latitude refer to the variables in our data</span></span>
+<span id="cb69-66"><a href="#cb69-66"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
+<span id="cb69-67"><a href="#cb69-67"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb69-68"><a href="#cb69-68"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, <span class="at">lat =</span> <span class="sc">~</span>latitude)</span>
+<span id="cb69-69"><a href="#cb69-69"></a><span class="in">```</span></span>
+<span id="cb69-70"><a href="#cb69-70"></a></span>
+<span id="cb69-73"><a href="#cb69-73"></a><span class="in">```{r}</span></span>
+<span id="cb69-74"><a href="#cb69-74"></a><span class="co"># Since we named them "longitude" and "latitude", the function</span></span>
+<span id="cb69-75"><a href="#cb69-75"></a><span class="co"># automatically recognizes these variables. No need to write them!</span></span>
+<span id="cb69-76"><a href="#cb69-76"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
+<span id="cb69-77"><a href="#cb69-77"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb69-78"><a href="#cb69-78"></a>  <span class="fu">addMarkers</span>()</span>
+<span id="cb69-79"><a href="#cb69-79"></a><span class="in">```</span></span>
+<span id="cb69-80"><a href="#cb69-80"></a></span>
+<span id="cb69-81"><a href="#cb69-81"></a><span class="fu">#### Part b {.unnumbered}</span></span>
+<span id="cb69-82"><a href="#cb69-82"></a></span>
+<span id="cb69-83"><a href="#cb69-83"></a>**PLAY AROUND!** This map is interactive.</span>
+<span id="cb69-84"><a href="#cb69-84"></a>Zoom in on one location.</span>
+<span id="cb69-85"><a href="#cb69-85"></a>Keep zooming -- what level of detail can you get into?</span>
+<span id="cb69-86"><a href="#cb69-86"></a>How does that detail depend upon where you try to zoom in (thus what are the limitations of this tool)?</span>
+<span id="cb69-87"><a href="#cb69-87"></a></span>
+<span id="cb69-88"><a href="#cb69-88"></a><span class="fu">#### Exercise 2: Details {.unnumbered}</span></span>
 <span id="cb69-89"><a href="#cb69-89"></a></span>
-<span id="cb69-92"><a href="#cb69-92"></a><span class="in">```{r}</span></span>
-<span id="cb69-93"><a href="#cb69-93"></a><span class="co"># Now what do we have? a map</span></span>
-<span id="cb69-94"><a href="#cb69-94"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
-<span id="cb69-95"><a href="#cb69-95"></a>  <span class="fu">addTiles</span>()</span>
-<span id="cb69-96"><a href="#cb69-96"></a><span class="in">```</span></span>
+<span id="cb69-90"><a href="#cb69-90"></a>We can change all sorts of details in leaflet maps.</span>
+<span id="cb69-91"><a href="#cb69-91"></a></span>
+<span id="cb69-94"><a href="#cb69-94"></a><span class="in">```{r}</span></span>
+<span id="cb69-95"><a href="#cb69-95"></a><span class="co"># Load package needed to change color</span></span>
+<span id="cb69-96"><a href="#cb69-96"></a><span class="fu">library</span>(gplots)</span>
 <span id="cb69-97"><a href="#cb69-97"></a></span>
-<span id="cb69-100"><a href="#cb69-100"></a><span class="in">```{r}</span></span>
-<span id="cb69-101"><a href="#cb69-101"></a><span class="co"># Now what do we have? the points/location on the map</span></span>
-<span id="cb69-102"><a href="#cb69-102"></a><span class="co"># longitude and latitude refer to the variables in our data</span></span>
-<span id="cb69-103"><a href="#cb69-103"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
-<span id="cb69-104"><a href="#cb69-104"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb69-105"><a href="#cb69-105"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">~</span>longitude, <span class="at">lat =</span> <span class="sc">~</span>latitude)</span>
-<span id="cb69-106"><a href="#cb69-106"></a><span class="in">```</span></span>
-<span id="cb69-107"><a href="#cb69-107"></a></span>
-<span id="cb69-110"><a href="#cb69-110"></a><span class="in">```{r}</span></span>
-<span id="cb69-111"><a href="#cb69-111"></a><span class="co"># Since we named them "longitude" and "latitude", the function</span></span>
-<span id="cb69-112"><a href="#cb69-112"></a><span class="co"># automatically recognizes these variables. No need to write them!</span></span>
-<span id="cb69-113"><a href="#cb69-113"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
-<span id="cb69-114"><a href="#cb69-114"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb69-115"><a href="#cb69-115"></a>  <span class="fu">addMarkers</span>()</span>
-<span id="cb69-116"><a href="#cb69-116"></a><span class="in">```</span></span>
-<span id="cb69-117"><a href="#cb69-117"></a></span>
-<span id="cb69-118"><a href="#cb69-118"></a><span class="fu">#### Part b {.unnumbered}</span></span>
-<span id="cb69-119"><a href="#cb69-119"></a></span>
-<span id="cb69-120"><a href="#cb69-120"></a>**PLAY AROUND!** This map is interactive.</span>
-<span id="cb69-121"><a href="#cb69-121"></a>Zoom in on one location.</span>
-<span id="cb69-122"><a href="#cb69-122"></a>Keep zooming -- what level of detail can you get into?</span>
-<span id="cb69-123"><a href="#cb69-123"></a>How does that detail depend upon where you try to zoom in (thus what are the limitations of this tool)?</span>
-<span id="cb69-124"><a href="#cb69-124"></a></span>
-<span id="cb69-125"><a href="#cb69-125"></a><span class="fu">#### Exercise 2: Details {.unnumbered}</span></span>
+<span id="cb69-98"><a href="#cb69-98"></a><span class="co"># We can add colored circles instead of markers at each location</span></span>
+<span id="cb69-99"><a href="#cb69-99"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
+<span id="cb69-100"><a href="#cb69-100"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb69-101"><a href="#cb69-101"></a>  <span class="fu">addCircles</span>(<span class="at">color =</span> <span class="fu">col2hex</span>(<span class="st">"red"</span>))</span>
+<span id="cb69-102"><a href="#cb69-102"></a><span class="in">```</span></span>
+<span id="cb69-103"><a href="#cb69-103"></a></span>
+<span id="cb69-106"><a href="#cb69-106"></a><span class="in">```{r}</span></span>
+<span id="cb69-107"><a href="#cb69-107"></a><span class="co"># We can change the background</span></span>
+<span id="cb69-108"><a href="#cb69-108"></a><span class="co"># Mark locations with yellow dots</span></span>
+<span id="cb69-109"><a href="#cb69-109"></a><span class="co"># And connect the dots, in their order in the dataset, with green lines</span></span>
+<span id="cb69-110"><a href="#cb69-110"></a><span class="co"># (These green lines don't mean anything here, but would if this were somebody's travel path!)</span></span>
+<span id="cb69-111"><a href="#cb69-111"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span></span>
+<span id="cb69-112"><a href="#cb69-112"></a>  <span class="fu">addProviderTiles</span>(<span class="st">"USGS"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb69-113"><a href="#cb69-113"></a>  <span class="fu">addCircles</span>(<span class="at">weight =</span> <span class="dv">10</span>, <span class="at">opacity =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="fu">col2hex</span>(<span class="st">"yellow"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb69-114"><a href="#cb69-114"></a>  <span class="fu">addPolylines</span>(</span>
+<span id="cb69-115"><a href="#cb69-115"></a>    <span class="at">lng =</span> <span class="sc">~</span>longitude,</span>
+<span id="cb69-116"><a href="#cb69-116"></a>    <span class="at">lat =</span> <span class="sc">~</span>latitude,</span>
+<span id="cb69-117"><a href="#cb69-117"></a>    <span class="at">color =</span> <span class="fu">col2hex</span>(<span class="st">"green"</span>)</span>
+<span id="cb69-118"><a href="#cb69-118"></a>  )</span>
+<span id="cb69-119"><a href="#cb69-119"></a><span class="in">```</span></span>
+<span id="cb69-120"><a href="#cb69-120"></a></span>
+<span id="cb69-121"><a href="#cb69-121"></a>In general:</span>
+<span id="cb69-122"><a href="#cb69-122"></a></span>
+<span id="cb69-123"><a href="#cb69-123"></a><span class="ss">-   </span><span class="in">`addProviderTiles()`</span> changes the base map.\</span>
+<span id="cb69-124"><a href="#cb69-124"></a>    To explore all available provider base maps, type <span class="in">`providers`</span> in the console.</span>
+<span id="cb69-125"><a href="#cb69-125"></a>    (Though some don't work :/)</span>
 <span id="cb69-126"><a href="#cb69-126"></a></span>
-<span id="cb69-127"><a href="#cb69-127"></a>We can change all sorts of details in leaflet maps.</span>
-<span id="cb69-128"><a href="#cb69-128"></a></span>
-<span id="cb69-131"><a href="#cb69-131"></a><span class="in">```{r}</span></span>
-<span id="cb69-132"><a href="#cb69-132"></a><span class="co"># Load package needed to change color</span></span>
-<span id="cb69-133"><a href="#cb69-133"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb69-127"><a href="#cb69-127"></a><span class="ss">-   </span>Use <span class="in">`addMarkers()`</span> or <span class="in">`addCircles()`</span> to mark locations.</span>
+<span id="cb69-128"><a href="#cb69-128"></a>    Type <span class="in">`?addControl`</span> into the console to pull up a help file which summarizes the aesthetics of these markers and how you can change them.</span>
+<span id="cb69-129"><a href="#cb69-129"></a>    For example:</span>
+<span id="cb69-130"><a href="#cb69-130"></a></span>
+<span id="cb69-131"><a href="#cb69-131"></a><span class="ss">    -   </span><span class="in">`weight`</span> = how thick to make the lines, points, pixels</span>
+<span id="cb69-132"><a href="#cb69-132"></a><span class="ss">    -   </span><span class="in">`opacity`</span> = transparency (like <span class="in">`alpha`</span> in <span class="in">`ggplot2`</span>)</span>
+<span id="cb69-133"><a href="#cb69-133"></a><span class="ss">    -   </span>colors need to be in "hex" form. We used the <span class="in">`col2hex()`</span> function from the <span class="in">`gplots`</span> library to do that</span>
 <span id="cb69-134"><a href="#cb69-134"></a></span>
-<span id="cb69-135"><a href="#cb69-135"></a><span class="co"># We can add colored circles instead of markers at each location</span></span>
-<span id="cb69-136"><a href="#cb69-136"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span> </span>
-<span id="cb69-137"><a href="#cb69-137"></a>  <span class="fu">addTiles</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb69-138"><a href="#cb69-138"></a>  <span class="fu">addCircles</span>(<span class="at">color =</span> <span class="fu">col2hex</span>(<span class="st">"red"</span>))</span>
-<span id="cb69-139"><a href="#cb69-139"></a><span class="in">```</span></span>
-<span id="cb69-140"><a href="#cb69-140"></a></span>
-<span id="cb69-143"><a href="#cb69-143"></a><span class="in">```{r}</span></span>
-<span id="cb69-144"><a href="#cb69-144"></a><span class="co"># We can change the background</span></span>
-<span id="cb69-145"><a href="#cb69-145"></a><span class="co"># Mark locations with yellow dots</span></span>
-<span id="cb69-146"><a href="#cb69-146"></a><span class="co"># And connect the dots, in their order in the dataset, with green lines</span></span>
-<span id="cb69-147"><a href="#cb69-147"></a><span class="co"># (These green lines don't mean anything here, but would if this were somebody's travel path!)</span></span>
-<span id="cb69-148"><a href="#cb69-148"></a><span class="fu">leaflet</span>(<span class="at">data =</span> fave_places) <span class="sc">|&gt;</span></span>
-<span id="cb69-149"><a href="#cb69-149"></a>  <span class="fu">addProviderTiles</span>(<span class="st">"USGS"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb69-150"><a href="#cb69-150"></a>  <span class="fu">addCircles</span>(<span class="at">weight =</span> <span class="dv">10</span>, <span class="at">opacity =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="fu">col2hex</span>(<span class="st">"yellow"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb69-151"><a href="#cb69-151"></a>  <span class="fu">addPolylines</span>(</span>
-<span id="cb69-152"><a href="#cb69-152"></a>    <span class="at">lng =</span> <span class="sc">~</span>longitude,</span>
-<span id="cb69-153"><a href="#cb69-153"></a>    <span class="at">lat =</span> <span class="sc">~</span>latitude,</span>
-<span id="cb69-154"><a href="#cb69-154"></a>    <span class="at">color =</span> <span class="fu">col2hex</span>(<span class="st">"green"</span>)</span>
-<span id="cb69-155"><a href="#cb69-155"></a>  )</span>
-<span id="cb69-156"><a href="#cb69-156"></a><span class="in">```</span></span>
-<span id="cb69-157"><a href="#cb69-157"></a></span>
-<span id="cb69-158"><a href="#cb69-158"></a>In general:</span>
+<span id="cb69-135"><a href="#cb69-135"></a><span class="fu">### Exercise 3: Your turn {.unnumbered}</span></span>
+<span id="cb69-136"><a href="#cb69-136"></a></span>
+<span id="cb69-137"><a href="#cb69-137"></a>The <span class="in">`starbucks`</span> data, compiled by Danny Kaplan, contains information about every Starbucks in the world at the time the data were collected, including <span class="in">`Latitude`</span> and <span class="in">`Longitude`</span>:</span>
+<span id="cb69-138"><a href="#cb69-138"></a></span>
+<span id="cb69-141"><a href="#cb69-141"></a><span class="in">```{r}</span></span>
+<span id="cb69-142"><a href="#cb69-142"></a><span class="co"># Import starbucks location data</span></span>
+<span id="cb69-143"><a href="#cb69-143"></a>starbucks <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/starbucks.csv"</span>)</span>
+<span id="cb69-144"><a href="#cb69-144"></a><span class="in">```</span></span>
+<span id="cb69-145"><a href="#cb69-145"></a></span>
+<span id="cb69-146"><a href="#cb69-146"></a>Let's focus on only those in Minnesota for now:</span>
+<span id="cb69-147"><a href="#cb69-147"></a></span>
+<span id="cb69-150"><a href="#cb69-150"></a><span class="in">```{r}</span></span>
+<span id="cb69-151"><a href="#cb69-151"></a><span class="co"># Don't worry about the syntax</span></span>
+<span id="cb69-152"><a href="#cb69-152"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb69-153"><a href="#cb69-153"></a>starbucks_mn <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span>   </span>
+<span id="cb69-154"><a href="#cb69-154"></a>  <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">"US"</span>, State.Province <span class="sc">==</span> <span class="st">"MN"</span>)</span>
+<span id="cb69-155"><a href="#cb69-155"></a><span class="in">```</span></span>
+<span id="cb69-156"><a href="#cb69-156"></a></span>
+<span id="cb69-157"><a href="#cb69-157"></a>Create a leaflet map of the Starbucks locations in Minnesota.</span>
+<span id="cb69-158"><a href="#cb69-158"></a>Keep it simple -- go back to Exercise 1 for an example.</span>
 <span id="cb69-159"><a href="#cb69-159"></a></span>
-<span id="cb69-160"><a href="#cb69-160"></a><span class="ss">-   </span><span class="in">`addProviderTiles()`</span> changes the base map.\</span>
-<span id="cb69-161"><a href="#cb69-161"></a>    To explore all available provider base maps, type <span class="in">`providers`</span> in the console.</span>
-<span id="cb69-162"><a href="#cb69-162"></a>    (Though some don't work :/)</span>
-<span id="cb69-163"><a href="#cb69-163"></a></span>
-<span id="cb69-164"><a href="#cb69-164"></a><span class="ss">-   </span>Use <span class="in">`addMarkers()`</span> or <span class="in">`addCircles()`</span> to mark locations.</span>
-<span id="cb69-165"><a href="#cb69-165"></a>    Type <span class="in">`?addControl`</span> into the console to pull up a help file which summarizes the aesthetics of these markers and how you can change them.</span>
-<span id="cb69-166"><a href="#cb69-166"></a>    For example:</span>
+<span id="cb69-160"><a href="#cb69-160"></a><span class="fu">### Part 2: Static points on a map {-}</span></span>
+<span id="cb69-161"><a href="#cb69-161"></a></span>
+<span id="cb69-162"><a href="#cb69-162"></a>Leaflet is very powerful and fun.</span>
+<span id="cb69-163"><a href="#cb69-163"></a>But:</span>
+<span id="cb69-164"><a href="#cb69-164"></a></span>
+<span id="cb69-165"><a href="#cb69-165"></a><span class="ss">-   </span>It's not great when we have lots of points to map -- it takes lots of time.</span>
+<span id="cb69-166"><a href="#cb69-166"></a><span class="ss">-   </span>It makes good interactive maps, but we often need a static map (eg: we can not print interactive maps!).</span>
 <span id="cb69-167"><a href="#cb69-167"></a></span>
-<span id="cb69-168"><a href="#cb69-168"></a><span class="ss">    -   </span><span class="in">`weight`</span> = how thick to make the lines, points, pixels</span>
-<span id="cb69-169"><a href="#cb69-169"></a><span class="ss">    -   </span><span class="in">`opacity`</span> = transparency (like <span class="in">`alpha`</span> in <span class="in">`ggplot2`</span>)</span>
-<span id="cb69-170"><a href="#cb69-170"></a><span class="ss">    -   </span>colors need to be in "hex" form. We used the <span class="in">`col2hex()`</span> function from the <span class="in">`gplots`</span> library to do that</span>
+<span id="cb69-168"><a href="#cb69-168"></a>Let's explore how to make point maps with <span class="in">`ggplot()`</span>, not <span class="in">`leaflet()`</span>.</span>
+<span id="cb69-169"><a href="#cb69-169"></a></span>
+<span id="cb69-170"><a href="#cb69-170"></a><span class="fu">### Exercise 3: A simple scatterplot {.unnumbered}</span></span>
 <span id="cb69-171"><a href="#cb69-171"></a></span>
-<span id="cb69-172"><a href="#cb69-172"></a><span class="fu">### Exercise 3: Your turn {.unnumbered}</span></span>
-<span id="cb69-173"><a href="#cb69-173"></a></span>
-<span id="cb69-174"><a href="#cb69-174"></a>The <span class="in">`starbucks`</span> data, compiled by Danny Kaplan, contains information about every Starbucks in the world at the time the data were collected, including <span class="in">`Latitude`</span> and <span class="in">`Longitude`</span>:</span>
-<span id="cb69-175"><a href="#cb69-175"></a></span>
-<span id="cb69-178"><a href="#cb69-178"></a><span class="in">```{r}</span></span>
-<span id="cb69-179"><a href="#cb69-179"></a><span class="co"># Import starbucks location data</span></span>
-<span id="cb69-180"><a href="#cb69-180"></a>starbucks <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/starbucks.csv"</span>)</span>
-<span id="cb69-181"><a href="#cb69-181"></a><span class="in">```</span></span>
-<span id="cb69-182"><a href="#cb69-182"></a></span>
-<span id="cb69-183"><a href="#cb69-183"></a>Let's focus on only those in Minnesota for now:</span>
-<span id="cb69-184"><a href="#cb69-184"></a></span>
-<span id="cb69-187"><a href="#cb69-187"></a><span class="in">```{r}</span></span>
-<span id="cb69-188"><a href="#cb69-188"></a><span class="co"># Don't worry about the syntax</span></span>
-<span id="cb69-189"><a href="#cb69-189"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb69-190"><a href="#cb69-190"></a>starbucks_mn <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span>   </span>
-<span id="cb69-191"><a href="#cb69-191"></a>  <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">"US"</span>, State.Province <span class="sc">==</span> <span class="st">"MN"</span>)</span>
-<span id="cb69-192"><a href="#cb69-192"></a><span class="in">```</span></span>
-<span id="cb69-193"><a href="#cb69-193"></a></span>
-<span id="cb69-194"><a href="#cb69-194"></a>Create a leaflet map of the Starbucks locations in Minnesota.</span>
-<span id="cb69-195"><a href="#cb69-195"></a>Keep it simple -- go back to Exercise 1 for an example.</span>
+<span id="cb69-172"><a href="#cb69-172"></a>Let's start with the <span class="in">`ggplot()`</span> tools we already know.</span>
+<span id="cb69-173"><a href="#cb69-173"></a>Construct a scatterplot of all <span class="in">`starbucks`</span> locations, not just those in Minnesota, with:</span>
+<span id="cb69-174"><a href="#cb69-174"></a></span>
+<span id="cb69-175"><a href="#cb69-175"></a><span class="ss">-   </span>Latitude and Longitude coordinates (which goes on the y-axis?!)</span>
+<span id="cb69-176"><a href="#cb69-176"></a><span class="ss">-   </span>Make the points transparent (alpha = 0.2) and smaller (size = 0.2)</span>
+<span id="cb69-177"><a href="#cb69-177"></a></span>
+<span id="cb69-178"><a href="#cb69-178"></a>It's pretty cool that the plots we already know can provide some spatial context.</span>
+<span id="cb69-179"><a href="#cb69-179"></a>But what *don't* you like about this plot?</span>
+<span id="cb69-180"><a href="#cb69-180"></a></span>
+<span id="cb69-181"><a href="#cb69-181"></a>There are only dots but no locations symbols</span>
+<span id="cb69-184"><a href="#cb69-184"></a><span class="in">```{r}</span></span>
+<span id="cb69-185"><a href="#cb69-185"></a><span class="fu">ggplot</span>(starbucks, <span class="fu">aes</span>(<span class="at">y =</span> Latitude, <span class="at">x =</span> Longitude)) <span class="sc">+</span> </span>
+<span id="cb69-186"><a href="#cb69-186"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>)</span>
+<span id="cb69-187"><a href="#cb69-187"></a><span class="in">```</span></span>
+<span id="cb69-188"><a href="#cb69-188"></a></span>
+<span id="cb69-189"><a href="#cb69-189"></a><span class="fu">### Exercise 4: Adding a country-level background {.unnumbered}</span></span>
+<span id="cb69-190"><a href="#cb69-190"></a></span>
+<span id="cb69-191"><a href="#cb69-191"></a>Let's add a background map of *country-level* boundaries.</span>
+<span id="cb69-192"><a href="#cb69-192"></a></span>
+<span id="cb69-193"><a href="#cb69-193"></a><span class="fu">#### Part a {.unnumbered}</span></span>
+<span id="cb69-194"><a href="#cb69-194"></a></span>
+<span id="cb69-195"><a href="#cb69-195"></a>First, we can grab country-level boundaries from the <span class="in">`rnaturalearth`</span> package.</span>
 <span id="cb69-196"><a href="#cb69-196"></a></span>
-<span id="cb69-197"><a href="#cb69-197"></a><span class="fu">### Part 2: Static points on a map {-}</span></span>
-<span id="cb69-198"><a href="#cb69-198"></a></span>
-<span id="cb69-199"><a href="#cb69-199"></a>Leaflet is very powerful and fun.</span>
-<span id="cb69-200"><a href="#cb69-200"></a>But:</span>
-<span id="cb69-201"><a href="#cb69-201"></a></span>
-<span id="cb69-202"><a href="#cb69-202"></a><span class="ss">-   </span>It's not great when we have lots of points to map -- it takes lots of time.</span>
-<span id="cb69-203"><a href="#cb69-203"></a><span class="ss">-   </span>It makes good interactive maps, but we often need a static map (eg: we can not print interactive maps!).</span>
-<span id="cb69-204"><a href="#cb69-204"></a></span>
-<span id="cb69-205"><a href="#cb69-205"></a>Let's explore how to make point maps with <span class="in">`ggplot()`</span>, not <span class="in">`leaflet()`</span>.</span>
-<span id="cb69-206"><a href="#cb69-206"></a></span>
-<span id="cb69-207"><a href="#cb69-207"></a><span class="fu">### Exercise 3: A simple scatterplot {.unnumbered}</span></span>
-<span id="cb69-208"><a href="#cb69-208"></a></span>
-<span id="cb69-209"><a href="#cb69-209"></a>Let's start with the <span class="in">`ggplot()`</span> tools we already know.</span>
-<span id="cb69-210"><a href="#cb69-210"></a>Construct a scatterplot of all <span class="in">`starbucks`</span> locations, not just those in Minnesota, with:</span>
-<span id="cb69-211"><a href="#cb69-211"></a></span>
-<span id="cb69-212"><a href="#cb69-212"></a><span class="ss">-   </span>Latitude and Longitude coordinates (which goes on the y-axis?!)</span>
-<span id="cb69-213"><a href="#cb69-213"></a><span class="ss">-   </span>Make the points transparent (alpha = 0.2) and smaller (size = 0.2)</span>
+<span id="cb69-199"><a href="#cb69-199"></a><span class="in">```{r}</span></span>
+<span id="cb69-200"><a href="#cb69-200"></a><span class="co"># Load the package</span></span>
+<span id="cb69-201"><a href="#cb69-201"></a><span class="fu">library</span>(rnaturalearth)</span>
+<span id="cb69-202"><a href="#cb69-202"></a></span>
+<span id="cb69-203"><a href="#cb69-203"></a><span class="co"># Get info about country boundaries across the world</span></span>
+<span id="cb69-204"><a href="#cb69-204"></a><span class="co"># in a "sf" or simple feature format</span></span>
+<span id="cb69-205"><a href="#cb69-205"></a>world_boundaries <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb69-206"><a href="#cb69-206"></a><span class="in">```</span></span>
+<span id="cb69-207"><a href="#cb69-207"></a></span>
+<span id="cb69-208"><a href="#cb69-208"></a>In your **console**, type <span class="in">`world_boundaries`</span> to check out what's stored there.</span>
+<span id="cb69-209"><a href="#cb69-209"></a>Don't print it our in your Rmd -- printing it would be really messy there (even just the <span class="in">`head()`</span>).</span>
+<span id="cb69-210"><a href="#cb69-210"></a></span>
+<span id="cb69-211"><a href="#cb69-211"></a><span class="fu">#### Part b {.unnumbered}</span></span>
+<span id="cb69-212"><a href="#cb69-212"></a></span>
+<span id="cb69-213"><a href="#cb69-213"></a>Run the chunks below to build up a new map.</span>
 <span id="cb69-214"><a href="#cb69-214"></a></span>
-<span id="cb69-215"><a href="#cb69-215"></a>It's pretty cool that the plots we already know can provide some spatial context.</span>
-<span id="cb69-216"><a href="#cb69-216"></a>But what *don't* you like about this plot?</span>
-<span id="cb69-217"><a href="#cb69-217"></a></span>
-<span id="cb69-218"><a href="#cb69-218"></a>There are only dots but no locations symbols</span>
-<span id="cb69-221"><a href="#cb69-221"></a><span class="in">```{r}</span></span>
-<span id="cb69-222"><a href="#cb69-222"></a><span class="fu">ggplot</span>(starbucks, <span class="fu">aes</span>(<span class="at">y =</span> Latitude, <span class="at">x =</span> Longitude)) <span class="sc">+</span> </span>
-<span id="cb69-223"><a href="#cb69-223"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>)</span>
-<span id="cb69-224"><a href="#cb69-224"></a><span class="in">```</span></span>
-<span id="cb69-225"><a href="#cb69-225"></a></span>
-<span id="cb69-226"><a href="#cb69-226"></a><span class="fu">### Exercise 4: Adding a country-level background {.unnumbered}</span></span>
-<span id="cb69-227"><a href="#cb69-227"></a></span>
-<span id="cb69-228"><a href="#cb69-228"></a>Let's add a background map of *country-level* boundaries.</span>
+<span id="cb69-217"><a href="#cb69-217"></a><span class="in">```{r}</span></span>
+<span id="cb69-218"><a href="#cb69-218"></a><span class="co"># What does this code produce? the code produces a map</span></span>
+<span id="cb69-219"><a href="#cb69-219"></a><span class="co"># What geom are we using for the point map? geom_sf</span></span>
+<span id="cb69-220"><a href="#cb69-220"></a><span class="fu">ggplot</span>(world_boundaries) <span class="sc">+</span> </span>
+<span id="cb69-221"><a href="#cb69-221"></a>  <span class="fu">geom_sf</span>()</span>
+<span id="cb69-222"><a href="#cb69-222"></a><span class="in">```</span></span>
+<span id="cb69-223"><a href="#cb69-223"></a></span>
+<span id="cb69-226"><a href="#cb69-226"></a><span class="in">```{r}</span></span>
+<span id="cb69-227"><a href="#cb69-227"></a><span class="co"># Load package needed to change map theme</span></span>
+<span id="cb69-228"><a href="#cb69-228"></a><span class="fu">library</span>(mosaic)</span>
 <span id="cb69-229"><a href="#cb69-229"></a></span>
-<span id="cb69-230"><a href="#cb69-230"></a><span class="fu">#### Part a {.unnumbered}</span></span>
-<span id="cb69-231"><a href="#cb69-231"></a></span>
-<span id="cb69-232"><a href="#cb69-232"></a>First, we can grab country-level boundaries from the <span class="in">`rnaturalearth`</span> package.</span>
-<span id="cb69-233"><a href="#cb69-233"></a></span>
-<span id="cb69-236"><a href="#cb69-236"></a><span class="in">```{r}</span></span>
-<span id="cb69-237"><a href="#cb69-237"></a><span class="co"># Load the package</span></span>
-<span id="cb69-238"><a href="#cb69-238"></a><span class="fu">library</span>(rnaturalearth)</span>
-<span id="cb69-239"><a href="#cb69-239"></a></span>
-<span id="cb69-240"><a href="#cb69-240"></a><span class="co"># Get info about country boundaries across the world</span></span>
-<span id="cb69-241"><a href="#cb69-241"></a><span class="co"># in a "sf" or simple feature format</span></span>
-<span id="cb69-242"><a href="#cb69-242"></a>world_boundaries <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb69-243"><a href="#cb69-243"></a><span class="in">```</span></span>
+<span id="cb69-230"><a href="#cb69-230"></a><span class="co"># Add a point for each Starbucks</span></span>
+<span id="cb69-231"><a href="#cb69-231"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: The Starbucks info is in our starbucks data, not world_boundaries</span></span>
+<span id="cb69-232"><a href="#cb69-232"></a><span class="co"># How does this change how we use geom_point?!</span></span>
+<span id="cb69-233"><a href="#cb69-233"></a><span class="fu">ggplot</span>(world_boundaries) <span class="sc">+</span> </span>
+<span id="cb69-234"><a href="#cb69-234"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb69-235"><a href="#cb69-235"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb69-236"><a href="#cb69-236"></a>    <span class="at">data =</span> starbucks,</span>
+<span id="cb69-237"><a href="#cb69-237"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
+<span id="cb69-238"><a href="#cb69-238"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span></span>
+<span id="cb69-239"><a href="#cb69-239"></a>  ) <span class="sc">+</span></span>
+<span id="cb69-240"><a href="#cb69-240"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb69-241"><a href="#cb69-241"></a><span class="in">```</span></span>
+<span id="cb69-242"><a href="#cb69-242"></a></span>
+<span id="cb69-243"><a href="#cb69-243"></a><span class="fu">#### Part c {.unnumbered}</span></span>
 <span id="cb69-244"><a href="#cb69-244"></a></span>
-<span id="cb69-245"><a href="#cb69-245"></a>In your **console**, type <span class="in">`world_boundaries`</span> to check out what's stored there.</span>
-<span id="cb69-246"><a href="#cb69-246"></a>Don't print it our in your Rmd -- printing it would be really messy there (even just the <span class="in">`head()`</span>).</span>
-<span id="cb69-247"><a href="#cb69-247"></a></span>
-<span id="cb69-248"><a href="#cb69-248"></a><span class="fu">#### Part b {.unnumbered}</span></span>
-<span id="cb69-249"><a href="#cb69-249"></a></span>
-<span id="cb69-250"><a href="#cb69-250"></a>Run the chunks below to build up a new map.</span>
-<span id="cb69-251"><a href="#cb69-251"></a></span>
-<span id="cb69-254"><a href="#cb69-254"></a><span class="in">```{r}</span></span>
-<span id="cb69-255"><a href="#cb69-255"></a><span class="co"># What does this code produce? the code produces a map</span></span>
-<span id="cb69-256"><a href="#cb69-256"></a><span class="co"># What geom are we using for the point map? geom_sf</span></span>
-<span id="cb69-257"><a href="#cb69-257"></a><span class="fu">ggplot</span>(world_boundaries) <span class="sc">+</span> </span>
-<span id="cb69-258"><a href="#cb69-258"></a>  <span class="fu">geom_sf</span>()</span>
-<span id="cb69-259"><a href="#cb69-259"></a><span class="in">```</span></span>
+<span id="cb69-245"><a href="#cb69-245"></a>Summarize what you learned about Starbucks from this map.</span>
+<span id="cb69-246"><a href="#cb69-246"></a></span>
+<span id="cb69-247"><a href="#cb69-247"></a>Starbucks is mainly in the US, Europe, and China.</span>
+<span id="cb69-248"><a href="#cb69-248"></a></span>
+<span id="cb69-249"><a href="#cb69-249"></a><span class="fu">### Exercise 5: Zooming in on some countries {.unnumbered}</span></span>
+<span id="cb69-250"><a href="#cb69-250"></a></span>
+<span id="cb69-251"><a href="#cb69-251"></a>Instead of <span class="in">`world_boundaries &lt;- ne_countries(returnclass = 'sf')`</span> we could zoom in on...</span>
+<span id="cb69-252"><a href="#cb69-252"></a></span>
+<span id="cb69-253"><a href="#cb69-253"></a><span class="ss">-   </span>the continent of Africa: <span class="in">`ne_countries(continent = 'Africa', returnclass = 'sf')`</span></span>
+<span id="cb69-254"><a href="#cb69-254"></a><span class="ss">-   </span>a set of countries: <span class="in">`ne_countries(country = c('france', 'united kingdom', 'germany'), returnclass = 'sf')`</span></span>
+<span id="cb69-255"><a href="#cb69-255"></a><span class="ss">-   </span>boundaries within a country: <span class="in">`ne_states(country = 'united states of america', returnclass = 'sf')`</span></span>
+<span id="cb69-256"><a href="#cb69-256"></a></span>
+<span id="cb69-257"><a href="#cb69-257"></a>Our goal here will be to map the Starbucks locations in Canada, Mexico, and the US.</span>
+<span id="cb69-258"><a href="#cb69-258"></a>yes</span>
+<span id="cb69-259"><a href="#cb69-259"></a><span class="fu">#### Part a {.unnumbered}</span></span>
 <span id="cb69-260"><a href="#cb69-260"></a></span>
-<span id="cb69-263"><a href="#cb69-263"></a><span class="in">```{r}</span></span>
-<span id="cb69-264"><a href="#cb69-264"></a><span class="co"># Load package needed to change map theme</span></span>
-<span id="cb69-265"><a href="#cb69-265"></a><span class="fu">library</span>(mosaic)</span>
-<span id="cb69-266"><a href="#cb69-266"></a></span>
-<span id="cb69-267"><a href="#cb69-267"></a><span class="co"># Add a point for each Starbucks</span></span>
-<span id="cb69-268"><a href="#cb69-268"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: The Starbucks info is in our starbucks data, not world_boundaries</span></span>
-<span id="cb69-269"><a href="#cb69-269"></a><span class="co"># How does this change how we use geom_point?!</span></span>
-<span id="cb69-270"><a href="#cb69-270"></a><span class="fu">ggplot</span>(world_boundaries) <span class="sc">+</span> </span>
-<span id="cb69-271"><a href="#cb69-271"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
-<span id="cb69-272"><a href="#cb69-272"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb69-273"><a href="#cb69-273"></a>    <span class="at">data =</span> starbucks,</span>
-<span id="cb69-274"><a href="#cb69-274"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
-<span id="cb69-275"><a href="#cb69-275"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span></span>
-<span id="cb69-276"><a href="#cb69-276"></a>  ) <span class="sc">+</span></span>
-<span id="cb69-277"><a href="#cb69-277"></a>  <span class="fu">theme_map</span>()</span>
-<span id="cb69-278"><a href="#cb69-278"></a><span class="in">```</span></span>
-<span id="cb69-279"><a href="#cb69-279"></a></span>
-<span id="cb69-280"><a href="#cb69-280"></a><span class="fu">#### Part c {.unnumbered}</span></span>
-<span id="cb69-281"><a href="#cb69-281"></a></span>
-<span id="cb69-282"><a href="#cb69-282"></a>Summarize what you learned about Starbucks from this map.</span>
-<span id="cb69-283"><a href="#cb69-283"></a></span>
-<span id="cb69-284"><a href="#cb69-284"></a>Starbucks is mainly in the US, Europe, and China.</span>
-<span id="cb69-285"><a href="#cb69-285"></a></span>
-<span id="cb69-286"><a href="#cb69-286"></a><span class="fu">### Exercise 5: Zooming in on some countries {.unnumbered}</span></span>
-<span id="cb69-287"><a href="#cb69-287"></a></span>
-<span id="cb69-288"><a href="#cb69-288"></a>Instead of <span class="in">`world_boundaries &lt;- ne_countries(returnclass = 'sf')`</span> we could zoom in on...</span>
-<span id="cb69-289"><a href="#cb69-289"></a></span>
-<span id="cb69-290"><a href="#cb69-290"></a><span class="ss">-   </span>the continent of Africa: <span class="in">`ne_countries(continent = 'Africa', returnclass = 'sf')`</span></span>
-<span id="cb69-291"><a href="#cb69-291"></a><span class="ss">-   </span>a set of countries: <span class="in">`ne_countries(country = c('france', 'united kingdom', 'germany'), returnclass = 'sf')`</span></span>
-<span id="cb69-292"><a href="#cb69-292"></a><span class="ss">-   </span>boundaries within a country: <span class="in">`ne_states(country = 'united states of america', returnclass = 'sf')`</span></span>
-<span id="cb69-293"><a href="#cb69-293"></a></span>
-<span id="cb69-294"><a href="#cb69-294"></a>Our goal here will be to map the Starbucks locations in Canada, Mexico, and the US.</span>
-<span id="cb69-295"><a href="#cb69-295"></a>yes</span>
-<span id="cb69-296"><a href="#cb69-296"></a><span class="fu">#### Part a {.unnumbered}</span></span>
-<span id="cb69-297"><a href="#cb69-297"></a></span>
-<span id="cb69-298"><a href="#cb69-298"></a>To make this map, we again need two pieces of information.</span>
-<span id="cb69-299"><a href="#cb69-299"></a></span>
-<span id="cb69-300"><a href="#cb69-300"></a><span class="ss">1.  </span>Data on Starbucks for *only* Canada, Mexico, and the US, labeled as "CA", "MX", "US" in the <span class="in">`starbucks`</span> data.</span>
-<span id="cb69-301"><a href="#cb69-301"></a></span>
-<span id="cb69-304"><a href="#cb69-304"></a><span class="in">```{r}</span></span>
-<span id="cb69-305"><a href="#cb69-305"></a><span class="co"># We'll learn this syntax soon! Don't worry about it now.</span></span>
-<span id="cb69-306"><a href="#cb69-306"></a>starbucks_cma <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span> </span>
-<span id="cb69-307"><a href="#cb69-307"></a>  <span class="fu">filter</span>(Country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'CA'</span>, <span class="st">'MX'</span>, <span class="st">'US'</span>))</span>
-<span id="cb69-308"><a href="#cb69-308"></a><span class="in">```</span></span>
-<span id="cb69-309"><a href="#cb69-309"></a></span>
-<span id="cb69-310"><a href="#cb69-310"></a><span class="ss">2.  </span>A background map of state- and national-level boundaries in Canada, Mexico, and the US. This requires <span class="in">`ne_states()`</span> in the <span class="in">`rnaturalearth`</span> package where the countries are labeled 'canada', 'mexico', 'united states of america'.</span>
-<span id="cb69-311"><a href="#cb69-311"></a></span>
-<span id="cb69-314"><a href="#cb69-314"></a><span class="in">```{r}</span></span>
-<span id="cb69-315"><a href="#cb69-315"></a>cma_boundaries <span class="ot">&lt;-</span> <span class="fu">ne_states</span>(</span>
-<span id="cb69-316"><a href="#cb69-316"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"canada"</span>, <span class="st">"mexico"</span>, <span class="st">"united states of america"</span>),</span>
-<span id="cb69-317"><a href="#cb69-317"></a>  <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb69-318"><a href="#cb69-318"></a><span class="in">```</span></span>
-<span id="cb69-319"><a href="#cb69-319"></a></span>
-<span id="cb69-320"><a href="#cb69-320"></a><span class="fu">#### Part b {.unnumbered}</span></span>
-<span id="cb69-321"><a href="#cb69-321"></a></span>
-<span id="cb69-322"><a href="#cb69-322"></a>Make the map!</span>
-<span id="cb69-323"><a href="#cb69-323"></a></span>
-<span id="cb69-326"><a href="#cb69-326"></a><span class="in">```{r}</span></span>
-<span id="cb69-327"><a href="#cb69-327"></a><span class="co"># Just the boundaries</span></span>
-<span id="cb69-328"><a href="#cb69-328"></a><span class="fu">ggplot</span>(cma_boundaries) <span class="sc">+</span> </span>
-<span id="cb69-329"><a href="#cb69-329"></a>  <span class="fu">geom_sf</span>()</span>
-<span id="cb69-330"><a href="#cb69-330"></a><span class="in">```</span></span>
+<span id="cb69-261"><a href="#cb69-261"></a>To make this map, we again need two pieces of information.</span>
+<span id="cb69-262"><a href="#cb69-262"></a></span>
+<span id="cb69-263"><a href="#cb69-263"></a><span class="ss">1.  </span>Data on Starbucks for *only* Canada, Mexico, and the US, labeled as "CA", "MX", "US" in the <span class="in">`starbucks`</span> data.</span>
+<span id="cb69-264"><a href="#cb69-264"></a></span>
+<span id="cb69-267"><a href="#cb69-267"></a><span class="in">```{r}</span></span>
+<span id="cb69-268"><a href="#cb69-268"></a><span class="co"># We'll learn this syntax soon! Don't worry about it now.</span></span>
+<span id="cb69-269"><a href="#cb69-269"></a>starbucks_cma <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span> </span>
+<span id="cb69-270"><a href="#cb69-270"></a>  <span class="fu">filter</span>(Country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">'CA'</span>, <span class="st">'MX'</span>, <span class="st">'US'</span>))</span>
+<span id="cb69-271"><a href="#cb69-271"></a><span class="in">```</span></span>
+<span id="cb69-272"><a href="#cb69-272"></a></span>
+<span id="cb69-273"><a href="#cb69-273"></a><span class="ss">2.  </span>A background map of state- and national-level boundaries in Canada, Mexico, and the US. This requires <span class="in">`ne_states()`</span> in the <span class="in">`rnaturalearth`</span> package where the countries are labeled 'canada', 'mexico', 'united states of america'.</span>
+<span id="cb69-274"><a href="#cb69-274"></a></span>
+<span id="cb69-277"><a href="#cb69-277"></a><span class="in">```{r}</span></span>
+<span id="cb69-278"><a href="#cb69-278"></a>cma_boundaries <span class="ot">&lt;-</span> <span class="fu">ne_states</span>(</span>
+<span id="cb69-279"><a href="#cb69-279"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"canada"</span>, <span class="st">"mexico"</span>, <span class="st">"united states of america"</span>),</span>
+<span id="cb69-280"><a href="#cb69-280"></a>  <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb69-281"><a href="#cb69-281"></a><span class="in">```</span></span>
+<span id="cb69-282"><a href="#cb69-282"></a></span>
+<span id="cb69-283"><a href="#cb69-283"></a><span class="fu">#### Part b {.unnumbered}</span></span>
+<span id="cb69-284"><a href="#cb69-284"></a></span>
+<span id="cb69-285"><a href="#cb69-285"></a>Make the map!</span>
+<span id="cb69-286"><a href="#cb69-286"></a></span>
+<span id="cb69-289"><a href="#cb69-289"></a><span class="in">```{r}</span></span>
+<span id="cb69-290"><a href="#cb69-290"></a><span class="co"># Just the boundaries</span></span>
+<span id="cb69-291"><a href="#cb69-291"></a><span class="fu">ggplot</span>(cma_boundaries) <span class="sc">+</span> </span>
+<span id="cb69-292"><a href="#cb69-292"></a>  <span class="fu">geom_sf</span>()</span>
+<span id="cb69-293"><a href="#cb69-293"></a><span class="in">```</span></span>
+<span id="cb69-294"><a href="#cb69-294"></a></span>
+<span id="cb69-297"><a href="#cb69-297"></a><span class="in">```{r}</span></span>
+<span id="cb69-298"><a href="#cb69-298"></a><span class="co"># Add the points</span></span>
+<span id="cb69-299"><a href="#cb69-299"></a><span class="co"># And zoom in</span></span>
+<span id="cb69-300"><a href="#cb69-300"></a><span class="fu">ggplot</span>(cma_boundaries) <span class="sc">+</span> </span>
+<span id="cb69-301"><a href="#cb69-301"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb69-302"><a href="#cb69-302"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb69-303"><a href="#cb69-303"></a>    <span class="at">data =</span> starbucks_cma,</span>
+<span id="cb69-304"><a href="#cb69-304"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
+<span id="cb69-305"><a href="#cb69-305"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb69-306"><a href="#cb69-306"></a>    <span class="at">size =</span> <span class="fl">0.2</span>,</span>
+<span id="cb69-307"><a href="#cb69-307"></a>    <span class="at">color =</span> <span class="st">"darkgreen"</span></span>
+<span id="cb69-308"><a href="#cb69-308"></a>  ) <span class="sc">+</span></span>
+<span id="cb69-309"><a href="#cb69-309"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">179.14</span>, <span class="sc">-</span><span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb69-310"><a href="#cb69-310"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb69-311"><a href="#cb69-311"></a><span class="in">```</span></span>
+<span id="cb69-312"><a href="#cb69-312"></a></span>
+<span id="cb69-313"><a href="#cb69-313"></a><span class="fu">### Exercise 6: A state and county-level map {.unnumbered}</span></span>
+<span id="cb69-314"><a href="#cb69-314"></a></span>
+<span id="cb69-315"><a href="#cb69-315"></a>Let's get an even *higher* resolution map of Starbucks locations within the states of Minnesota, Wisconsin, North Dakota, and South Dakota, with a background map at the county-level.</span>
+<span id="cb69-316"><a href="#cb69-316"></a></span>
+<span id="cb69-317"><a href="#cb69-317"></a><span class="fu">#### Part a {.unnumbered}</span></span>
+<span id="cb69-318"><a href="#cb69-318"></a></span>
+<span id="cb69-319"><a href="#cb69-319"></a>To make this map, we again need two pieces of information.</span>
+<span id="cb69-320"><a href="#cb69-320"></a></span>
+<span id="cb69-321"><a href="#cb69-321"></a><span class="ss">1.  </span>Data on Starbucks for *only* the states of interest.</span>
+<span id="cb69-322"><a href="#cb69-322"></a></span>
+<span id="cb69-325"><a href="#cb69-325"></a><span class="in">```{r}</span></span>
+<span id="cb69-326"><a href="#cb69-326"></a>starbucks_midwest <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span> </span>
+<span id="cb69-327"><a href="#cb69-327"></a>  <span class="fu">filter</span>(State.Province <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"MN"</span>, <span class="st">"ND"</span>, <span class="st">"SD"</span>, <span class="st">"WI"</span>))</span>
+<span id="cb69-328"><a href="#cb69-328"></a><span class="in">```</span></span>
+<span id="cb69-329"><a href="#cb69-329"></a></span>
+<span id="cb69-330"><a href="#cb69-330"></a><span class="ss">2.  </span>A background map of state- and county-level boundaries in these states. This requires <span class="in">`st_as_sf()`</span> in the <span class="in">`sf`</span> package, and <span class="in">`map()`</span> in the <span class="in">`maps`</span> package, where the countries are labeled 'minnesota', 'north dakota', etc.</span>
 <span id="cb69-331"><a href="#cb69-331"></a></span>
 <span id="cb69-334"><a href="#cb69-334"></a><span class="in">```{r}</span></span>
-<span id="cb69-335"><a href="#cb69-335"></a><span class="co"># Add the points</span></span>
-<span id="cb69-336"><a href="#cb69-336"></a><span class="co"># And zoom in</span></span>
-<span id="cb69-337"><a href="#cb69-337"></a><span class="fu">ggplot</span>(cma_boundaries) <span class="sc">+</span> </span>
-<span id="cb69-338"><a href="#cb69-338"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
-<span id="cb69-339"><a href="#cb69-339"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb69-340"><a href="#cb69-340"></a>    <span class="at">data =</span> starbucks_cma,</span>
-<span id="cb69-341"><a href="#cb69-341"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
-<span id="cb69-342"><a href="#cb69-342"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
-<span id="cb69-343"><a href="#cb69-343"></a>    <span class="at">size =</span> <span class="fl">0.2</span>,</span>
-<span id="cb69-344"><a href="#cb69-344"></a>    <span class="at">color =</span> <span class="st">"darkgreen"</span></span>
-<span id="cb69-345"><a href="#cb69-345"></a>  ) <span class="sc">+</span></span>
-<span id="cb69-346"><a href="#cb69-346"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">179.14</span>, <span class="sc">-</span><span class="dv">50</span>)) <span class="sc">+</span></span>
-<span id="cb69-347"><a href="#cb69-347"></a>  <span class="fu">theme_map</span>()</span>
-<span id="cb69-348"><a href="#cb69-348"></a><span class="in">```</span></span>
-<span id="cb69-349"><a href="#cb69-349"></a></span>
-<span id="cb69-350"><a href="#cb69-350"></a><span class="fu">### Exercise 6: A state and county-level map {.unnumbered}</span></span>
-<span id="cb69-351"><a href="#cb69-351"></a></span>
-<span id="cb69-352"><a href="#cb69-352"></a>Let's get an even *higher* resolution map of Starbucks locations within the states of Minnesota, Wisconsin, North Dakota, and South Dakota, with a background map at the county-level.</span>
+<span id="cb69-335"><a href="#cb69-335"></a><span class="co"># Load packages</span></span>
+<span id="cb69-336"><a href="#cb69-336"></a><span class="fu">library</span>(sf)</span>
+<span id="cb69-337"><a href="#cb69-337"></a><span class="fu">library</span>(maps)</span>
+<span id="cb69-338"><a href="#cb69-338"></a></span>
+<span id="cb69-339"><a href="#cb69-339"></a><span class="co"># Get the boundaries</span></span>
+<span id="cb69-340"><a href="#cb69-340"></a>midwest_boundaries <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(</span>
+<span id="cb69-341"><a href="#cb69-341"></a>  maps<span class="sc">::</span><span class="fu">map</span>(<span class="st">"county"</span>,</span>
+<span id="cb69-342"><a href="#cb69-342"></a>            <span class="at">region =</span> <span class="fu">c</span>(<span class="st">"minnesota"</span>, <span class="st">"wisconsin"</span>, <span class="st">"north dakota"</span>, <span class="st">"south dakota"</span>), </span>
+<span id="cb69-343"><a href="#cb69-343"></a>            <span class="at">fill =</span> <span class="cn">TRUE</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb69-344"><a href="#cb69-344"></a></span>
+<span id="cb69-345"><a href="#cb69-345"></a><span class="co"># Check it out</span></span>
+<span id="cb69-346"><a href="#cb69-346"></a><span class="fu">head</span>(midwest_boundaries)</span>
+<span id="cb69-347"><a href="#cb69-347"></a><span class="in">```</span></span>
+<span id="cb69-348"><a href="#cb69-348"></a></span>
+<span id="cb69-349"><a href="#cb69-349"></a><span class="fu">#### Part b {.unnumbered}</span></span>
+<span id="cb69-350"><a href="#cb69-350"></a></span>
+<span id="cb69-351"><a href="#cb69-351"></a>Adjust the code below to make the plot!</span>
+<span id="cb69-352"><a href="#cb69-352"></a>Remove the <span class="in">`#`</span> to run it.</span>
 <span id="cb69-353"><a href="#cb69-353"></a></span>
-<span id="cb69-354"><a href="#cb69-354"></a><span class="fu">#### Part a {.unnumbered}</span></span>
-<span id="cb69-355"><a href="#cb69-355"></a></span>
-<span id="cb69-356"><a href="#cb69-356"></a>To make this map, we again need two pieces of information.</span>
-<span id="cb69-357"><a href="#cb69-357"></a></span>
-<span id="cb69-358"><a href="#cb69-358"></a><span class="ss">1.  </span>Data on Starbucks for *only* the states of interest.</span>
-<span id="cb69-359"><a href="#cb69-359"></a></span>
-<span id="cb69-362"><a href="#cb69-362"></a><span class="in">```{r}</span></span>
-<span id="cb69-363"><a href="#cb69-363"></a>starbucks_midwest <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span> </span>
-<span id="cb69-364"><a href="#cb69-364"></a>  <span class="fu">filter</span>(State.Province <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"MN"</span>, <span class="st">"ND"</span>, <span class="st">"SD"</span>, <span class="st">"WI"</span>))</span>
-<span id="cb69-365"><a href="#cb69-365"></a><span class="in">```</span></span>
-<span id="cb69-366"><a href="#cb69-366"></a></span>
-<span id="cb69-367"><a href="#cb69-367"></a><span class="ss">2.  </span>A background map of state- and county-level boundaries in these states. This requires <span class="in">`st_as_sf()`</span> in the <span class="in">`sf`</span> package, and <span class="in">`map()`</span> in the <span class="in">`maps`</span> package, where the countries are labeled 'minnesota', 'north dakota', etc.</span>
+<span id="cb69-356"><a href="#cb69-356"></a><span class="in">```{r}</span></span>
+<span id="cb69-357"><a href="#cb69-357"></a><span class="fu">ggplot</span>(midwest_boundaries) <span class="sc">+</span></span>
+<span id="cb69-358"><a href="#cb69-358"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb69-359"><a href="#cb69-359"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb69-360"><a href="#cb69-360"></a>    <span class="at">data =</span> starbucks_midwest,</span>
+<span id="cb69-361"><a href="#cb69-361"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
+<span id="cb69-362"><a href="#cb69-362"></a>    <span class="at">alpha =</span> <span class="fl">0.7</span>,</span>
+<span id="cb69-363"><a href="#cb69-363"></a>    <span class="at">size =</span> <span class="fl">0.2</span>,</span>
+<span id="cb69-364"><a href="#cb69-364"></a>    <span class="at">color =</span> <span class="st">'darkgreen'</span></span>
+<span id="cb69-365"><a href="#cb69-365"></a>  ) <span class="sc">+</span></span>
+<span id="cb69-366"><a href="#cb69-366"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb69-367"><a href="#cb69-367"></a><span class="in">```</span></span>
 <span id="cb69-368"><a href="#cb69-368"></a></span>
-<span id="cb69-371"><a href="#cb69-371"></a><span class="in">```{r}</span></span>
-<span id="cb69-372"><a href="#cb69-372"></a><span class="co"># Load packages</span></span>
-<span id="cb69-373"><a href="#cb69-373"></a><span class="fu">library</span>(sf)</span>
-<span id="cb69-374"><a href="#cb69-374"></a><span class="fu">library</span>(maps)</span>
-<span id="cb69-375"><a href="#cb69-375"></a></span>
-<span id="cb69-376"><a href="#cb69-376"></a><span class="co"># Get the boundaries</span></span>
-<span id="cb69-377"><a href="#cb69-377"></a>midwest_boundaries <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(</span>
-<span id="cb69-378"><a href="#cb69-378"></a>  maps<span class="sc">::</span><span class="fu">map</span>(<span class="st">"county"</span>,</span>
-<span id="cb69-379"><a href="#cb69-379"></a>            <span class="at">region =</span> <span class="fu">c</span>(<span class="st">"minnesota"</span>, <span class="st">"wisconsin"</span>, <span class="st">"north dakota"</span>, <span class="st">"south dakota"</span>), </span>
-<span id="cb69-380"><a href="#cb69-380"></a>            <span class="at">fill =</span> <span class="cn">TRUE</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb69-381"><a href="#cb69-381"></a></span>
-<span id="cb69-382"><a href="#cb69-382"></a><span class="co"># Check it out</span></span>
-<span id="cb69-383"><a href="#cb69-383"></a><span class="fu">head</span>(midwest_boundaries)</span>
-<span id="cb69-384"><a href="#cb69-384"></a><span class="in">```</span></span>
-<span id="cb69-385"><a href="#cb69-385"></a></span>
-<span id="cb69-386"><a href="#cb69-386"></a><span class="fu">#### Part b {.unnumbered}</span></span>
-<span id="cb69-387"><a href="#cb69-387"></a></span>
-<span id="cb69-388"><a href="#cb69-388"></a>Adjust the code below to make the plot!</span>
-<span id="cb69-389"><a href="#cb69-389"></a>Remove the <span class="in">`#`</span> to run it.</span>
+<span id="cb69-369"><a href="#cb69-369"></a><span class="fu">### Exercise 7: Contour maps {.unnumbered}</span></span>
+<span id="cb69-370"><a href="#cb69-370"></a></span>
+<span id="cb69-371"><a href="#cb69-371"></a>Especially when there are lots of point locations, and those locations start overlapping on a map, it can be tough to visualize areas of higher *density*.</span>
+<span id="cb69-372"><a href="#cb69-372"></a>Consider the Starbucks locations in Canada, Mexico, and the US that we mapped earlier:</span>
+<span id="cb69-373"><a href="#cb69-373"></a></span>
+<span id="cb69-376"><a href="#cb69-376"></a><span class="in">```{r}</span></span>
+<span id="cb69-377"><a href="#cb69-377"></a><span class="co"># Point map (we made this earlier)</span></span>
+<span id="cb69-378"><a href="#cb69-378"></a><span class="fu">ggplot</span>(cma_boundaries) <span class="sc">+</span> </span>
+<span id="cb69-379"><a href="#cb69-379"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb69-380"><a href="#cb69-380"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb69-381"><a href="#cb69-381"></a>    <span class="at">data =</span> starbucks_cma,</span>
+<span id="cb69-382"><a href="#cb69-382"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
+<span id="cb69-383"><a href="#cb69-383"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb69-384"><a href="#cb69-384"></a>    <span class="at">size =</span> <span class="fl">0.2</span>,</span>
+<span id="cb69-385"><a href="#cb69-385"></a>    <span class="at">color =</span> <span class="st">"darkgreen"</span></span>
+<span id="cb69-386"><a href="#cb69-386"></a>  ) <span class="sc">+</span></span>
+<span id="cb69-387"><a href="#cb69-387"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">179.14</span>, <span class="sc">-</span><span class="dv">50</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">14.54</span>, <span class="fl">83.11</span>)) <span class="sc">+</span></span>
+<span id="cb69-388"><a href="#cb69-388"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb69-389"><a href="#cb69-389"></a><span class="in">```</span></span>
 <span id="cb69-390"><a href="#cb69-390"></a></span>
-<span id="cb69-393"><a href="#cb69-393"></a><span class="in">```{r}</span></span>
-<span id="cb69-394"><a href="#cb69-394"></a><span class="fu">ggplot</span>(midwest_boundaries) <span class="sc">+</span></span>
-<span id="cb69-395"><a href="#cb69-395"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
-<span id="cb69-396"><a href="#cb69-396"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb69-397"><a href="#cb69-397"></a>    <span class="at">data =</span> starbucks_midwest,</span>
-<span id="cb69-398"><a href="#cb69-398"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
-<span id="cb69-399"><a href="#cb69-399"></a>    <span class="at">alpha =</span> <span class="fl">0.7</span>,</span>
-<span id="cb69-400"><a href="#cb69-400"></a>    <span class="at">size =</span> <span class="fl">0.2</span>,</span>
-<span id="cb69-401"><a href="#cb69-401"></a>    <span class="at">color =</span> <span class="st">'darkgreen'</span></span>
-<span id="cb69-402"><a href="#cb69-402"></a>  ) <span class="sc">+</span></span>
-<span id="cb69-403"><a href="#cb69-403"></a>  <span class="fu">theme_map</span>()</span>
-<span id="cb69-404"><a href="#cb69-404"></a><span class="in">```</span></span>
-<span id="cb69-405"><a href="#cb69-405"></a></span>
-<span id="cb69-406"><a href="#cb69-406"></a><span class="fu">### Exercise 7: Contour maps {.unnumbered}</span></span>
-<span id="cb69-407"><a href="#cb69-407"></a></span>
-<span id="cb69-408"><a href="#cb69-408"></a>Especially when there are lots of point locations, and those locations start overlapping on a map, it can be tough to visualize areas of higher *density*.</span>
-<span id="cb69-409"><a href="#cb69-409"></a>Consider the Starbucks locations in Canada, Mexico, and the US that we mapped earlier:</span>
-<span id="cb69-410"><a href="#cb69-410"></a></span>
-<span id="cb69-413"><a href="#cb69-413"></a><span class="in">```{r}</span></span>
-<span id="cb69-414"><a href="#cb69-414"></a><span class="co"># Point map (we made this earlier)</span></span>
-<span id="cb69-415"><a href="#cb69-415"></a><span class="fu">ggplot</span>(cma_boundaries) <span class="sc">+</span> </span>
-<span id="cb69-416"><a href="#cb69-416"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
-<span id="cb69-417"><a href="#cb69-417"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb69-418"><a href="#cb69-418"></a>    <span class="at">data =</span> starbucks_cma,</span>
-<span id="cb69-419"><a href="#cb69-419"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
-<span id="cb69-420"><a href="#cb69-420"></a>    <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
-<span id="cb69-421"><a href="#cb69-421"></a>    <span class="at">size =</span> <span class="fl">0.2</span>,</span>
-<span id="cb69-422"><a href="#cb69-422"></a>    <span class="at">color =</span> <span class="st">"darkgreen"</span></span>
-<span id="cb69-423"><a href="#cb69-423"></a>  ) <span class="sc">+</span></span>
-<span id="cb69-424"><a href="#cb69-424"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">179.14</span>, <span class="sc">-</span><span class="dv">50</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">14.54</span>, <span class="fl">83.11</span>)) <span class="sc">+</span></span>
-<span id="cb69-425"><a href="#cb69-425"></a>  <span class="fu">theme_map</span>()</span>
-<span id="cb69-426"><a href="#cb69-426"></a><span class="in">```</span></span>
-<span id="cb69-427"><a href="#cb69-427"></a></span>
-<span id="cb69-428"><a href="#cb69-428"></a>Now check out the contour map.</span>
-<span id="cb69-429"><a href="#cb69-429"></a></span>
-<span id="cb69-432"><a href="#cb69-432"></a><span class="in">```{r}</span></span>
-<span id="cb69-433"><a href="#cb69-433"></a><span class="co"># What changed in the plot?</span></span>
-<span id="cb69-434"><a href="#cb69-434"></a><span class="co"># What changed in our code?!</span></span>
-<span id="cb69-435"><a href="#cb69-435"></a><span class="fu">ggplot</span>(cma_boundaries) <span class="sc">+</span> </span>
-<span id="cb69-436"><a href="#cb69-436"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
-<span id="cb69-437"><a href="#cb69-437"></a>  <span class="fu">geom_density_2d</span>(</span>
-<span id="cb69-438"><a href="#cb69-438"></a>    <span class="at">data =</span> starbucks_cma,</span>
-<span id="cb69-439"><a href="#cb69-439"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
-<span id="cb69-440"><a href="#cb69-440"></a>    <span class="at">size =</span> <span class="fl">0.2</span>,</span>
-<span id="cb69-441"><a href="#cb69-441"></a>    <span class="at">color =</span> <span class="st">"darkgreen"</span></span>
-<span id="cb69-442"><a href="#cb69-442"></a>  ) <span class="sc">+</span></span>
-<span id="cb69-443"><a href="#cb69-443"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">179.14</span>, <span class="sc">-</span><span class="dv">50</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">14.54</span>, <span class="fl">83.11</span>)) <span class="sc">+</span></span>
-<span id="cb69-444"><a href="#cb69-444"></a>  <span class="fu">theme_map</span>()</span>
-<span id="cb69-445"><a href="#cb69-445"></a><span class="in">```</span></span>
-<span id="cb69-446"><a href="#cb69-446"></a></span>
-<span id="cb69-447"><a href="#cb69-447"></a><span class="fu">### Part 3: Choropleth maps {-}</span></span>
-<span id="cb69-448"><a href="#cb69-448"></a></span>
-<span id="cb69-449"><a href="#cb69-449"></a>Spatial data isn't always in the form of point locations!</span>
-<span id="cb69-450"><a href="#cb69-450"></a>For example, recall the state and county-level data on presidential elections.</span>
+<span id="cb69-391"><a href="#cb69-391"></a>Now check out the contour map.</span>
+<span id="cb69-392"><a href="#cb69-392"></a></span>
+<span id="cb69-395"><a href="#cb69-395"></a><span class="in">```{r}</span></span>
+<span id="cb69-396"><a href="#cb69-396"></a><span class="co"># What changed in the plot?</span></span>
+<span id="cb69-397"><a href="#cb69-397"></a><span class="co"># What changed in our code?!</span></span>
+<span id="cb69-398"><a href="#cb69-398"></a><span class="fu">ggplot</span>(cma_boundaries) <span class="sc">+</span> </span>
+<span id="cb69-399"><a href="#cb69-399"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb69-400"><a href="#cb69-400"></a>  <span class="fu">geom_density_2d</span>(</span>
+<span id="cb69-401"><a href="#cb69-401"></a>    <span class="at">data =</span> starbucks_cma,</span>
+<span id="cb69-402"><a href="#cb69-402"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
+<span id="cb69-403"><a href="#cb69-403"></a>    <span class="at">size =</span> <span class="fl">0.2</span>,</span>
+<span id="cb69-404"><a href="#cb69-404"></a>    <span class="at">color =</span> <span class="st">"darkgreen"</span></span>
+<span id="cb69-405"><a href="#cb69-405"></a>  ) <span class="sc">+</span></span>
+<span id="cb69-406"><a href="#cb69-406"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">179.14</span>, <span class="sc">-</span><span class="dv">50</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">14.54</span>, <span class="fl">83.11</span>)) <span class="sc">+</span></span>
+<span id="cb69-407"><a href="#cb69-407"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb69-408"><a href="#cb69-408"></a><span class="in">```</span></span>
+<span id="cb69-409"><a href="#cb69-409"></a></span>
+<span id="cb69-410"><a href="#cb69-410"></a><span class="fu">### Part 3: Choropleth maps {-}</span></span>
+<span id="cb69-411"><a href="#cb69-411"></a></span>
+<span id="cb69-412"><a href="#cb69-412"></a>Spatial data isn't always in the form of point locations!</span>
+<span id="cb69-413"><a href="#cb69-413"></a>For example, recall the state and county-level data on presidential elections.</span>
+<span id="cb69-414"><a href="#cb69-414"></a></span>
+<span id="cb69-417"><a href="#cb69-417"></a><span class="in">```{r}</span></span>
+<span id="cb69-418"><a href="#cb69-418"></a>elections_by_state <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/election_2020_by_state.csv"</span>)</span>
+<span id="cb69-419"><a href="#cb69-419"></a>elections_by_counties <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/election_2020_county.csv"</span>)</span>
+<span id="cb69-420"><a href="#cb69-420"></a><span class="in">```</span></span>
+<span id="cb69-421"><a href="#cb69-421"></a></span>
+<span id="cb69-422"><a href="#cb69-422"></a>In these datasets, we're interested in the overall election outcome by region (state or county), not the specific geographic location of some observation.</span>
+<span id="cb69-423"><a href="#cb69-423"></a>Let's wrangle our data first.</span>
+<span id="cb69-424"><a href="#cb69-424"></a>We'll focus on just a few variables of interest, and create a new variable (<span class="in">`repub_20_categories`</span>) that *discretizes* the <span class="in">`repub_pct_20`</span> variable into increments of 5 percentage points (for states) or 10 percentage points (for counties):</span>
+<span id="cb69-425"><a href="#cb69-425"></a></span>
+<span id="cb69-428"><a href="#cb69-428"></a><span class="in">```{r}</span></span>
+<span id="cb69-429"><a href="#cb69-429"></a><span class="co"># Don't worry about the code!</span></span>
+<span id="cb69-430"><a href="#cb69-430"></a></span>
+<span id="cb69-431"><a href="#cb69-431"></a>elections_by_state <span class="ot">&lt;-</span> elections_by_state <span class="sc">|&gt;</span> </span>
+<span id="cb69-432"><a href="#cb69-432"></a>  <span class="fu">filter</span>(state_abbr <span class="sc">!=</span> <span class="st">"DC"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb69-433"><a href="#cb69-433"></a>  <span class="fu">select</span>(state_name, state_abbr, repub_pct_20) <span class="sc">|&gt;</span> </span>
+<span id="cb69-434"><a href="#cb69-434"></a>  <span class="fu">mutate</span>(<span class="at">repub_20_categories =</span> </span>
+<span id="cb69-435"><a href="#cb69-435"></a>           <span class="fu">cut</span>(repub_pct_20, </span>
+<span id="cb69-436"><a href="#cb69-436"></a>               <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">30</span>, <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">5</span>), </span>
+<span id="cb69-437"><a href="#cb69-437"></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"30-34"</span>, <span class="st">"35-39"</span>, <span class="st">"40-44"</span>, <span class="st">"45-49"</span>,</span>
+<span id="cb69-438"><a href="#cb69-438"></a>                          <span class="st">"50-54"</span>, <span class="st">"55-59"</span>, <span class="st">"60-64"</span>, <span class="st">"65-70"</span>), </span>
+<span id="cb69-439"><a href="#cb69-439"></a>               <span class="at">include.lowest =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb69-440"><a href="#cb69-440"></a></span>
+<span id="cb69-441"><a href="#cb69-441"></a>elections_by_counties <span class="ot">&lt;-</span> elections_by_counties <span class="sc">|&gt;</span> </span>
+<span id="cb69-442"><a href="#cb69-442"></a>  <span class="fu">select</span>(state_name, state_abbr, county_name, county_fips,</span>
+<span id="cb69-443"><a href="#cb69-443"></a>          repub_pct_20, median_age, median_rent) <span class="sc">|&gt;</span> </span>
+<span id="cb69-444"><a href="#cb69-444"></a>  <span class="fu">mutate</span>(<span class="at">repub_20_categories =</span> </span>
+<span id="cb69-445"><a href="#cb69-445"></a>           <span class="fu">cut</span>(repub_pct_20, </span>
+<span id="cb69-446"><a href="#cb69-446"></a>               <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">10</span>),</span>
+<span id="cb69-447"><a href="#cb69-447"></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"0-9"</span>, <span class="st">"10-19"</span>, <span class="st">"20-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>,</span>
+<span id="cb69-448"><a href="#cb69-448"></a>                          <span class="st">"50-59"</span>, <span class="st">"60-69"</span>, <span class="st">"70-79"</span>, <span class="st">"80-89"</span>, <span class="st">"90-100"</span>),</span>
+<span id="cb69-449"><a href="#cb69-449"></a>               <span class="at">include.lowest =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb69-450"><a href="#cb69-450"></a><span class="in">```</span></span>
 <span id="cb69-451"><a href="#cb69-451"></a></span>
-<span id="cb69-454"><a href="#cb69-454"></a><span class="in">```{r}</span></span>
-<span id="cb69-455"><a href="#cb69-455"></a>elections_by_state <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/election_2020_by_state.csv"</span>)</span>
-<span id="cb69-456"><a href="#cb69-456"></a>elections_by_counties <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/election_2020_county.csv"</span>)</span>
-<span id="cb69-457"><a href="#cb69-457"></a><span class="in">```</span></span>
-<span id="cb69-458"><a href="#cb69-458"></a></span>
-<span id="cb69-459"><a href="#cb69-459"></a>In these datasets, we're interested in the overall election outcome by region (state or county), not the specific geographic location of some observation.</span>
-<span id="cb69-460"><a href="#cb69-460"></a>Let's wrangle our data first.</span>
-<span id="cb69-461"><a href="#cb69-461"></a>We'll focus on just a few variables of interest, and create a new variable (<span class="in">`repub_20_categories`</span>) that *discretizes* the <span class="in">`repub_pct_20`</span> variable into increments of 5 percentage points (for states) or 10 percentage points (for counties):</span>
-<span id="cb69-462"><a href="#cb69-462"></a></span>
-<span id="cb69-465"><a href="#cb69-465"></a><span class="in">```{r}</span></span>
-<span id="cb69-466"><a href="#cb69-466"></a><span class="co"># Don't worry about the code!</span></span>
-<span id="cb69-467"><a href="#cb69-467"></a></span>
-<span id="cb69-468"><a href="#cb69-468"></a>elections_by_state <span class="ot">&lt;-</span> elections_by_state <span class="sc">|&gt;</span> </span>
-<span id="cb69-469"><a href="#cb69-469"></a>  <span class="fu">filter</span>(state_abbr <span class="sc">!=</span> <span class="st">"DC"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb69-470"><a href="#cb69-470"></a>  <span class="fu">select</span>(state_name, state_abbr, repub_pct_20) <span class="sc">|&gt;</span> </span>
-<span id="cb69-471"><a href="#cb69-471"></a>  <span class="fu">mutate</span>(<span class="at">repub_20_categories =</span> </span>
-<span id="cb69-472"><a href="#cb69-472"></a>           <span class="fu">cut</span>(repub_pct_20, </span>
-<span id="cb69-473"><a href="#cb69-473"></a>               <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">30</span>, <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">5</span>), </span>
-<span id="cb69-474"><a href="#cb69-474"></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"30-34"</span>, <span class="st">"35-39"</span>, <span class="st">"40-44"</span>, <span class="st">"45-49"</span>,</span>
-<span id="cb69-475"><a href="#cb69-475"></a>                          <span class="st">"50-54"</span>, <span class="st">"55-59"</span>, <span class="st">"60-64"</span>, <span class="st">"65-70"</span>), </span>
-<span id="cb69-476"><a href="#cb69-476"></a>               <span class="at">include.lowest =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb69-452"><a href="#cb69-452"></a><span class="fu">### Exercise 8: State-level choropleth maps {.unnumbered}</span></span>
+<span id="cb69-453"><a href="#cb69-453"></a></span>
+<span id="cb69-454"><a href="#cb69-454"></a>Let's map the 2020 Republican support in each *state*, <span class="in">`repub_pct_20`</span>.</span>
+<span id="cb69-455"><a href="#cb69-455"></a></span>
+<span id="cb69-456"><a href="#cb69-456"></a><span class="fu">#### Part a {.unnumbered}</span></span>
+<span id="cb69-457"><a href="#cb69-457"></a></span>
+<span id="cb69-458"><a href="#cb69-458"></a>We again need two pieces of information.</span>
+<span id="cb69-459"><a href="#cb69-459"></a></span>
+<span id="cb69-460"><a href="#cb69-460"></a><span class="ss">1.  </span>Data on elections in each state, which we already have: <span class="in">`elections_by_state`</span>.</span>
+<span id="cb69-461"><a href="#cb69-461"></a></span>
+<span id="cb69-462"><a href="#cb69-462"></a><span class="ss">2.  </span>A background map of state boundaries in the US.</span>
+<span id="cb69-463"><a href="#cb69-463"></a>    The boundaries we used for point maps don't work here.</span>
+<span id="cb69-464"><a href="#cb69-464"></a>    (Optional detail: they're <span class="in">`sf`</span> objects and we now need a <span class="in">`data.frame`</span> object.) Instead, we can use the <span class="in">`map_data()`</span> function from the <span class="in">`ggplot2`</span> package:</span>
+<span id="cb69-465"><a href="#cb69-465"></a></span>
+<span id="cb69-468"><a href="#cb69-468"></a><span class="in">```{r}</span></span>
+<span id="cb69-469"><a href="#cb69-469"></a><span class="co"># Get the latitude and longitude coordinates of state boundaries</span></span>
+<span id="cb69-470"><a href="#cb69-470"></a>states_map <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span>
+<span id="cb69-471"><a href="#cb69-471"></a></span>
+<span id="cb69-472"><a href="#cb69-472"></a><span class="co"># Check it out</span></span>
+<span id="cb69-473"><a href="#cb69-473"></a><span class="fu">head</span>(states_map)</span>
+<span id="cb69-474"><a href="#cb69-474"></a><span class="in">```</span></span>
+<span id="cb69-475"><a href="#cb69-475"></a></span>
+<span id="cb69-476"><a href="#cb69-476"></a><span class="fu">#### Pause {.unnumbered}</span></span>
 <span id="cb69-477"><a href="#cb69-477"></a></span>
-<span id="cb69-478"><a href="#cb69-478"></a>elections_by_counties <span class="ot">&lt;-</span> elections_by_counties <span class="sc">|&gt;</span> </span>
-<span id="cb69-479"><a href="#cb69-479"></a>  <span class="fu">select</span>(state_name, state_abbr, county_name, county_fips,</span>
-<span id="cb69-480"><a href="#cb69-480"></a>          repub_pct_20, median_age, median_rent) <span class="sc">|&gt;</span> </span>
-<span id="cb69-481"><a href="#cb69-481"></a>  <span class="fu">mutate</span>(<span class="at">repub_20_categories =</span> </span>
-<span id="cb69-482"><a href="#cb69-482"></a>           <span class="fu">cut</span>(repub_pct_20, </span>
-<span id="cb69-483"><a href="#cb69-483"></a>               <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">10</span>),</span>
-<span id="cb69-484"><a href="#cb69-484"></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"0-9"</span>, <span class="st">"10-19"</span>, <span class="st">"20-29"</span>, <span class="st">"30-39"</span>, <span class="st">"40-49"</span>,</span>
-<span id="cb69-485"><a href="#cb69-485"></a>                          <span class="st">"50-59"</span>, <span class="st">"60-69"</span>, <span class="st">"70-79"</span>, <span class="st">"80-89"</span>, <span class="st">"90-100"</span>),</span>
-<span id="cb69-486"><a href="#cb69-486"></a>               <span class="at">include.lowest =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb69-487"><a href="#cb69-487"></a><span class="in">```</span></span>
-<span id="cb69-488"><a href="#cb69-488"></a></span>
-<span id="cb69-489"><a href="#cb69-489"></a><span class="fu">### Exercise 8: State-level choropleth maps {.unnumbered}</span></span>
-<span id="cb69-490"><a href="#cb69-490"></a></span>
-<span id="cb69-491"><a href="#cb69-491"></a>Let's map the 2020 Republican support in each *state*, <span class="in">`repub_pct_20`</span>.</span>
-<span id="cb69-492"><a href="#cb69-492"></a></span>
-<span id="cb69-493"><a href="#cb69-493"></a><span class="fu">#### Part a {.unnumbered}</span></span>
-<span id="cb69-494"><a href="#cb69-494"></a></span>
-<span id="cb69-495"><a href="#cb69-495"></a>We again need two pieces of information.</span>
-<span id="cb69-496"><a href="#cb69-496"></a></span>
-<span id="cb69-497"><a href="#cb69-497"></a><span class="ss">1.  </span>Data on elections in each state, which we already have: <span class="in">`elections_by_state`</span>.</span>
-<span id="cb69-498"><a href="#cb69-498"></a></span>
-<span id="cb69-499"><a href="#cb69-499"></a><span class="ss">2.  </span>A background map of state boundaries in the US.</span>
-<span id="cb69-500"><a href="#cb69-500"></a>    The boundaries we used for point maps don't work here.</span>
-<span id="cb69-501"><a href="#cb69-501"></a>    (Optional detail: they're <span class="in">`sf`</span> objects and we now need a <span class="in">`data.frame`</span> object.) Instead, we can use the <span class="in">`map_data()`</span> function from the <span class="in">`ggplot2`</span> package:</span>
+<span id="cb69-478"><a href="#cb69-478"></a>**Important detail:** Note that the <span class="in">`region`</span> variable in <span class="in">`states_map`</span>, and the <span class="in">`state_name`</span> variable in <span class="in">`elections_by_state`</span> both label states by the full name in lower case letters.</span>
+<span id="cb69-479"><a href="#cb69-479"></a>This is critical to the background map and our data being able to communicate.</span>
+<span id="cb69-480"><a href="#cb69-480"></a></span>
+<span id="cb69-483"><a href="#cb69-483"></a><span class="in">```{r}</span></span>
+<span id="cb69-484"><a href="#cb69-484"></a><span class="fu">head</span>(states_map)</span>
+<span id="cb69-485"><a href="#cb69-485"></a><span class="fu">head</span>(elections_by_state) </span>
+<span id="cb69-486"><a href="#cb69-486"></a><span class="in">```</span></span>
+<span id="cb69-487"><a href="#cb69-487"></a></span>
+<span id="cb69-488"><a href="#cb69-488"></a><span class="fu">#### Part b {.unnumbered}</span></span>
+<span id="cb69-489"><a href="#cb69-489"></a></span>
+<span id="cb69-490"><a href="#cb69-490"></a>Now map <span class="in">`repub_pct_20`</span> by state.</span>
+<span id="cb69-491"><a href="#cb69-491"></a></span>
+<span id="cb69-494"><a href="#cb69-494"></a><span class="in">```{r}</span></span>
+<span id="cb69-495"><a href="#cb69-495"></a><span class="co"># Note where the dataset, elections_by_state, is used</span></span>
+<span id="cb69-496"><a href="#cb69-496"></a><span class="co"># Note where the background map, states_map, is used</span></span>
+<span id="cb69-497"><a href="#cb69-497"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_pct_20)) <span class="sc">+</span></span>
+<span id="cb69-498"><a href="#cb69-498"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
+<span id="cb69-499"><a href="#cb69-499"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
+<span id="cb69-500"><a href="#cb69-500"></a>  <span class="fu">theme_map</span>() </span>
+<span id="cb69-501"><a href="#cb69-501"></a><span class="in">```</span></span>
 <span id="cb69-502"><a href="#cb69-502"></a></span>
 <span id="cb69-505"><a href="#cb69-505"></a><span class="in">```{r}</span></span>
-<span id="cb69-506"><a href="#cb69-506"></a><span class="co"># Get the latitude and longitude coordinates of state boundaries</span></span>
-<span id="cb69-507"><a href="#cb69-507"></a>states_map <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span>
-<span id="cb69-508"><a href="#cb69-508"></a></span>
-<span id="cb69-509"><a href="#cb69-509"></a><span class="co"># Check it out</span></span>
-<span id="cb69-510"><a href="#cb69-510"></a><span class="fu">head</span>(states_map)</span>
-<span id="cb69-511"><a href="#cb69-511"></a><span class="in">```</span></span>
-<span id="cb69-512"><a href="#cb69-512"></a></span>
-<span id="cb69-513"><a href="#cb69-513"></a><span class="fu">#### Pause {.unnumbered}</span></span>
-<span id="cb69-514"><a href="#cb69-514"></a></span>
-<span id="cb69-515"><a href="#cb69-515"></a>**Important detail:** Note that the <span class="in">`region`</span> variable in <span class="in">`states_map`</span>, and the <span class="in">`state_name`</span> variable in <span class="in">`elections_by_state`</span> both label states by the full name in lower case letters.</span>
-<span id="cb69-516"><a href="#cb69-516"></a>This is critical to the background map and our data being able to communicate.</span>
-<span id="cb69-517"><a href="#cb69-517"></a></span>
-<span id="cb69-520"><a href="#cb69-520"></a><span class="in">```{r}</span></span>
-<span id="cb69-521"><a href="#cb69-521"></a><span class="fu">head</span>(states_map)</span>
-<span id="cb69-522"><a href="#cb69-522"></a><span class="fu">head</span>(elections_by_state) </span>
-<span id="cb69-523"><a href="#cb69-523"></a><span class="in">```</span></span>
-<span id="cb69-524"><a href="#cb69-524"></a></span>
-<span id="cb69-525"><a href="#cb69-525"></a><span class="fu">#### Part b {.unnumbered}</span></span>
-<span id="cb69-526"><a href="#cb69-526"></a></span>
-<span id="cb69-527"><a href="#cb69-527"></a>Now map <span class="in">`repub_pct_20`</span> by state.</span>
-<span id="cb69-528"><a href="#cb69-528"></a></span>
-<span id="cb69-531"><a href="#cb69-531"></a><span class="in">```{r}</span></span>
-<span id="cb69-532"><a href="#cb69-532"></a><span class="co"># Note where the dataset, elections_by_state, is used</span></span>
-<span id="cb69-533"><a href="#cb69-533"></a><span class="co"># Note where the background map, states_map, is used</span></span>
-<span id="cb69-534"><a href="#cb69-534"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_pct_20)) <span class="sc">+</span></span>
-<span id="cb69-535"><a href="#cb69-535"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
-<span id="cb69-536"><a href="#cb69-536"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
-<span id="cb69-537"><a href="#cb69-537"></a>  <span class="fu">theme_map</span>() </span>
+<span id="cb69-506"><a href="#cb69-506"></a><span class="co"># Make it nicer!</span></span>
+<span id="cb69-507"><a href="#cb69-507"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_pct_20)) <span class="sc">+</span></span>
+<span id="cb69-508"><a href="#cb69-508"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
+<span id="cb69-509"><a href="#cb69-509"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
+<span id="cb69-510"><a href="#cb69-510"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
+<span id="cb69-511"><a href="#cb69-511"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">name =</span> <span class="st">"% Republican"</span>, <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>), <span class="at">values =</span> scales<span class="sc">::</span><span class="fu">rescale</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">5</span>)))</span>
+<span id="cb69-512"><a href="#cb69-512"></a><span class="in">```</span></span>
+<span id="cb69-513"><a href="#cb69-513"></a></span>
+<span id="cb69-514"><a href="#cb69-514"></a>It's not easy to get fine control over the color scale for the quantitative <span class="in">`repub_pct_20`</span> variable.</span>
+<span id="cb69-515"><a href="#cb69-515"></a>Instead, let's plot the *discretized* version, <span class="in">`repub_20_categories`</span>:</span>
+<span id="cb69-516"><a href="#cb69-516"></a></span>
+<span id="cb69-519"><a href="#cb69-519"></a><span class="in">```{r}</span></span>
+<span id="cb69-520"><a href="#cb69-520"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_20_categories)) <span class="sc">+</span></span>
+<span id="cb69-521"><a href="#cb69-521"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
+<span id="cb69-522"><a href="#cb69-522"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
+<span id="cb69-523"><a href="#cb69-523"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb69-524"><a href="#cb69-524"></a><span class="in">```</span></span>
+<span id="cb69-525"><a href="#cb69-525"></a></span>
+<span id="cb69-528"><a href="#cb69-528"></a><span class="in">```{r}</span></span>
+<span id="cb69-529"><a href="#cb69-529"></a><span class="co"># Load package needed for refining color palette</span></span>
+<span id="cb69-530"><a href="#cb69-530"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb69-531"><a href="#cb69-531"></a></span>
+<span id="cb69-532"><a href="#cb69-532"></a><span class="co"># Now fix the colors</span></span>
+<span id="cb69-533"><a href="#cb69-533"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_20_categories)) <span class="sc">+</span></span>
+<span id="cb69-534"><a href="#cb69-534"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
+<span id="cb69-535"><a href="#cb69-535"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
+<span id="cb69-536"><a href="#cb69-536"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
+<span id="cb69-537"><a href="#cb69-537"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">rev</span>(<span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">"RdBu"</span>)), <span class="at">name =</span> <span class="st">"% Republican"</span>)</span>
 <span id="cb69-538"><a href="#cb69-538"></a><span class="in">```</span></span>
 <span id="cb69-539"><a href="#cb69-539"></a></span>
-<span id="cb69-542"><a href="#cb69-542"></a><span class="in">```{r}</span></span>
-<span id="cb69-543"><a href="#cb69-543"></a><span class="co"># Make it nicer!</span></span>
-<span id="cb69-544"><a href="#cb69-544"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_pct_20)) <span class="sc">+</span></span>
-<span id="cb69-545"><a href="#cb69-545"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
-<span id="cb69-546"><a href="#cb69-546"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
-<span id="cb69-547"><a href="#cb69-547"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
-<span id="cb69-548"><a href="#cb69-548"></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">name =</span> <span class="st">"% Republican"</span>, <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"red"</span>), <span class="at">values =</span> scales<span class="sc">::</span><span class="fu">rescale</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">5</span>)))</span>
-<span id="cb69-549"><a href="#cb69-549"></a><span class="in">```</span></span>
-<span id="cb69-550"><a href="#cb69-550"></a></span>
-<span id="cb69-551"><a href="#cb69-551"></a>It's not easy to get fine control over the color scale for the quantitative <span class="in">`repub_pct_20`</span> variable.</span>
-<span id="cb69-552"><a href="#cb69-552"></a>Instead, let's plot the *discretized* version, <span class="in">`repub_20_categories`</span>:</span>
-<span id="cb69-553"><a href="#cb69-553"></a></span>
-<span id="cb69-556"><a href="#cb69-556"></a><span class="in">```{r}</span></span>
-<span id="cb69-557"><a href="#cb69-557"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_20_categories)) <span class="sc">+</span></span>
-<span id="cb69-558"><a href="#cb69-558"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
-<span id="cb69-559"><a href="#cb69-559"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
-<span id="cb69-560"><a href="#cb69-560"></a>  <span class="fu">theme_map</span>()</span>
-<span id="cb69-561"><a href="#cb69-561"></a><span class="in">```</span></span>
-<span id="cb69-562"><a href="#cb69-562"></a></span>
-<span id="cb69-565"><a href="#cb69-565"></a><span class="in">```{r}</span></span>
-<span id="cb69-566"><a href="#cb69-566"></a><span class="co"># Load package needed for refining color palette</span></span>
-<span id="cb69-567"><a href="#cb69-567"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb69-568"><a href="#cb69-568"></a></span>
-<span id="cb69-569"><a href="#cb69-569"></a><span class="co"># Now fix the colors</span></span>
-<span id="cb69-570"><a href="#cb69-570"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_20_categories)) <span class="sc">+</span></span>
-<span id="cb69-571"><a href="#cb69-571"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
-<span id="cb69-572"><a href="#cb69-572"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
-<span id="cb69-573"><a href="#cb69-573"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
-<span id="cb69-574"><a href="#cb69-574"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">rev</span>(<span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">"RdBu"</span>)), <span class="at">name =</span> <span class="st">"% Republican"</span>)</span>
-<span id="cb69-575"><a href="#cb69-575"></a><span class="in">```</span></span>
+<span id="cb69-540"><a href="#cb69-540"></a><span class="fu">#### Part c {.unnumbered}</span></span>
+<span id="cb69-541"><a href="#cb69-541"></a></span>
+<span id="cb69-542"><a href="#cb69-542"></a>We can add other layers, like points, on top of a choropleth map.</span>
+<span id="cb69-543"><a href="#cb69-543"></a>Add a Starbucks layer!</span>
+<span id="cb69-544"><a href="#cb69-544"></a>Do you notice any relationship between Starbucks and elections?</span>
+<span id="cb69-545"><a href="#cb69-545"></a>Or are we just doing things at this point?</span>
+<span id="cb69-546"><a href="#cb69-546"></a>;)</span>
+<span id="cb69-547"><a href="#cb69-547"></a></span>
+<span id="cb69-550"><a href="#cb69-550"></a><span class="in">```{r}</span></span>
+<span id="cb69-551"><a href="#cb69-551"></a><span class="co"># Get only the starbucks data from the US</span></span>
+<span id="cb69-552"><a href="#cb69-552"></a>starbucks_us <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span> </span>
+<span id="cb69-553"><a href="#cb69-553"></a>  <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">"US"</span>)</span>
+<span id="cb69-554"><a href="#cb69-554"></a></span>
+<span id="cb69-555"><a href="#cb69-555"></a><span class="co"># Map it</span></span>
+<span id="cb69-556"><a href="#cb69-556"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_20_categories)) <span class="sc">+</span></span>
+<span id="cb69-557"><a href="#cb69-557"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
+<span id="cb69-558"><a href="#cb69-558"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb69-559"><a href="#cb69-559"></a>    <span class="at">data =</span> starbucks_us,</span>
+<span id="cb69-560"><a href="#cb69-560"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
+<span id="cb69-561"><a href="#cb69-561"></a>    <span class="at">size =</span> <span class="fl">0.05</span>,</span>
+<span id="cb69-562"><a href="#cb69-562"></a>    <span class="at">alpha =</span> <span class="fl">0.2</span>,</span>
+<span id="cb69-563"><a href="#cb69-563"></a>    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span></span>
+<span id="cb69-564"><a href="#cb69-564"></a>  ) <span class="sc">+</span></span>
+<span id="cb69-565"><a href="#cb69-565"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
+<span id="cb69-566"><a href="#cb69-566"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
+<span id="cb69-567"><a href="#cb69-567"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">rev</span>(<span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">"RdBu"</span>)), <span class="at">name =</span> <span class="st">"% Republican"</span>)</span>
+<span id="cb69-568"><a href="#cb69-568"></a><span class="in">```</span></span>
+<span id="cb69-569"><a href="#cb69-569"></a></span>
+<span id="cb69-570"><a href="#cb69-570"></a>**Details (if you're curious)**</span>
+<span id="cb69-571"><a href="#cb69-571"></a></span>
+<span id="cb69-572"><a href="#cb69-572"></a><span class="ss">-   </span><span class="in">`map_id`</span> is a required aesthetic for <span class="in">`geom_map()`</span>.</span>
+<span id="cb69-573"><a href="#cb69-573"></a><span class="ss">    -   </span>It specifies which variable in our dataset indicates the region (here <span class="in">`state_name`</span>).</span>
+<span id="cb69-574"><a href="#cb69-574"></a><span class="ss">    -   </span>It connects this variable (<span class="in">`state_name`</span>) to the <span class="in">`region`</span> variable in our mapping background (<span class="in">`states_map`</span>). These variables must have the same possible outcomes in order to be matched up (<span class="in">`alabama`</span>, <span class="in">`alaska`</span>, <span class="in">`arizona`</span>,...).</span>
+<span id="cb69-575"><a href="#cb69-575"></a><span class="ss">-   </span><span class="in">`expand_limits()`</span> assures that the map covers the entire area it's supposed to, by pulling longitudes and latitudes from the <span class="in">`states_map`</span>.</span>
 <span id="cb69-576"><a href="#cb69-576"></a></span>
-<span id="cb69-577"><a href="#cb69-577"></a><span class="fu">#### Part c {.unnumbered}</span></span>
+<span id="cb69-577"><a href="#cb69-577"></a><span class="fu">#### Part d {.unnumbered}</span></span>
 <span id="cb69-578"><a href="#cb69-578"></a></span>
-<span id="cb69-579"><a href="#cb69-579"></a>We can add other layers, like points, on top of a choropleth map.</span>
-<span id="cb69-580"><a href="#cb69-580"></a>Add a Starbucks layer!</span>
-<span id="cb69-581"><a href="#cb69-581"></a>Do you notice any relationship between Starbucks and elections?</span>
-<span id="cb69-582"><a href="#cb69-582"></a>Or are we just doing things at this point?</span>
-<span id="cb69-583"><a href="#cb69-583"></a>;)</span>
-<span id="cb69-584"><a href="#cb69-584"></a></span>
-<span id="cb69-587"><a href="#cb69-587"></a><span class="in">```{r}</span></span>
-<span id="cb69-588"><a href="#cb69-588"></a><span class="co"># Get only the starbucks data from the US</span></span>
-<span id="cb69-589"><a href="#cb69-589"></a>starbucks_us <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span> </span>
-<span id="cb69-590"><a href="#cb69-590"></a>  <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">"US"</span>)</span>
+<span id="cb69-579"><a href="#cb69-579"></a>We used <span class="in">`geom_sf()`</span> for point maps.</span>
+<span id="cb69-580"><a href="#cb69-580"></a>What <span class="in">`geom`</span> do we use for choropleth maps?</span>
+<span id="cb69-581"><a href="#cb69-581"></a></span>
+<span id="cb69-582"><a href="#cb69-582"></a><span class="fu">### Exercise 9: County-level choropleth maps {.unnumbered}</span></span>
+<span id="cb69-583"><a href="#cb69-583"></a></span>
+<span id="cb69-584"><a href="#cb69-584"></a>Let's map the 2020 Republican support in each *county*.</span>
+<span id="cb69-585"><a href="#cb69-585"></a></span>
+<span id="cb69-586"><a href="#cb69-586"></a><span class="fu">##### Part a {.unnumbered}</span></span>
+<span id="cb69-587"><a href="#cb69-587"></a></span>
+<span id="cb69-588"><a href="#cb69-588"></a>We again need two pieces of information.</span>
+<span id="cb69-589"><a href="#cb69-589"></a></span>
+<span id="cb69-590"><a href="#cb69-590"></a><span class="ss">1.  </span>Data on elections in each county, which we already have: <span class="in">`elections_by_county`</span>.</span>
 <span id="cb69-591"><a href="#cb69-591"></a></span>
-<span id="cb69-592"><a href="#cb69-592"></a><span class="co"># Map it</span></span>
-<span id="cb69-593"><a href="#cb69-593"></a><span class="fu">ggplot</span>(elections_by_state, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> repub_20_categories)) <span class="sc">+</span></span>
-<span id="cb69-594"><a href="#cb69-594"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map) <span class="sc">+</span></span>
-<span id="cb69-595"><a href="#cb69-595"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb69-596"><a href="#cb69-596"></a>    <span class="at">data =</span> starbucks_us,</span>
-<span id="cb69-597"><a href="#cb69-597"></a>    <span class="fu">aes</span>(<span class="at">x =</span> Longitude, <span class="at">y =</span> Latitude),</span>
-<span id="cb69-598"><a href="#cb69-598"></a>    <span class="at">size =</span> <span class="fl">0.05</span>,</span>
-<span id="cb69-599"><a href="#cb69-599"></a>    <span class="at">alpha =</span> <span class="fl">0.2</span>,</span>
-<span id="cb69-600"><a href="#cb69-600"></a>    <span class="at">inherit.aes =</span> <span class="cn">FALSE</span></span>
-<span id="cb69-601"><a href="#cb69-601"></a>  ) <span class="sc">+</span></span>
-<span id="cb69-602"><a href="#cb69-602"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
-<span id="cb69-603"><a href="#cb69-603"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
-<span id="cb69-604"><a href="#cb69-604"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">rev</span>(<span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">"RdBu"</span>)), <span class="at">name =</span> <span class="st">"% Republican"</span>)</span>
-<span id="cb69-605"><a href="#cb69-605"></a><span class="in">```</span></span>
+<span id="cb69-592"><a href="#cb69-592"></a><span class="ss">2.  </span>A background map of county boundaries in the US, stored in the <span class="in">`county_map`</span> dataset in the <span class="in">`socviz`</span> package:</span>
+<span id="cb69-593"><a href="#cb69-593"></a></span>
+<span id="cb69-596"><a href="#cb69-596"></a><span class="in">```{r}</span></span>
+<span id="cb69-597"><a href="#cb69-597"></a><span class="co"># Get the latitude and longitude coordinates of county boundaries</span></span>
+<span id="cb69-598"><a href="#cb69-598"></a><span class="fu">library</span>(socviz)</span>
+<span id="cb69-599"><a href="#cb69-599"></a><span class="fu">data</span>(county_map) </span>
+<span id="cb69-600"><a href="#cb69-600"></a></span>
+<span id="cb69-601"><a href="#cb69-601"></a><span class="co"># Check it out</span></span>
+<span id="cb69-602"><a href="#cb69-602"></a><span class="fu">head</span>(county_map)</span>
+<span id="cb69-603"><a href="#cb69-603"></a><span class="in">```</span></span>
+<span id="cb69-604"><a href="#cb69-604"></a></span>
+<span id="cb69-605"><a href="#cb69-605"></a><span class="fu">#### Pause {.unnumbered}</span></span>
 <span id="cb69-606"><a href="#cb69-606"></a></span>
-<span id="cb69-607"><a href="#cb69-607"></a>**Details (if you're curious)**</span>
-<span id="cb69-608"><a href="#cb69-608"></a></span>
-<span id="cb69-609"><a href="#cb69-609"></a><span class="ss">-   </span><span class="in">`map_id`</span> is a required aesthetic for <span class="in">`geom_map()`</span>.</span>
-<span id="cb69-610"><a href="#cb69-610"></a><span class="ss">    -   </span>It specifies which variable in our dataset indicates the region (here <span class="in">`state_name`</span>).</span>
-<span id="cb69-611"><a href="#cb69-611"></a><span class="ss">    -   </span>It connects this variable (<span class="in">`state_name`</span>) to the <span class="in">`region`</span> variable in our mapping background (<span class="in">`states_map`</span>). These variables must have the same possible outcomes in order to be matched up (<span class="in">`alabama`</span>, <span class="in">`alaska`</span>, <span class="in">`arizona`</span>,...).</span>
-<span id="cb69-612"><a href="#cb69-612"></a><span class="ss">-   </span><span class="in">`expand_limits()`</span> assures that the map covers the entire area it's supposed to, by pulling longitudes and latitudes from the <span class="in">`states_map`</span>.</span>
-<span id="cb69-613"><a href="#cb69-613"></a></span>
-<span id="cb69-614"><a href="#cb69-614"></a><span class="fu">#### Part d {.unnumbered}</span></span>
-<span id="cb69-615"><a href="#cb69-615"></a></span>
-<span id="cb69-616"><a href="#cb69-616"></a>We used <span class="in">`geom_sf()`</span> for point maps.</span>
-<span id="cb69-617"><a href="#cb69-617"></a>What <span class="in">`geom`</span> do we use for choropleth maps?</span>
-<span id="cb69-618"><a href="#cb69-618"></a></span>
-<span id="cb69-619"><a href="#cb69-619"></a><span class="fu">### Exercise 9: County-level choropleth maps {.unnumbered}</span></span>
-<span id="cb69-620"><a href="#cb69-620"></a></span>
-<span id="cb69-621"><a href="#cb69-621"></a>Let's map the 2020 Republican support in each *county*.</span>
-<span id="cb69-622"><a href="#cb69-622"></a></span>
-<span id="cb69-623"><a href="#cb69-623"></a><span class="fu">##### Part a {.unnumbered}</span></span>
-<span id="cb69-624"><a href="#cb69-624"></a></span>
-<span id="cb69-625"><a href="#cb69-625"></a>We again need two pieces of information.</span>
-<span id="cb69-626"><a href="#cb69-626"></a></span>
-<span id="cb69-627"><a href="#cb69-627"></a><span class="ss">1.  </span>Data on elections in each county, which we already have: <span class="in">`elections_by_county`</span>.</span>
-<span id="cb69-628"><a href="#cb69-628"></a></span>
-<span id="cb69-629"><a href="#cb69-629"></a><span class="ss">2.  </span>A background map of county boundaries in the US, stored in the <span class="in">`county_map`</span> dataset in the <span class="in">`socviz`</span> package:</span>
+<span id="cb69-607"><a href="#cb69-607"></a>**Important detail:** We officially have a headache.</span>
+<span id="cb69-608"><a href="#cb69-608"></a>Our <span class="in">`county_map`</span> refers to each county by a **5-number** <span class="in">`id`</span>.</span>
+<span id="cb69-609"><a href="#cb69-609"></a>Our <span class="in">`elections_by_counties`</span> data refers to each county by a <span class="in">`county_fips`</span> code, which is *mostly* the same as <span class="in">`id`</span>, BUT drops any 0's at the beginning of the code.</span>
+<span id="cb69-610"><a href="#cb69-610"></a></span>
+<span id="cb69-613"><a href="#cb69-613"></a><span class="in">```{r}</span></span>
+<span id="cb69-614"><a href="#cb69-614"></a><span class="fu">head</span>(county_map)</span>
+<span id="cb69-615"><a href="#cb69-615"></a><span class="fu">head</span>(elections_by_counties)</span>
+<span id="cb69-616"><a href="#cb69-616"></a><span class="in">```</span></span>
+<span id="cb69-617"><a href="#cb69-617"></a></span>
+<span id="cb69-618"><a href="#cb69-618"></a>This just means that we have to wrangle the data so that it can communicate with the background map.</span>
+<span id="cb69-619"><a href="#cb69-619"></a></span>
+<span id="cb69-622"><a href="#cb69-622"></a><span class="in">```{r}</span></span>
+<span id="cb69-623"><a href="#cb69-623"></a><span class="co"># Add 0's at the beginning of any fips_code that's fewer than 5 numbers long</span></span>
+<span id="cb69-624"><a href="#cb69-624"></a><span class="co"># Don't worry about the syntax</span></span>
+<span id="cb69-625"><a href="#cb69-625"></a>elections_by_counties <span class="ot">&lt;-</span> elections_by_counties <span class="sc">|&gt;</span> </span>
+<span id="cb69-626"><a href="#cb69-626"></a>  <span class="fu">mutate</span>(<span class="at">county_fips =</span> <span class="fu">as.character</span>(county_fips)) <span class="sc">|&gt;</span> </span>
+<span id="cb69-627"><a href="#cb69-627"></a>  <span class="fu">mutate</span>(<span class="at">county_fips =</span> </span>
+<span id="cb69-628"><a href="#cb69-628"></a>           <span class="fu">ifelse</span>(<span class="fu">nchar</span>(county_fips) <span class="sc">==</span> <span class="dv">4</span>, <span class="fu">paste0</span>(<span class="st">"0"</span>, county_fips), county_fips))</span>
+<span id="cb69-629"><a href="#cb69-629"></a><span class="in">```</span></span>
 <span id="cb69-630"><a href="#cb69-630"></a></span>
-<span id="cb69-633"><a href="#cb69-633"></a><span class="in">```{r}</span></span>
-<span id="cb69-634"><a href="#cb69-634"></a><span class="co"># Get the latitude and longitude coordinates of county boundaries</span></span>
-<span id="cb69-635"><a href="#cb69-635"></a><span class="fu">library</span>(socviz)</span>
-<span id="cb69-636"><a href="#cb69-636"></a><span class="fu">data</span>(county_map) </span>
-<span id="cb69-637"><a href="#cb69-637"></a></span>
-<span id="cb69-638"><a href="#cb69-638"></a><span class="co"># Check it out</span></span>
-<span id="cb69-639"><a href="#cb69-639"></a><span class="fu">head</span>(county_map)</span>
-<span id="cb69-640"><a href="#cb69-640"></a><span class="in">```</span></span>
-<span id="cb69-641"><a href="#cb69-641"></a></span>
-<span id="cb69-642"><a href="#cb69-642"></a><span class="fu">#### Pause {.unnumbered}</span></span>
-<span id="cb69-643"><a href="#cb69-643"></a></span>
-<span id="cb69-644"><a href="#cb69-644"></a>**Important detail:** We officially have a headache.</span>
-<span id="cb69-645"><a href="#cb69-645"></a>Our <span class="in">`county_map`</span> refers to each county by a **5-number** <span class="in">`id`</span>.</span>
-<span id="cb69-646"><a href="#cb69-646"></a>Our <span class="in">`elections_by_counties`</span> data refers to each county by a <span class="in">`county_fips`</span> code, which is *mostly* the same as <span class="in">`id`</span>, BUT drops any 0's at the beginning of the code.</span>
+<span id="cb69-631"><a href="#cb69-631"></a><span class="fu">#### Part b {.unnumbered}</span></span>
+<span id="cb69-632"><a href="#cb69-632"></a></span>
+<span id="cb69-633"><a href="#cb69-633"></a>*Now* map Republican support by county.</span>
+<span id="cb69-634"><a href="#cb69-634"></a>Let's go straight to the discretized <span class="in">`repub_20_categories`</span> variable, and a good color scale.</span>
+<span id="cb69-635"><a href="#cb69-635"></a></span>
+<span id="cb69-638"><a href="#cb69-638"></a><span class="in">```{r}</span></span>
+<span id="cb69-639"><a href="#cb69-639"></a><span class="fu">ggplot</span>(elections_by_counties, <span class="fu">aes</span>(<span class="at">map_id =</span> county_fips, <span class="at">fill =</span> repub_20_categories)) <span class="sc">+</span></span>
+<span id="cb69-640"><a href="#cb69-640"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> county_map) <span class="sc">+</span></span>
+<span id="cb69-641"><a href="#cb69-641"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">rev</span>(<span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">"RdBu"</span>)), <span class="at">name =</span> <span class="st">"% Republican"</span>) <span class="sc">+</span></span>
+<span id="cb69-642"><a href="#cb69-642"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> county_map<span class="sc">$</span>long, <span class="at">y =</span> county_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
+<span id="cb69-643"><a href="#cb69-643"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span></span>
+<span id="cb69-644"><a href="#cb69-644"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>) <span class="sc">+</span> </span>
+<span id="cb69-645"><a href="#cb69-645"></a>  <span class="fu">coord_equal</span>()</span>
+<span id="cb69-646"><a href="#cb69-646"></a><span class="in">```</span></span>
 <span id="cb69-647"><a href="#cb69-647"></a></span>
-<span id="cb69-650"><a href="#cb69-650"></a><span class="in">```{r}</span></span>
-<span id="cb69-651"><a href="#cb69-651"></a><span class="fu">head</span>(county_map)</span>
-<span id="cb69-652"><a href="#cb69-652"></a><span class="fu">head</span>(elections_by_counties)</span>
-<span id="cb69-653"><a href="#cb69-653"></a><span class="in">```</span></span>
-<span id="cb69-654"><a href="#cb69-654"></a></span>
-<span id="cb69-655"><a href="#cb69-655"></a>This just means that we have to wrangle the data so that it can communicate with the background map.</span>
+<span id="cb69-648"><a href="#cb69-648"></a><span class="fu">### Exercise 10: Play around! {.unnumbered}</span></span>
+<span id="cb69-649"><a href="#cb69-649"></a></span>
+<span id="cb69-650"><a href="#cb69-650"></a>Construct county-level maps of <span class="in">`median_rent`</span> and <span class="in">`median_age`</span>.</span>
+<span id="cb69-651"><a href="#cb69-651"></a></span>
+<span id="cb69-652"><a href="#cb69-652"></a><span class="fu">### Exercise 11: Choropleth maps with leaflet {.unnumbered}</span></span>
+<span id="cb69-653"><a href="#cb69-653"></a></span>
+<span id="cb69-654"><a href="#cb69-654"></a>Though <span class="in">`ggplot()`</span> is often better for this purpose, we can also make choropleth maps with <span class="in">`leaflet()`</span>.</span>
+<span id="cb69-655"><a href="#cb69-655"></a>If you're curious, check out the <span class="in">`leaflet`</span> documentation:</span>
 <span id="cb69-656"><a href="#cb69-656"></a></span>
-<span id="cb69-659"><a href="#cb69-659"></a><span class="in">```{r}</span></span>
-<span id="cb69-660"><a href="#cb69-660"></a><span class="co"># Add 0's at the beginning of any fips_code that's fewer than 5 numbers long</span></span>
-<span id="cb69-661"><a href="#cb69-661"></a><span class="co"># Don't worry about the syntax</span></span>
-<span id="cb69-662"><a href="#cb69-662"></a>elections_by_counties <span class="ot">&lt;-</span> elections_by_counties <span class="sc">|&gt;</span> </span>
-<span id="cb69-663"><a href="#cb69-663"></a>  <span class="fu">mutate</span>(<span class="at">county_fips =</span> <span class="fu">as.character</span>(county_fips)) <span class="sc">|&gt;</span> </span>
-<span id="cb69-664"><a href="#cb69-664"></a>  <span class="fu">mutate</span>(<span class="at">county_fips =</span> </span>
-<span id="cb69-665"><a href="#cb69-665"></a>           <span class="fu">ifelse</span>(<span class="fu">nchar</span>(county_fips) <span class="sc">==</span> <span class="dv">4</span>, <span class="fu">paste0</span>(<span class="st">"0"</span>, county_fips), county_fips))</span>
-<span id="cb69-666"><a href="#cb69-666"></a><span class="in">```</span></span>
-<span id="cb69-667"><a href="#cb69-667"></a></span>
-<span id="cb69-668"><a href="#cb69-668"></a><span class="fu">#### Part b {.unnumbered}</span></span>
-<span id="cb69-669"><a href="#cb69-669"></a></span>
-<span id="cb69-670"><a href="#cb69-670"></a>*Now* map Republican support by county.</span>
-<span id="cb69-671"><a href="#cb69-671"></a>Let's go straight to the discretized <span class="in">`repub_20_categories`</span> variable, and a good color scale.</span>
-<span id="cb69-672"><a href="#cb69-672"></a></span>
-<span id="cb69-675"><a href="#cb69-675"></a><span class="in">```{r}</span></span>
-<span id="cb69-676"><a href="#cb69-676"></a><span class="fu">ggplot</span>(elections_by_counties, <span class="fu">aes</span>(<span class="at">map_id =</span> county_fips, <span class="at">fill =</span> repub_20_categories)) <span class="sc">+</span></span>
-<span id="cb69-677"><a href="#cb69-677"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> county_map) <span class="sc">+</span></span>
-<span id="cb69-678"><a href="#cb69-678"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">rev</span>(<span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">"RdBu"</span>)), <span class="at">name =</span> <span class="st">"% Republican"</span>) <span class="sc">+</span></span>
-<span id="cb69-679"><a href="#cb69-679"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> county_map<span class="sc">$</span>long, <span class="at">y =</span> county_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
-<span id="cb69-680"><a href="#cb69-680"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span></span>
-<span id="cb69-681"><a href="#cb69-681"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>) <span class="sc">+</span> </span>
-<span id="cb69-682"><a href="#cb69-682"></a>  <span class="fu">coord_equal</span>()</span>
-<span id="cb69-683"><a href="#cb69-683"></a><span class="in">```</span></span>
-<span id="cb69-684"><a href="#cb69-684"></a></span>
-<span id="cb69-685"><a href="#cb69-685"></a><span class="fu">### Exercise 10: Play around! {.unnumbered}</span></span>
-<span id="cb69-686"><a href="#cb69-686"></a></span>
-<span id="cb69-687"><a href="#cb69-687"></a>Construct county-level maps of <span class="in">`median_rent`</span> and <span class="in">`median_age`</span>.</span>
-<span id="cb69-688"><a href="#cb69-688"></a></span>
-<span id="cb69-689"><a href="#cb69-689"></a><span class="fu">### Exercise 11: Choropleth maps with leaflet {.unnumbered}</span></span>
-<span id="cb69-690"><a href="#cb69-690"></a></span>
-<span id="cb69-691"><a href="#cb69-691"></a>Though <span class="in">`ggplot()`</span> is often better for this purpose, we can also make choropleth maps with <span class="in">`leaflet()`</span>.</span>
-<span id="cb69-692"><a href="#cb69-692"></a>If you're curious, check out the <span class="in">`leaflet`</span> documentation:</span>
-<span id="cb69-693"><a href="#cb69-693"></a></span>
-<span id="cb69-694"><a href="#cb69-694"></a><span class="ot">&lt;https://rstudio.github.io/leaflet/choropleths.html&gt;</span></span>
+<span id="cb69-657"><a href="#cb69-657"></a><span class="ot">&lt;https://rstudio.github.io/leaflet/choropleths.html&gt;</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
