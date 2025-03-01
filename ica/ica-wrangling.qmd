@@ -1,4 +1,7 @@
-## Exercises
+---
+title: "Wrangling"
+---
+
 
 
 ### Exercise 1: `select` Practice {-}
