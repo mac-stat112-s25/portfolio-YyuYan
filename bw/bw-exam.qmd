@@ -1,0 +1,103 @@
+---
+title: "Exam"
+---
+
+##3. load packages
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+```
+
+
+##4. get data
+```{r}
+#4.get data
+tuesdata <- tt_load('2020-02-18')
+fc <- tuesdata$food_consumption
+```
+
+
+##5.understand data 
+```{r}
+dim(fc)
+names(fc)
+head(fc)
+```
+
+
+##7.understand variables individually
+
+### consumption
+```{r}
+ggplot(fc, aes(x = consumption)) +
+  geom_histogram(binwidth = 10, fill = "blue", color = "black") +
+  labs(title = "Distribution of Food Consumption",
+       x = "Consumption (kg/person/year)",
+       y = "Frequency")
+```
+
+###food_category
+```{r}
+#| fig-height: 5
+#| fig-width: 15
+# Bar plot for food_category
+ggplot(fc, aes(x = food_category)) +
+  geom_bar(fill = "blue", color = "black") +
+  labs(title = "Distribution of Food Categories",
+       x = "Food Category",
+       y = "Count") 
+```
+
+###country
+```{r}
+#| fig-height: 5
+#| fig-width: 15
+ggplot(fc, aes(x = country)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(title = "Distribution of Countries",
+       x = "Country",
+       y = "Count") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+##8. understand consumption
+
+###overall food consumption / food category
+```{r}
+#| fig-height: 5
+#| fig-width: 15
+# Box plot of consumption by food category
+ggplot(fc, aes(x = food_category, y = consumption, fill = food_category)) +
+  geom_boxplot() +
+  labs(title = "Food Consumption by Category",
+       x = "Food Category",
+       y = "Consumption (kg/person/year)") 
+```
+
+###overall food consumption / country
+```{r}
+#| fig-height: 10
+#| fig-width: 30
+ggplot(fc, aes(x = country, y = consumption, fill = country)) +
+  geom_boxplot() +
+  labs(title = "Food Consumption by Country",
+       x = "Country",
+       y = "Consumption (kg/person/year)") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+##9. Answering Grand RQ
+```{r}
+#| fig-height: 10
+#| fig-width: 20
+ggplot(fc, aes(x = country, y = consumption, fill = food_category)) +
+  geom_bar(stat = "identity", position = "dodge") +  
+  labs(title = "Food Consumption by Country and Category",
+       x = "Country",
+       y = "Consumption (kg/person/year)",
+       fill = "Food Category") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10),  
+        legend.position = "bottom") +  
+  scale_fill_viridis_d()  
+
+```
