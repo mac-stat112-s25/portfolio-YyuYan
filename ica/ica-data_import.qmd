@@ -1,5 +1,5 @@
 ---
-title: "Strings"
+title: "data import"
 ---
 
 
@@ -118,6 +118,8 @@ After importing new data into RStudio, you MUST do some quick checks of the data
 #### Part a {.unnumbered}
 
 Open `imdb_messy` in the spreadsheet-like viewer by typing `View(imdb_messy)` in the console. Sort this "spreadsheet" by different variables by clicking on the arrows next to the variable names. Do you notice anything unexpected?
+
+some of the observations are duplicated
 
 #### Part b {.unnumbered}
 
