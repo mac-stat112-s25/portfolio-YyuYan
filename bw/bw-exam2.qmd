@@ -1,0 +1,155 @@
+---
+title: "Exam2"
+execute: 
+  warning: false
+  code: true
+fig-height: 3
+fig-width: 5
+fig-align: center
+code-fold: false
+number-sections: false
+---
+
+2.2. load packages
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(rnaturalearth)
+library(sf)
+```
+
+2.3 Load Data
+```{r}
+tuesdata <- tt_load('2020-02-18')
+fc <- tuesdata$food_consumption
+```
+2.7 fix food_category variable 
+```{r}
+unique(fc$food_category)
+```
+```{r}
+fc <- fc |>
+  mutate(food_category = recode(food_category, "Lamb & Goat" = "Lamb","Milk - inc. cheese" = "Milk","Wheat and Wheat Products" = "Wheat","Nuts inc. Peanut Butter" = "Nuts"))
+```
+
+3. Research Question 1: Which top 5 countries consume each food?
+```{r}
+question_1 <- fc |>
+  group_by(food_category, country) |>
+  summarise(total = sum(consumption), .groups = "drop") |>
+  arrange(food_category, desc(total)) |>
+  group_by(food_category) |>
+  slice_head(n = 5)
+```
+
+```{r}
+ggplot(question_1, aes(x = reorder(country, total), y = total)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(title = "Top 5 Countries by Total Food Consumption",
+       x = "Country", y = "Total Consumption (kg/person/year)")
+```
+4.Research Question 2: Which top 5 countries consume each food?
+```{r}
+question_2 <- fc|>
+  group_by(food_category, country) |>
+  summarise(total = sum(consumption), .groups = "drop") |>
+  arrange(food_category, desc(total)) |>
+  group_by(food_category) |>
+  slice_head(n = 5)
+```
+
+```{r}
+ggplot(question_2, aes(x = reorder(country, total), y = total, fill = food_category)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ food_category, scales = "free_y") +
+  labs(title = "Top 5 Countries by Food Category", x = "Country", y = "Consumption") +
+  coord_flip()
+```
+
+
+5. Research Question 3: What does the consumption of each food look like? (Choropleth maps)
+a. Attempt 1
+```{r}
+world <- ne_countries(returnclass = "sf") |>
+  select(name, geometry)
+
+map_data <- left_join(
+  fc |> select(-co2_emmission),
+  world,
+  by = c("country" = "name")
+) |>
+  filter(!is.na(geometry), !is.na(food_category))
+
+ggplot(map_data) +
+  geom_sf(aes(fill = consumption, geometry = geometry), color = NA) +
+  facet_wrap(~ food_category) +
+  scale_fill_viridis_c(option = "C", na.value = "grey") +
+  theme_minimal() +
+  theme(legend.position = "bottom") 
+```
+b.Attempt 2
+```{r}
+world <- ne_countries(returnclass = "sf") |>
+  select(name, geometry) |>
+  mutate(name = case_when(
+    name == "United States of America" ~ "USA",
+    name == "Bosnia and Herz." ~ "Bosnia and Herzegovina",
+    name == "Czechia" ~ "Czech Republic",
+    name == "Taiwan" ~ "Taiwan. ROC",
+    TRUE ~ name
+  ))
+
+map_data <- world |>
+  left_join(fc |> select(-co2_emmission), by = c("name" = "country"))
+
+map_wide <- map_data |>
+  pivot_wider(names_from = food_category, values_from = consumption)
+
+map_long <- map_wide |>
+  pivot_longer(cols = -c(name, geometry), 
+               names_to = "food_category", 
+               values_to = "consumption") |>
+  filter(!is.na(consumption))
+
+ggplot(map_long) +
+  geom_sf(aes(fill = consumption, geometry = geometry), color = NA) +
+  facet_wrap(~ food_category) +
+  scale_fill_viridis_c(option = "C", na.value = "grey") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+c. Attempt 3 
+```{r}
+world <- ne_countries(returnclass = "sf") |>
+  select(name, geometry) |>
+  mutate(name = case_when(
+    name == "United States of America" ~ "USA",
+    name == "Bosnia and Herz." ~ "Bosnia and Herzegovina",
+    name == "Czechia" ~ "Czech Republic",
+    name == "Taiwan" ~ "Taiwan. ROC",
+    TRUE ~ name
+  ))
+
+fc_z <- fc |>
+  select(-co2_emmission) |>
+  group_by(food_category) |>
+  mutate(consumption = (consumption - mean(consumption, na.rm = TRUE)) /
+                         sd(consumption, na.rm = TRUE)) |>
+  ungroup()
+
+map_data <- left_join(world, fc_z, by = c("name" = "country")) |>
+  pivot_wider(names_from = food_category, values_from = consumption)
+
+map_long <- map_data |>
+  pivot_longer(cols = -c(name, geometry), names_to = "food_category", values_to = "consumption") |>
+  filter(!is.na(consumption))
+
+ggplot(map_long) +
+  geom_sf(aes(fill = consumption, geometry = geometry), color = NA) +
+  facet_wrap(~ food_category, ncol = 4) +
+  scale_fill_viridis_c(option = "C", limits = c(-3, 3), na.value = "grey") + 
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```

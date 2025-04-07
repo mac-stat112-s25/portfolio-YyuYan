@@ -294,18 +294,24 @@ Create a new dataset named `daily_births` that includes the total number of birt
 
 ```{r}
 daily_births <- Birthdays |> 
-  mutate(day_of_week = weekdays(date)) |> 
-  count(date, name = "total_births")
+  group_by(date) |> 
+  summarise(total_births = sum(births, na.rm = TRUE)) |> 
+  mutate(day_of_week = wday(date, label = TRUE))
 
-
+head(daily_births)
 ```
 
 Using this data, construct a plot of `births` over time, indicating the day of week.
 
 ```{r}
 ggplot(daily_births, aes(x = date, y = total_births, color = day_of_week)) +
-  geom_line() +
-  labs(title = "Total Births Over Time by Day of the Week", x = "Date", y = "Total Births")
+  geom_line(alpha = 0.8) +
+  labs(
+    title = "Total Births Over Time by Day of the Week",
+    x = "Date",
+    y = "Total Births",
+    color = "Day of Week"
+  )
 ```
 
 
