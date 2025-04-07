@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>6&nbsp; Exam – COMP/STAT112 Notebook</title>
+<title>Exam – COMP/STAT112 Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -227,18 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-<li><a href="#consumption" id="toc-consumption" class="nav-link active" data-scroll-target="#consumption"><span class="header-section-number">6.0.1</span> consumption</a></li>
-  </ul></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bw/bw-uni.html">Best Work</a></li><li class="breadcrumb-item"><a href="../bw/bw-exam.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exam</span></a></li></ol></nav><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Exam</span>
-</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Exam</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -252,49 +246,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>##3. load packages</p>
+</header><ol start="3" type="1">
+<li>load packages</li>
+</ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidytuesdayR)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-</div>
-<p>##4. get data</p>
+<ol start="4" type="1">
+<li>get data</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#4.get data</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>tuesdata <span class="ot">&lt;-</span> <span class="fu">tt_load</span>(<span class="st">'2020-02-18'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>---- Compiling #TidyTuesday Information for 2020-02-18 ----
---- There is 1 file available ---
-
-
-── Downloading files ───────────────────────────────────────────────────────────
-
-  1 of 1: "food_consumption.csv"</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#4.get data</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>tuesdata <span class="ot">&lt;-</span> <span class="fu">tt_load</span>(<span class="st">'2020-02-18'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>fc <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>food_consumption</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>fc <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>food_consumption</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>##5.understand data</p>
+<p>5.understand data</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">dim</span>(fc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">dim</span>(fc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1430    4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">names</span>(fc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">names</span>(fc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "country"       "food_category" "consumption"   "co2_emmission"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">head</span>(fc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">head</span>(fc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   country   food_category consumption co2_emmission
@@ -307,30 +284,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6 Argentina Eggs                11.4          10.5 </code></pre>
 </div>
 </div>
-<p>##7.understand variables individually</p>
-<section id="consumption" class="level3" data-number="6.0.1"><h3 data-number="6.0.1" class="anchored" data-anchor-id="consumption">
-<span class="header-section-number">6.0.1</span> consumption</h3>
+<p>7.understand variables individually</p>
+<p>1)consumption</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> consumption)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Food Consumption"</span>,</span>
-<span id="cb12-4"><a href="#cb12-4"></a>       <span class="at">x =</span> <span class="st">"Consumption (kg/person/year)"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> consumption)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Food Consumption"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>       <span class="at">x =</span> <span class="st">"Consumption (kg/person/year)"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="bw-exam_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="bw-exam_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>###food_category</p>
+<p>2)food_category</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Bar plot for food_category</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> food_category)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Food Categories"</span>,</span>
-<span id="cb13-5"><a href="#cb13-5"></a>       <span class="at">x =</span> <span class="st">"Food Category"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Bar plot for food_category</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> food_category)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Food Categories"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5"></a>       <span class="at">x =</span> <span class="st">"Food Category"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="bw-exam_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="1440"></p>
@@ -338,14 +314,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>###country</p>
+<p>3)country</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Countries"</span>,</span>
-<span id="cb14-4"><a href="#cb14-4"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Countries"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="bw-exam_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="1440"></p>
@@ -353,15 +329,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>##8. understand consumption</p>
-<p>###overall food consumption / food category</p>
+<ol start="8" type="1">
+<li>understand consumption</li>
+</ol>
+<p>1)overall food consumption / food category</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Box plot of consumption by food category</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> food_category, <span class="at">y =</span> consumption, <span class="at">fill =</span> food_category)) <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Category"</span>,</span>
-<span id="cb15-5"><a href="#cb15-5"></a>       <span class="at">x =</span> <span class="st">"Food Category"</span>,</span>
-<span id="cb15-6"><a href="#cb15-6"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Box plot of consumption by food category</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> food_category, <span class="at">y =</span> consumption, <span class="at">fill =</span> food_category)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Category"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5"></a>       <span class="at">x =</span> <span class="st">"Food Category"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="bw-exam_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="1440"></p>
@@ -369,14 +347,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>###overall food consumption / country</p>
+<p>2)overall food consumption / country</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> consumption, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Country"</span>,</span>
-<span id="cb16-4"><a href="#cb16-4"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>) <span class="sc">+</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> consumption, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Country"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="bw-exam_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="2880"></p>
@@ -384,17 +362,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>##9. Answering Grand RQ</p>
+<ol start="9" type="1">
+<li>Answering Grand RQ</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> consumption, <span class="at">fill =</span> food_category)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span>  </span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Country and Category"</span>,</span>
-<span id="cb17-4"><a href="#cb17-4"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb17-5"><a href="#cb17-5"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>,</span>
-<span id="cb17-6"><a href="#cb17-6"></a>       <span class="at">fill =</span> <span class="st">"Food Category"</span>) <span class="sc">+</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>),  </span>
-<span id="cb17-8"><a href="#cb17-8"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span>  </span>
-<span id="cb17-9"><a href="#cb17-9"></a>  <span class="fu">scale_fill_viridis_d</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> consumption, <span class="at">fill =</span> food_category)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span>  </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Country and Category"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6"></a>       <span class="at">fill =</span> <span class="st">"Food Category"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>),  </span>
+<span id="cb14-8"><a href="#cb14-8"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span>  </span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">scale_fill_viridis_d</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="bw-exam_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="1920"></p>
@@ -406,7 +386,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- -->
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1036,109 +1017,117 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb18" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">---</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="an">title:</span><span class="co"> "Exam"</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="co">---</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a></span>
-<span id="cb18-5"><a href="#cb18-5"></a>##3. load packages</span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="in">```{r}</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="fu">library</span>(tidytuesdayR)</span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="in">```</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a></span>
-<span id="cb18-13"><a href="#cb18-13"></a></span>
-<span id="cb18-14"><a href="#cb18-14"></a>##4. get data</span>
-<span id="cb18-17"><a href="#cb18-17"></a><span class="in">```{r}</span></span>
-<span id="cb18-18"><a href="#cb18-18"></a><span class="co">#4.get data</span></span>
-<span id="cb18-19"><a href="#cb18-19"></a>tuesdata <span class="ot">&lt;-</span> <span class="fu">tt_load</span>(<span class="st">'2020-02-18'</span>)</span>
-<span id="cb18-20"><a href="#cb18-20"></a>fc <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>food_consumption</span>
-<span id="cb18-21"><a href="#cb18-21"></a><span class="in">```</span></span>
-<span id="cb18-22"><a href="#cb18-22"></a></span>
-<span id="cb18-23"><a href="#cb18-23"></a></span>
-<span id="cb18-24"><a href="#cb18-24"></a>##5.understand data </span>
-<span id="cb18-27"><a href="#cb18-27"></a><span class="in">```{r}</span></span>
-<span id="cb18-28"><a href="#cb18-28"></a><span class="fu">dim</span>(fc)</span>
-<span id="cb18-29"><a href="#cb18-29"></a><span class="fu">names</span>(fc)</span>
-<span id="cb18-30"><a href="#cb18-30"></a><span class="fu">head</span>(fc)</span>
-<span id="cb18-31"><a href="#cb18-31"></a><span class="in">```</span></span>
-<span id="cb18-32"><a href="#cb18-32"></a></span>
-<span id="cb18-33"><a href="#cb18-33"></a></span>
-<span id="cb18-34"><a href="#cb18-34"></a>##7.understand variables individually</span>
-<span id="cb18-35"><a href="#cb18-35"></a></span>
-<span id="cb18-36"><a href="#cb18-36"></a><span class="fu">### consumption</span></span>
-<span id="cb18-39"><a href="#cb18-39"></a><span class="in">```{r}</span></span>
-<span id="cb18-40"><a href="#cb18-40"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> consumption)) <span class="sc">+</span></span>
-<span id="cb18-41"><a href="#cb18-41"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb18-42"><a href="#cb18-42"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Food Consumption"</span>,</span>
-<span id="cb18-43"><a href="#cb18-43"></a>       <span class="at">x =</span> <span class="st">"Consumption (kg/person/year)"</span>,</span>
-<span id="cb18-44"><a href="#cb18-44"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>)</span>
-<span id="cb18-45"><a href="#cb18-45"></a><span class="in">```</span></span>
-<span id="cb18-46"><a href="#cb18-46"></a></span>
-<span id="cb18-47"><a href="#cb18-47"></a>###food_category</span>
-<span id="cb18-50"><a href="#cb18-50"></a><span class="in">```{r}</span></span>
-<span id="cb18-51"><a href="#cb18-51"></a><span class="co">#| fig-height: 5</span></span>
-<span id="cb18-52"><a href="#cb18-52"></a><span class="co">#| fig-width: 15</span></span>
-<span id="cb18-53"><a href="#cb18-53"></a><span class="co"># Bar plot for food_category</span></span>
-<span id="cb18-54"><a href="#cb18-54"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> food_category)) <span class="sc">+</span></span>
-<span id="cb18-55"><a href="#cb18-55"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb18-56"><a href="#cb18-56"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Food Categories"</span>,</span>
-<span id="cb18-57"><a href="#cb18-57"></a>       <span class="at">x =</span> <span class="st">"Food Category"</span>,</span>
-<span id="cb18-58"><a href="#cb18-58"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) </span>
-<span id="cb18-59"><a href="#cb18-59"></a><span class="in">```</span></span>
-<span id="cb18-60"><a href="#cb18-60"></a></span>
-<span id="cb18-61"><a href="#cb18-61"></a>###country</span>
-<span id="cb18-64"><a href="#cb18-64"></a><span class="in">```{r}</span></span>
-<span id="cb18-65"><a href="#cb18-65"></a><span class="co">#| fig-height: 5</span></span>
-<span id="cb18-66"><a href="#cb18-66"></a><span class="co">#| fig-width: 15</span></span>
-<span id="cb18-67"><a href="#cb18-67"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country)) <span class="sc">+</span></span>
-<span id="cb18-68"><a href="#cb18-68"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb18-69"><a href="#cb18-69"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Countries"</span>,</span>
-<span id="cb18-70"><a href="#cb18-70"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb18-71"><a href="#cb18-71"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
-<span id="cb18-72"><a href="#cb18-72"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
-<span id="cb18-73"><a href="#cb18-73"></a><span class="in">```</span></span>
-<span id="cb18-74"><a href="#cb18-74"></a></span>
-<span id="cb18-75"><a href="#cb18-75"></a>##8. understand consumption</span>
-<span id="cb18-76"><a href="#cb18-76"></a></span>
-<span id="cb18-77"><a href="#cb18-77"></a>###overall food consumption / food category</span>
-<span id="cb18-80"><a href="#cb18-80"></a><span class="in">```{r}</span></span>
-<span id="cb18-81"><a href="#cb18-81"></a><span class="co">#| fig-height: 5</span></span>
-<span id="cb18-82"><a href="#cb18-82"></a><span class="co">#| fig-width: 15</span></span>
-<span id="cb18-83"><a href="#cb18-83"></a><span class="co"># Box plot of consumption by food category</span></span>
-<span id="cb18-84"><a href="#cb18-84"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> food_category, <span class="at">y =</span> consumption, <span class="at">fill =</span> food_category)) <span class="sc">+</span></span>
-<span id="cb18-85"><a href="#cb18-85"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb18-86"><a href="#cb18-86"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Category"</span>,</span>
-<span id="cb18-87"><a href="#cb18-87"></a>       <span class="at">x =</span> <span class="st">"Food Category"</span>,</span>
-<span id="cb18-88"><a href="#cb18-88"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>) </span>
-<span id="cb18-89"><a href="#cb18-89"></a><span class="in">```</span></span>
-<span id="cb18-90"><a href="#cb18-90"></a></span>
-<span id="cb18-91"><a href="#cb18-91"></a>###overall food consumption / country</span>
-<span id="cb18-94"><a href="#cb18-94"></a><span class="in">```{r}</span></span>
-<span id="cb18-95"><a href="#cb18-95"></a><span class="co">#| fig-height: 10</span></span>
-<span id="cb18-96"><a href="#cb18-96"></a><span class="co">#| fig-width: 30</span></span>
-<span id="cb18-97"><a href="#cb18-97"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> consumption, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
-<span id="cb18-98"><a href="#cb18-98"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb18-99"><a href="#cb18-99"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Country"</span>,</span>
-<span id="cb18-100"><a href="#cb18-100"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb18-101"><a href="#cb18-101"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>) <span class="sc">+</span></span>
-<span id="cb18-102"><a href="#cb18-102"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
-<span id="cb18-103"><a href="#cb18-103"></a><span class="in">```</span></span>
-<span id="cb18-104"><a href="#cb18-104"></a></span>
-<span id="cb18-105"><a href="#cb18-105"></a>##9. Answering Grand RQ</span>
-<span id="cb18-108"><a href="#cb18-108"></a><span class="in">```{r}</span></span>
-<span id="cb18-109"><a href="#cb18-109"></a><span class="co">#| fig-height: 10</span></span>
-<span id="cb18-110"><a href="#cb18-110"></a><span class="co">#| fig-width: 20</span></span>
-<span id="cb18-111"><a href="#cb18-111"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> consumption, <span class="at">fill =</span> food_category)) <span class="sc">+</span></span>
-<span id="cb18-112"><a href="#cb18-112"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span>  </span>
-<span id="cb18-113"><a href="#cb18-113"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Country and Category"</span>,</span>
-<span id="cb18-114"><a href="#cb18-114"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb18-115"><a href="#cb18-115"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>,</span>
-<span id="cb18-116"><a href="#cb18-116"></a>       <span class="at">fill =</span> <span class="st">"Food Category"</span>) <span class="sc">+</span></span>
-<span id="cb18-117"><a href="#cb18-117"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>),  </span>
-<span id="cb18-118"><a href="#cb18-118"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span>  </span>
-<span id="cb18-119"><a href="#cb18-119"></a>  <span class="fu">scale_fill_viridis_d</span>()  </span>
-<span id="cb18-120"><a href="#cb18-120"></a></span>
-<span id="cb18-121"><a href="#cb18-121"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb15" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="an">title:</span><span class="co"> "Exam"</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co">  warning: false</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co">  code: true</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="an">fig-height:</span><span class="co"> 3</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="an">fig-width:</span><span class="co"> 5</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="an">fig-align:</span><span class="co"> center</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="an">code-fold:</span><span class="co"> false</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="co">---</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a></span>
+<span id="cb15-13"><a href="#cb15-13"></a><span class="ss">3. </span>load packages</span>
+<span id="cb15-16"><a href="#cb15-16"></a><span class="in">```{r}</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a><span class="fu">library</span>(tidytuesdayR)</span>
+<span id="cb15-18"><a href="#cb15-18"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-19"><a href="#cb15-19"></a><span class="in">```</span></span>
+<span id="cb15-20"><a href="#cb15-20"></a></span>
+<span id="cb15-21"><a href="#cb15-21"></a></span>
+<span id="cb15-22"><a href="#cb15-22"></a><span class="ss">4. </span>get data</span>
+<span id="cb15-25"><a href="#cb15-25"></a><span class="in">```{r}</span></span>
+<span id="cb15-26"><a href="#cb15-26"></a><span class="co">#4.get data</span></span>
+<span id="cb15-27"><a href="#cb15-27"></a>tuesdata <span class="ot">&lt;-</span> <span class="fu">tt_load</span>(<span class="st">'2020-02-18'</span>)</span>
+<span id="cb15-28"><a href="#cb15-28"></a>fc <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>food_consumption</span>
+<span id="cb15-29"><a href="#cb15-29"></a><span class="in">```</span></span>
+<span id="cb15-30"><a href="#cb15-30"></a></span>
+<span id="cb15-31"><a href="#cb15-31"></a></span>
+<span id="cb15-32"><a href="#cb15-32"></a>5.understand data </span>
+<span id="cb15-35"><a href="#cb15-35"></a><span class="in">```{r}</span></span>
+<span id="cb15-36"><a href="#cb15-36"></a><span class="fu">dim</span>(fc)</span>
+<span id="cb15-37"><a href="#cb15-37"></a><span class="fu">names</span>(fc)</span>
+<span id="cb15-38"><a href="#cb15-38"></a><span class="fu">head</span>(fc)</span>
+<span id="cb15-39"><a href="#cb15-39"></a><span class="in">```</span></span>
+<span id="cb15-40"><a href="#cb15-40"></a></span>
+<span id="cb15-41"><a href="#cb15-41"></a></span>
+<span id="cb15-42"><a href="#cb15-42"></a>7.understand variables individually</span>
+<span id="cb15-43"><a href="#cb15-43"></a></span>
+<span id="cb15-44"><a href="#cb15-44"></a>1)consumption</span>
+<span id="cb15-47"><a href="#cb15-47"></a><span class="in">```{r}</span></span>
+<span id="cb15-48"><a href="#cb15-48"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> consumption)) <span class="sc">+</span></span>
+<span id="cb15-49"><a href="#cb15-49"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb15-50"><a href="#cb15-50"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Food Consumption"</span>,</span>
+<span id="cb15-51"><a href="#cb15-51"></a>       <span class="at">x =</span> <span class="st">"Consumption (kg/person/year)"</span>,</span>
+<span id="cb15-52"><a href="#cb15-52"></a>       <span class="at">y =</span> <span class="st">"Frequency"</span>)</span>
+<span id="cb15-53"><a href="#cb15-53"></a><span class="in">```</span></span>
+<span id="cb15-54"><a href="#cb15-54"></a></span>
+<span id="cb15-55"><a href="#cb15-55"></a>2)food_category</span>
+<span id="cb15-58"><a href="#cb15-58"></a><span class="in">```{r}</span></span>
+<span id="cb15-59"><a href="#cb15-59"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb15-60"><a href="#cb15-60"></a><span class="co">#| fig-width: 15</span></span>
+<span id="cb15-61"><a href="#cb15-61"></a><span class="co"># Bar plot for food_category</span></span>
+<span id="cb15-62"><a href="#cb15-62"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> food_category)) <span class="sc">+</span></span>
+<span id="cb15-63"><a href="#cb15-63"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb15-64"><a href="#cb15-64"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Food Categories"</span>,</span>
+<span id="cb15-65"><a href="#cb15-65"></a>       <span class="at">x =</span> <span class="st">"Food Category"</span>,</span>
+<span id="cb15-66"><a href="#cb15-66"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) </span>
+<span id="cb15-67"><a href="#cb15-67"></a><span class="in">```</span></span>
+<span id="cb15-68"><a href="#cb15-68"></a></span>
+<span id="cb15-69"><a href="#cb15-69"></a>3)country</span>
+<span id="cb15-72"><a href="#cb15-72"></a><span class="in">```{r}</span></span>
+<span id="cb15-73"><a href="#cb15-73"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb15-74"><a href="#cb15-74"></a><span class="co">#| fig-width: 15</span></span>
+<span id="cb15-75"><a href="#cb15-75"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country)) <span class="sc">+</span></span>
+<span id="cb15-76"><a href="#cb15-76"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb15-77"><a href="#cb15-77"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Countries"</span>,</span>
+<span id="cb15-78"><a href="#cb15-78"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb15-79"><a href="#cb15-79"></a>       <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span></span>
+<span id="cb15-80"><a href="#cb15-80"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb15-81"><a href="#cb15-81"></a><span class="in">```</span></span>
+<span id="cb15-82"><a href="#cb15-82"></a></span>
+<span id="cb15-83"><a href="#cb15-83"></a><span class="ss">8. </span>understand consumption</span>
+<span id="cb15-84"><a href="#cb15-84"></a></span>
+<span id="cb15-85"><a href="#cb15-85"></a>1)overall food consumption / food category</span>
+<span id="cb15-88"><a href="#cb15-88"></a><span class="in">```{r}</span></span>
+<span id="cb15-89"><a href="#cb15-89"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb15-90"><a href="#cb15-90"></a><span class="co">#| fig-width: 15</span></span>
+<span id="cb15-91"><a href="#cb15-91"></a><span class="co"># Box plot of consumption by food category</span></span>
+<span id="cb15-92"><a href="#cb15-92"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> food_category, <span class="at">y =</span> consumption, <span class="at">fill =</span> food_category)) <span class="sc">+</span></span>
+<span id="cb15-93"><a href="#cb15-93"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb15-94"><a href="#cb15-94"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Category"</span>,</span>
+<span id="cb15-95"><a href="#cb15-95"></a>       <span class="at">x =</span> <span class="st">"Food Category"</span>,</span>
+<span id="cb15-96"><a href="#cb15-96"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>) </span>
+<span id="cb15-97"><a href="#cb15-97"></a><span class="in">```</span></span>
+<span id="cb15-98"><a href="#cb15-98"></a></span>
+<span id="cb15-99"><a href="#cb15-99"></a>2)overall food consumption / country</span>
+<span id="cb15-102"><a href="#cb15-102"></a><span class="in">```{r}</span></span>
+<span id="cb15-103"><a href="#cb15-103"></a><span class="co">#| fig-height: 10</span></span>
+<span id="cb15-104"><a href="#cb15-104"></a><span class="co">#| fig-width: 30</span></span>
+<span id="cb15-105"><a href="#cb15-105"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> consumption, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
+<span id="cb15-106"><a href="#cb15-106"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb15-107"><a href="#cb15-107"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Country"</span>,</span>
+<span id="cb15-108"><a href="#cb15-108"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb15-109"><a href="#cb15-109"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>) <span class="sc">+</span></span>
+<span id="cb15-110"><a href="#cb15-110"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb15-111"><a href="#cb15-111"></a><span class="in">```</span></span>
+<span id="cb15-112"><a href="#cb15-112"></a></span>
+<span id="cb15-113"><a href="#cb15-113"></a><span class="ss">9. </span>Answering Grand RQ</span>
+<span id="cb15-116"><a href="#cb15-116"></a><span class="in">```{r}</span></span>
+<span id="cb15-117"><a href="#cb15-117"></a><span class="co">#| fig-height: 10</span></span>
+<span id="cb15-118"><a href="#cb15-118"></a><span class="co">#| fig-width: 20</span></span>
+<span id="cb15-119"><a href="#cb15-119"></a><span class="fu">ggplot</span>(fc, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> consumption, <span class="at">fill =</span> food_category)) <span class="sc">+</span></span>
+<span id="cb15-120"><a href="#cb15-120"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span>  </span>
+<span id="cb15-121"><a href="#cb15-121"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Food Consumption by Country and Category"</span>,</span>
+<span id="cb15-122"><a href="#cb15-122"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb15-123"><a href="#cb15-123"></a>       <span class="at">y =</span> <span class="st">"Consumption (kg/person/year)"</span>,</span>
+<span id="cb15-124"><a href="#cb15-124"></a>       <span class="at">fill =</span> <span class="st">"Food Category"</span>) <span class="sc">+</span></span>
+<span id="cb15-125"><a href="#cb15-125"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>),  </span>
+<span id="cb15-126"><a href="#cb15-126"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span>  </span>
+<span id="cb15-127"><a href="#cb15-127"></a>  <span class="fu">scale_fill_viridis_d</span>()  </span>
+<span id="cb15-128"><a href="#cb15-128"></a></span>
+<span id="cb15-129"><a href="#cb15-129"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
