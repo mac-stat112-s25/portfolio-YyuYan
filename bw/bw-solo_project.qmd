@@ -1,0 +1,34 @@
+---
+title: "Spatial Viz"
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(maps)
+library(RColorBrewer)
+library(ggthemes)
+library(openintro)
+```
+
+```{r}
+arrest_data <- USArrests |>
+  rownames_to_column("state") |>
+  mutate(state = tolower(state))
+```
+
+```{r}
+states_map <- map_data("state")
+
+us_arrest_map <- left_join(states_map, arrest_data, by = c("region" = "state"))
+```
+
+```{r}
+ggplot(us_arrest_map, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = Assault), color = "white") +
+  scale_fill_viridis_c(option = 'E', name = "Assault Rate") +
+  labs(title = "Assault Rate by US State") +
+  theme_map()
+
+```
+
