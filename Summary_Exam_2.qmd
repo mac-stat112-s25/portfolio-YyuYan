@@ -1,5 +1,5 @@
 ---
-title: "Summary Exam 2"
+title: "Wrangling"
 ---
 
 ![](/Users/apple/Downloads/summary2.1.png)

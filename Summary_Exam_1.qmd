@@ -1,5 +1,5 @@
 ---
-title: "Summary Exam 1"
+title: "Visualization"
 ---
 
 ![](/Users/apple/Downloads/visualization.jpeg) 
