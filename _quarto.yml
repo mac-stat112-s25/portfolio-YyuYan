@@ -31,9 +31,9 @@ book:
       - bw/bw-quad.qmd
       - bw/bw-spatial.qmd
       - bw/bw-exam1.qmd
-      - Summary_Exam_1.qmd
       - bw/bw-exam2.qmd
-      - Summary_Exam_2.qmd
+      - bw/Summary/Visualization.qmd
+      - bw/Summary/Wrangling.qmd
 
     - part: "In-class Activities"
       chapters: 

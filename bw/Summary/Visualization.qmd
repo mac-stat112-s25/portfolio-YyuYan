@@ -2,6 +2,8 @@
 title: "Visualization"
 ---
 
+<IMG SRC = "/Users/apple/Comp 112/portfolio-YyuYan/bw/Summary" width="800" height= "1000">
+
 ![](/Users/apple/Downloads/visualization.jpeg) 
 
 ![](/Users/apple/Downloads/summary 2.jpeg) 
