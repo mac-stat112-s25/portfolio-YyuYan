@@ -2,11 +2,6 @@
 title: "Visualization"
 ---
 
-<IMG SRC = "/Users/apple/Comp 112/portfolio-YyuYan/bw/Summary" width="800" height= "1000">
-
-![](/Users/apple/Downloads/visualization.jpeg) 
-
-![](/Users/apple/Downloads/summary 2.jpeg) 
-
-![](/Users/apple/Downloads/summary 3.png) 
-
+![Page 1](visualization 2.png){width=400 height=600}
+![Page 2](visualization 3.png){width=400 height=600}
+![Page 3](visualization.png){width=400 height=250}

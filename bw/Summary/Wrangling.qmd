@@ -1,10 +1,9 @@
 ---
 title: "Wrangling"
 ---
+![Page 1](wrangling.png){width=400 height=600}
 
-![](/Users/apple/Downloads/summary2.1.png)
-
-![](/Users/apple/Downloads/summary2.2.png)
+![Page 2](wrangling 2.png){width=400 height=600}
 
 
 
