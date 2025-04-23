@@ -104,7 +104,7 @@
     "section": "",
     "text": "Page 1\n\n\n\n\n\nPage 2\n\n\n\n\n\nPage 3",
     "crumbs": [
-      "Best Work",
+      "Summary",
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Visualization</span>"
     ]
   },
@@ -115,7 +115,7 @@
     "section": "",
     "text": "Page 1\n\n\n\n\n\nPage 2",
     "crumbs": [
-      "Best Work",
+      "Summary",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Wrangling</span>"
     ]
   },
