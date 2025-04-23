@@ -25,16 +25,19 @@ book:
 
     - part: "Best Work"
       chapters: 
-      - bw/bw-uni.qmd
-      - bw/bw-bi.qmd
-      - bw/bw-tri.qmd
-      - bw/bw-quad.qmd
-      - bw/bw-spatial.qmd
-      - bw/bw-solo_project.qmd
-      - bw/bw-exam1.qmd
-      - bw/bw-exam2.qmd
-      - bw/Summary/Visualization.qmd
-      - bw/Summary/Wrangling.qmd
+        - bw/bw-uni.qmd
+        - bw/bw-bi.qmd
+        - bw/bw-tri.qmd
+        - bw/bw-quad.qmd
+        - bw/bw-spatial.qmd
+        - bw/bw-solo_project.qmd
+        - bw/bw-exam1.qmd
+        - bw/bw-exam2.qmd
+
+    - part: "Summary"
+      chapters:
+        - bw/Summary/Visualization.qmd
+        - bw/Summary/Wrangling.qmd
 
     - part: "In-class Activities"
       chapters: 
