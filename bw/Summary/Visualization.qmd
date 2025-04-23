@@ -1,7 +1,10 @@
 ---
 title: "Visualization"
+format: html
 ---
 
 ![Page 1](visualization 2.png){width=400 height=600}
+
 ![Page 2](visualization 3.png){width=400 height=600}
+
 ![Page 3](visualization.png){width=400 height=250}

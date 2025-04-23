@@ -1,5 +1,6 @@
 ---
 title: "Wrangling"
+format: html
 ---
 ![Page 1](wrangling.png){width=400 height=600}
 
