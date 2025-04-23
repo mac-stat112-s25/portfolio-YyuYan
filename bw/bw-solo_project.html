@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>5&nbsp; Spatial Viz – COMP/STAT112 Notebook</title>
+<title>6&nbsp; Solo project – COMP/STAT112 Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,8 +59,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../bw/bw-solo_project.html" rel="next">
-<link href="../bw/bw-quad.html" rel="prev">
+<link href="../bw/bw-exam1.html" rel="next">
+<link href="../bw/bw-spatial.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bw/bw-uni.html">Best Work</a></li><li class="breadcrumb-item"><a href="../bw/bw-spatial.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Viz</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bw/bw-uni.html">Best Work</a></li><li class="breadcrumb-item"><a href="../bw/bw-solo_project.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Solo project</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -176,13 +176,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../bw/bw-spatial.html" class="sidebar-item-text sidebar-link active">
+  <a href="../bw/bw-spatial.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Viz</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../bw/bw-solo_project.html" class="sidebar-item-text sidebar-link">
+  <a href="../bw/bw-solo_project.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Solo project</span></span></a>
   </div>
 </li>
@@ -303,9 +303,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bw/bw-uni.html">Best Work</a></li><li class="breadcrumb-item"><a href="../bw/bw-spatial.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Viz</span></a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bw/bw-uni.html">Best Work</a></li><li class="breadcrumb-item"><a href="../bw/bw-solo_project.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Solo project</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
-<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Viz</span>
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Solo project</span>
 </h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -321,56 +321,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Import starbucks location data</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>starbucks <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/starbucks.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>arrest_data <span class="ot">&lt;-</span> USArrests <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"state"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">tolower</span>(state))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>starbucks_us_by_state <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">"US"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">count</span>(State.Province) <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">mutate</span>(<span class="at">state_name =</span> <span class="fu">str_to_lower</span>(<span class="fu">abbr2state</span>(State.Province)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>states_map <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>us_arrest_map <span class="ot">&lt;-</span> <span class="fu">left_join</span>(states_map, arrest_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">"state"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>census_pop_est_2018 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://mac-stat.github.io/data/us_census_2018_state_pop_est.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">separate</span>(state, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"dot"</span>, <span class="st">"state"</span>), <span class="at">extra =</span> <span class="st">"merge"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">select</span>(<span class="sc">-</span>dot) <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">str_to_lower</span>(state))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 51 Columns: 2
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): state
-dbl (1): est_pop_2018
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>starbucks_with_2018_pop_est <span class="ot">&lt;-</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>  starbucks_us_by_state <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">left_join</span>(census_pop_est_2018,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"state_name"</span> <span class="ot">=</span> <span class="st">"state"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">mutate</span>(<span class="at">starbucks_per_10000 =</span> (n <span class="sc">/</span> est_pop_2018) <span class="sc">*</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>states_map <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(starbucks_with_2018_pop_est, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> starbucks_per_10000)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"RdBu"</span>, <span class="at">direction =</span> <span class="dv">1</span>, <span class="at">name =</span> <span class="st">"Starbucks per 10k"</span>) <span class="sc">+</span>  </span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-6"><a href="#cb7-6"></a>    <span class="at">title =</span> <span class="st">"Starbucks Density Across the US"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7"></a>    <span class="at">subtitle =</span> <span class="st">"Number of Starbucks per 10,000 People"</span>,</span>
-<span id="cb7-8"><a href="#cb7-8"></a>    <span class="at">caption =</span> <span class="st">"Plot created by Yu Yan | Data: US Census &amp; Starbucks Locations"</span>) <span class="sc">+</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
-<span id="cb7-10"><a href="#cb7-10"></a>  <span class="fu">theme</span>(</span>
-<span id="cb7-11"><a href="#cb7-11"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
-<span id="cb7-12"><a href="#cb7-12"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(us_arrest_map, <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Assault), <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">'E'</span>, <span class="at">name =</span> <span class="st">"Assault Rate"</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Assault Rate by US State"</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">theme_map</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="bw-spatial_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="bw-solo_project_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1000,74 +968,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../bw/bw-quad.html" class="pagination-link" aria-label="Quadvariate Viz">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Quadvariate Viz</span></span>
+      <a href="../bw/bw-spatial.html" class="pagination-link" aria-label="Spatial Viz">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spatial Viz</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../bw/bw-solo_project.html" class="pagination-link" aria-label="Solo project">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Solo project</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../bw/bw-exam1.html" class="pagination-link" aria-label="Exam 1">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exam 1</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> "Spatial Viz"</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">---</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="in">library(maps)</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="in">library(RColorBrewer)</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="in">library(ggthemes)</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="in">library(openintro)</span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="in">```</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a></span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="in">```{r}</span></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="co"># Import starbucks location data</span></span>
-<span id="cb8-19"><a href="#cb8-19"></a>starbucks <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/starbucks.csv"</span>)</span>
-<span id="cb8-20"><a href="#cb8-20"></a><span class="in">```</span></span>
-<span id="cb8-21"><a href="#cb8-21"></a></span>
-<span id="cb8-24"><a href="#cb8-24"></a><span class="in">```{r}</span></span>
-<span id="cb8-25"><a href="#cb8-25"></a>starbucks_us_by_state <span class="ot">&lt;-</span> starbucks <span class="sc">|&gt;</span></span>
-<span id="cb8-26"><a href="#cb8-26"></a>  <span class="fu">filter</span>(Country <span class="sc">==</span> <span class="st">"US"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-27"><a href="#cb8-27"></a>  <span class="fu">count</span>(State.Province) <span class="sc">|&gt;</span></span>
-<span id="cb8-28"><a href="#cb8-28"></a>  <span class="fu">mutate</span>(<span class="at">state_name =</span> <span class="fu">str_to_lower</span>(<span class="fu">abbr2state</span>(State.Province)))</span>
-<span id="cb8-29"><a href="#cb8-29"></a><span class="in">```</span></span>
-<span id="cb8-30"><a href="#cb8-30"></a></span>
-<span id="cb8-33"><a href="#cb8-33"></a><span class="in">```{r}</span></span>
-<span id="cb8-34"><a href="#cb8-34"></a>census_pop_est_2018 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://mac-stat.github.io/data/us_census_2018_state_pop_est.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-35"><a href="#cb8-35"></a>  <span class="fu">separate</span>(state, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"dot"</span>, <span class="st">"state"</span>), <span class="at">extra =</span> <span class="st">"merge"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-36"><a href="#cb8-36"></a>  <span class="fu">select</span>(<span class="sc">-</span>dot) <span class="sc">|&gt;</span></span>
-<span id="cb8-37"><a href="#cb8-37"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">str_to_lower</span>(state))</span>
-<span id="cb8-38"><a href="#cb8-38"></a></span>
-<span id="cb8-39"><a href="#cb8-39"></a>starbucks_with_2018_pop_est <span class="ot">&lt;-</span></span>
-<span id="cb8-40"><a href="#cb8-40"></a>  starbucks_us_by_state <span class="sc">|&gt;</span></span>
-<span id="cb8-41"><a href="#cb8-41"></a>  <span class="fu">left_join</span>(census_pop_est_2018,</span>
-<span id="cb8-42"><a href="#cb8-42"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"state_name"</span> <span class="ot">=</span> <span class="st">"state"</span>)</span>
-<span id="cb8-43"><a href="#cb8-43"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb8-44"><a href="#cb8-44"></a>  <span class="fu">mutate</span>(<span class="at">starbucks_per_10000 =</span> (n <span class="sc">/</span> est_pop_2018) <span class="sc">*</span> <span class="dv">10000</span>)</span>
-<span id="cb8-45"><a href="#cb8-45"></a><span class="in">```</span></span>
-<span id="cb8-46"><a href="#cb8-46"></a></span>
-<span id="cb8-49"><a href="#cb8-49"></a><span class="in">```{r}</span></span>
-<span id="cb8-50"><a href="#cb8-50"></a>states_map <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span>
-<span id="cb8-51"><a href="#cb8-51"></a><span class="in">```</span></span>
-<span id="cb8-52"><a href="#cb8-52"></a></span>
-<span id="cb8-55"><a href="#cb8-55"></a><span class="in">```{r}</span></span>
-<span id="cb8-56"><a href="#cb8-56"></a><span class="fu">ggplot</span>(starbucks_with_2018_pop_est, <span class="fu">aes</span>(<span class="at">map_id =</span> state_name, <span class="at">fill =</span> starbucks_per_10000)) <span class="sc">+</span></span>
-<span id="cb8-57"><a href="#cb8-57"></a>  <span class="fu">geom_map</span>(<span class="at">map =</span> states_map, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>) <span class="sc">+</span> </span>
-<span id="cb8-58"><a href="#cb8-58"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states_map<span class="sc">$</span>long, <span class="at">y =</span> states_map<span class="sc">$</span>lat) <span class="sc">+</span></span>
-<span id="cb8-59"><a href="#cb8-59"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette =</span> <span class="st">"RdBu"</span>, <span class="at">direction =</span> <span class="dv">1</span>, <span class="at">name =</span> <span class="st">"Starbucks per 10k"</span>) <span class="sc">+</span>  </span>
-<span id="cb8-60"><a href="#cb8-60"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-61"><a href="#cb8-61"></a>    <span class="at">title =</span> <span class="st">"Starbucks Density Across the US"</span>,</span>
-<span id="cb8-62"><a href="#cb8-62"></a>    <span class="at">subtitle =</span> <span class="st">"Number of Starbucks per 10,000 People"</span>,</span>
-<span id="cb8-63"><a href="#cb8-63"></a>    <span class="at">caption =</span> <span class="st">"Plot created by Yu Yan | Data: US Census &amp; Starbucks Locations"</span>) <span class="sc">+</span></span>
-<span id="cb8-64"><a href="#cb8-64"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
-<span id="cb8-65"><a href="#cb8-65"></a>  <span class="fu">theme</span>(</span>
-<span id="cb8-66"><a href="#cb8-66"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
-<span id="cb8-67"><a href="#cb8-67"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
-<span id="cb8-68"><a href="#cb8-68"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Solo project"</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">---</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="in">library(maps)</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="in">library(RColorBrewer)</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="in">library(ggthemes)</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="in">library(openintro)</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="in">```</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="in">```{r}</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>arrest_data <span class="ot">&lt;-</span> USArrests <span class="sc">|&gt;</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"state"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">tolower</span>(state))</span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="in">```</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="in">```{r}</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a>states_map <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span>
+<span id="cb4-26"><a href="#cb4-26"></a></span>
+<span id="cb4-27"><a href="#cb4-27"></a>us_arrest_map <span class="ot">&lt;-</span> <span class="fu">left_join</span>(states_map, arrest_data, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">"state"</span>))</span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="in">```</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a></span>
+<span id="cb4-32"><a href="#cb4-32"></a><span class="in">```{r}</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a><span class="fu">ggplot</span>(us_arrest_map, <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Assault), <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">'E'</span>, <span class="at">name =</span> <span class="st">"Assault Rate"</span>) <span class="sc">+</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Assault Rate by US State"</span>) <span class="sc">+</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb4-38"><a href="#cb4-38"></a></span>
+<span id="cb4-39"><a href="#cb4-39"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
