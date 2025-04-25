@@ -331,8 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Use this file to generate a professional looking <strong>univariate</strong> visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</p>
-<div class="cell">
+</header><div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>hikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/high_peaks.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -990,27 +989,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Univariate Viz"</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co">---</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a></span>
-<span id="cb3-5"><a href="#cb3-5"></a>Use this file to generate a professional looking **univariate** visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="in">```</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="in">```{r}</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>hikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/high_peaks.csv"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="in">```</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="in">```{r}</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="fu">ggplot</span>(hikes, <span class="fu">aes</span>(<span class="at">x =</span> elevation)) <span class="sc">+</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb3-23"><a href="#cb3-23"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-24"><a href="#cb3-24"></a>    <span class="at">title =</span> <span class="st">"Distribution of Elevation Levels of Hikes"</span>,</span>
-<span id="cb3-25"><a href="#cb3-25"></a>    <span class="at">subtitle =</span> <span class="st">"Most hikes have elevations between 3000 and 5000 feet"</span>,</span>
-<span id="cb3-26"><a href="#cb3-26"></a>    <span class="at">x =</span> <span class="st">"Elevation (feet)"</span>,</span>
-<span id="cb3-27"><a href="#cb3-27"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
-<span id="cb3-28"><a href="#cb3-28"></a>  ) </span>
-<span id="cb3-29"><a href="#cb3-29"></a><span class="in">```</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="in">```</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="in">```{r}</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>hikes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/high_peaks.csv"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="in">```</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="in">```{r}</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="fu">ggplot</span>(hikes, <span class="fu">aes</span>(<span class="at">x =</span> elevation)) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-21"><a href="#cb3-21"></a>    <span class="at">title =</span> <span class="st">"Distribution of Elevation Levels of Hikes"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22"></a>    <span class="at">subtitle =</span> <span class="st">"Most hikes have elevations between 3000 and 5000 feet"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23"></a>    <span class="at">x =</span> <span class="st">"Elevation (feet)"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>  ) </span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

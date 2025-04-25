@@ -14,7 +14,7 @@
     "href": "bw/bw-uni.html",
     "title": "\n1  Univariate Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking univariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.\n\nhikes &lt;- read.csv(\"https://mac-stat.github.io/data/high_peaks.csv\")\n\n\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(binwidth = 500, fill = \"steelblue\", color = \"black\", alpha = 0.8) +\n  labs(\n    title = \"Distribution of Elevation Levels of Hikes\",\n    subtitle = \"Most hikes have elevations between 3000 and 5000 feet\",\n    x = \"Elevation (feet)\",\n    y = \"Frequency\"\n  )",
+    "text": "hikes &lt;- read.csv(\"https://mac-stat.github.io/data/high_peaks.csv\")\n\n\nggplot(hikes, aes(x = elevation)) +\n  geom_histogram(binwidth = 500, fill = \"steelblue\", color = \"black\", alpha = 0.8) +\n  labs(\n    title = \"Distribution of Elevation Levels of Hikes\",\n    subtitle = \"Most hikes have elevations between 3000 and 5000 feet\",\n    x = \"Elevation (feet)\",\n    y = \"Frequency\"\n  )",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Univariate Viz</span>"
@@ -25,7 +25,7 @@
     "href": "bw/bw-bi.html",
     "title": "\n2  Bivariate Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking bivariate visualization. The visualization will not perfect the first time but you are expected to improve it throughout the semester especially after covering advanced topics such as effective viz.\n\nelections &lt;- read.csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\n\n\nggplot(elections, aes(x = repub_pct_16, y = repub_pct_20)) +\n  geom_point(alpha = 0.5, color = \"darkblue\") +  \n  geom_smooth(method = \"lm\", color = \"red\", linetype = \"dashed\") +  \n  labs(\n    title = \"2020 vs. 2016 Republican Support by County\",\n    subtitle = \"A strong positive relationship between Republican support in both elections\",\n    x = \"Republican Support in 2016 (%)\",\n    y = \"Republican Support in 2020 (%)\"\n  ) \n\n`geom_smooth()` using formula = 'y ~ x'",
+    "text": "elections &lt;- read.csv(\"https://mac-stat.github.io/data/election_2020_county.csv\")\n\n\nggplot(elections, aes(x = repub_pct_16, y = repub_pct_20)) +\n  geom_point(alpha = 0.5, color = \"darkblue\") +  \n  geom_smooth(method = \"lm\", color = \"red\", linetype = \"dashed\") +  \n  labs(\n    title = \"2020 vs. 2016 Republican Support by County\",\n    subtitle = \"A strong positive relationship between Republican support in both elections\",\n    x = \"Republican Support in 2016 (%)\",\n    y = \"Republican Support in 2020 (%)\"\n  ) \n\n`geom_smooth()` using formula = 'y ~ x'",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Bivariate Viz</span>"
@@ -36,7 +36,7 @@
     "href": "bw/bw-tri.html",
     "title": "\n3  Trivariate Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking trivariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.\n\neducation &lt;- read.csv(\"https://mac-stat.github.io/data/sat.csv\")\n\n\nggplot(education, aes(x = salary, y = sat, color = expend)) +\n  geom_point(size = 3, alpha = 0.8) + \n  geom_smooth(method = \"lm\", color = \"black\", linetype = \"dashed\") +  \n  scale_color_gradient(low = \"blue\", high = \"red\") + \n  labs(\n    title = \"SAT Scores vs Teacher Salaries & Per Pupil Expenditures\",\n    subtitle = \"Higher salaries are linked to lower SAT scores, but expenditure provides further insights\",\n    x = \"Teacher Salary ($)\",\n    y = \"Average SAT Score\",\n    color = \"Per Pupil Expenditure ($)\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'",
+    "text": "education &lt;- read.csv(\"https://mac-stat.github.io/data/sat.csv\")\n\n\nggplot(education, aes(x = salary, y = sat, color = expend)) +\n  geom_point(size = 3, alpha = 0.8) + \n  geom_smooth(method = \"lm\", color = \"black\", linetype = \"dashed\") +  \n  scale_color_gradient(low = \"blue\", high = \"red\") + \n  labs(\n    title = \"SAT Scores vs Teacher Salaries & Per Pupil Expenditures\",\n    subtitle = \"Higher salaries are linked to lower SAT scores, but expenditure provides further insights\",\n    x = \"Teacher Salary ($)\",\n    y = \"Average SAT Score\",\n    color = \"Per Pupil Expenditure ($)\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Trivariate Viz</span>"
@@ -47,7 +47,7 @@
     "href": "bw/bw-quad.html",
     "title": "\n4  Quadvariate Viz\n",
     "section": "",
-    "text": "Use this file to generate a professional looking quadvariate visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.\n\neducation &lt;- read.csv(\"https://mac-stat.github.io/data/sat.csv\")\n\n\nggplot(education, aes(x = salary, y = sat, color = fracCat)) +\n  geom_point(aes(size = expend), alpha = 0.7) + \n  geom_smooth(method = \"lm\", se = FALSE, aes(group = fracCat)) + \n  labs(\n    title = \"SAT Scores vs. Teacher Salary, Expenditures & Fraction Taking SAT\",\n    subtitle = \"Higher SAT participation is linked to lower scores; expenditure effects vary\",\n    x = \"Teacher Salary ($)\",\n    y = \"Average SAT Score\",\n    color = \"SAT Participation Rate\",\n    size = \"Per Pupil Expenditure ($)\"\n  ) +\n  facet_wrap(~ fracCat)  \n\n`geom_smooth()` using formula = 'y ~ x'",
+    "text": "education &lt;- read.csv(\"https://mac-stat.github.io/data/sat.csv\")\n\n\nggplot(education, aes(x = salary, y = sat, color = fracCat)) +\n  geom_point(aes(size = expend), alpha = 0.7) + \n  geom_smooth(method = \"lm\", se = FALSE, aes(group = fracCat)) + \n  labs(\n    title = \"SAT Scores vs. Teacher Salary, Expenditures & Fraction Taking SAT\",\n    subtitle = \"Higher SAT participation is linked to lower scores; expenditure effects vary\",\n    x = \"Teacher Salary ($)\",\n    y = \"Average SAT Score\",\n    color = \"SAT Participation Rate\",\n    size = \"Per Pupil Expenditure ($)\"\n  ) +\n  facet_wrap(~ fracCat)  \n\n`geom_smooth()` using formula = 'y ~ x'",
     "crumbs": [
       "Best Work",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quadvariate Viz</span>"

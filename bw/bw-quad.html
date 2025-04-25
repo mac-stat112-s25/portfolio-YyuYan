@@ -331,8 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><p>Use this file to generate a professional looking <strong>quadvariate</strong> visualization. The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</p>
-<div class="cell">
+</header><div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>education <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/sat.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -997,30 +996,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Quadvariate Viz"</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">---</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a>Use this file to generate a professional looking **quadvariate** visualization.  The visualization will not perfect the first time but you are expected to improve on it throughout the semester especially after covering advanced topics such as effective viz.</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="in">```</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="in">```{r}</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a>education <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/sat.csv"</span>)</span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="in">```</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a></span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="in">```{r}</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> salary, <span class="at">y =</span> sat, <span class="at">color =</span> fracCat)) <span class="sc">+</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> expend), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> </span>
-<span id="cb4-22"><a href="#cb4-22"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">group =</span> fracCat)) <span class="sc">+</span> </span>
-<span id="cb4-23"><a href="#cb4-23"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-24"><a href="#cb4-24"></a>    <span class="at">title =</span> <span class="st">"SAT Scores vs. Teacher Salary, Expenditures &amp; Fraction Taking SAT"</span>,</span>
-<span id="cb4-25"><a href="#cb4-25"></a>    <span class="at">subtitle =</span> <span class="st">"Higher SAT participation is linked to lower scores; expenditure effects vary"</span>,</span>
-<span id="cb4-26"><a href="#cb4-26"></a>    <span class="at">x =</span> <span class="st">"Teacher Salary ($)"</span>,</span>
-<span id="cb4-27"><a href="#cb4-27"></a>    <span class="at">y =</span> <span class="st">"Average SAT Score"</span>,</span>
-<span id="cb4-28"><a href="#cb4-28"></a>    <span class="at">color =</span> <span class="st">"SAT Participation Rate"</span>,</span>
-<span id="cb4-29"><a href="#cb4-29"></a>    <span class="at">size =</span> <span class="st">"Per Pupil Expenditure ($)"</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> fracCat)  </span>
-<span id="cb4-32"><a href="#cb4-32"></a><span class="in">```</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="in">```</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="in">```{r}</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>education <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/sat.csv"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="in">```</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="in">```{r}</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> salary, <span class="at">y =</span> sat, <span class="at">color =</span> fracCat)) <span class="sc">+</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> expend), <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> </span>
+<span id="cb4-20"><a href="#cb4-20"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="fu">aes</span>(<span class="at">group =</span> fracCat)) <span class="sc">+</span> </span>
+<span id="cb4-21"><a href="#cb4-21"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-22"><a href="#cb4-22"></a>    <span class="at">title =</span> <span class="st">"SAT Scores vs. Teacher Salary, Expenditures &amp; Fraction Taking SAT"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23"></a>    <span class="at">subtitle =</span> <span class="st">"Higher SAT participation is linked to lower scores; expenditure effects vary"</span>,</span>
+<span id="cb4-24"><a href="#cb4-24"></a>    <span class="at">x =</span> <span class="st">"Teacher Salary ($)"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25"></a>    <span class="at">y =</span> <span class="st">"Average SAT Score"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26"></a>    <span class="at">color =</span> <span class="st">"SAT Participation Rate"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27"></a>    <span class="at">size =</span> <span class="st">"Per Pupil Expenditure ($)"</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> fracCat)  </span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
