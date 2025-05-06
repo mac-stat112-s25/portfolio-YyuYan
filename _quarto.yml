@@ -64,15 +64,17 @@ format:
     code-copy: true
     code-link: true
     code-line-numbers: true
-    code-tools: true
-    code-fold: true  # <-- Added this line
+    code-tools:
+      toggle: true
+      summary: "Show code"
+      collapse: true
 
 execute:
   cache: false
   freeze: auto
-  echo: true         # Optional: show code by default
-  warning: false     # Optional: suppress warnings
-  error: false       # Optional: suppress errors
+  echo: true
+  warning: false
+  error: false
 
 editor: 
   markdown:
