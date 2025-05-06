@@ -1,5 +1,14 @@
 ---
 title: "Bivariate Viz"
+
+execute:
+  echo: true
+  warning: false
+  error: false
+
+format: 
+  html: 
+    code-fold: true
 ---
 
 ```{r setup, include=FALSE}

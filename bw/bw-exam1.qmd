@@ -3,29 +3,24 @@ title: "Exam 1"
 execute: 
   warning: false
   code: true
-fig-height: 3
-fig-width: 5
-fig-align: center
-code-fold: false
-number-sections: false
+  number-sections: false
 ---
 
-3. load packages
+
+
+
 ```{r}
 library(tidytuesdayR)
 library(tidyverse)
 ```
 
 
-4. get data
 ```{r}
 #4.get data
 tuesdata <- tt_load('2020-02-18')
 fc <- tuesdata$food_consumption
 ```
 
-
-5.understand data 
 ```{r}
 dim(fc)
 names(fc)
@@ -33,9 +28,6 @@ head(fc)
 ```
 
 
-7.understand variables individually
-
-1)consumption
 ```{r}
 ggplot(fc, aes(x = consumption)) +
   geom_histogram(binwidth = 10, fill = "blue", color = "black") +
@@ -44,10 +36,7 @@ ggplot(fc, aes(x = consumption)) +
        y = "Frequency")
 ```
 
-2)food_category
 ```{r}
-#| fig-height: 5
-#| fig-width: 15
 # Bar plot for food_category
 ggplot(fc, aes(x = food_category)) +
   geom_bar(fill = "blue", color = "black") +
@@ -56,10 +45,7 @@ ggplot(fc, aes(x = food_category)) +
        y = "Count") 
 ```
 
-3)country
 ```{r}
-#| fig-height: 5
-#| fig-width: 15
 ggplot(fc, aes(x = country)) +
   geom_bar(fill = "skyblue", color = "black") +
   labs(title = "Distribution of Countries",
@@ -68,12 +54,8 @@ ggplot(fc, aes(x = country)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-8. understand consumption
 
-1)overall food consumption / food category
 ```{r}
-#| fig-height: 5
-#| fig-width: 15
 # Box plot of consumption by food category
 ggplot(fc, aes(x = food_category, y = consumption, fill = food_category)) +
   geom_boxplot() +
@@ -82,10 +64,7 @@ ggplot(fc, aes(x = food_category, y = consumption, fill = food_category)) +
        y = "Consumption (kg/person/year)") 
 ```
 
-2)overall food consumption / country
 ```{r}
-#| fig-height: 10
-#| fig-width: 30
 ggplot(fc, aes(x = country, y = consumption, fill = country)) +
   geom_boxplot() +
   labs(title = "Food Consumption by Country",
@@ -94,10 +73,7 @@ ggplot(fc, aes(x = country, y = consumption, fill = country)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-9. Answering Grand RQ
 ```{r}
-#| fig-height: 10
-#| fig-width: 20
 ggplot(fc, aes(x = country, y = consumption, fill = food_category)) +
   geom_bar(stat = "identity", position = "dodge") +  
   labs(title = "Food Consumption by Country and Category",

@@ -6,11 +6,10 @@ execute:
 fig-height: 3
 fig-width: 5
 fig-align: center
-code-fold: false
+code-fold: true
 number-sections: false
 ---
 
-2.2. load packages
 ```{r}
 library(tidytuesdayR)
 library(tidyverse)
@@ -18,12 +17,10 @@ library(rnaturalearth)
 library(sf)
 ```
 
-2.3 Load Data
 ```{r}
 tuesdata <- tt_load('2020-02-18')
 fc <- tuesdata$food_consumption
 ```
-2.7 fix food_category variable 
 ```{r}
 unique(fc$food_category)
 ```
@@ -32,7 +29,7 @@ fc <- fc |>
   mutate(food_category = recode(food_category, "Lamb & Goat" = "Lamb","Milk - inc. cheese" = "Milk","Wheat and Wheat Products" = "Wheat","Nuts inc. Peanut Butter" = "Nuts"))
 ```
 
-3. Research Question 1: Which top 5 countries consume each food?
+**Research Question 1: Which top 5 countries consume each food?**
 ```{r}
 question_1 <- fc |>
   group_by(food_category, country) |>
@@ -49,7 +46,7 @@ ggplot(question_1, aes(x = reorder(country, total), y = total)) +
   labs(title = "Top 5 Countries by Total Food Consumption",
        x = "Country", y = "Total Consumption (kg/person/year)")
 ```
-4.Research Question 2: Which top 5 countries consume each food?
+**Research Question 2: Which top 5 countries consume each food?**
 ```{r}
 question_2 <- fc|>
   group_by(food_category, country) |>
@@ -68,8 +65,9 @@ ggplot(question_2, aes(x = reorder(country, total), y = total, fill = food_categ
 ```
 
 
-5. Research Question 3: What does the consumption of each food look like? (Choropleth maps)
-a. Attempt 1
+**Research Question 3: What does the consumption of each food look like? (Choropleth maps)**
+
+***a. Attempt 1***
 ```{r}
 world <- ne_countries(returnclass = "sf") |>
   select(name, geometry)
@@ -88,7 +86,7 @@ ggplot(map_data) +
   theme_minimal() +
   theme(legend.position = "bottom") 
 ```
-b.Attempt 2
+***b.Attempt 2***
 ```{r}
 world <- ne_countries(returnclass = "sf") |>
   select(name, geometry) |>
@@ -120,7 +118,7 @@ ggplot(map_long) +
   theme(legend.position = "bottom")
 ```
 
-c. Attempt 3 
+***c. Attempt 3***
 ```{r}
 world <- ne_countries(returnclass = "sf") |>
   select(name, geometry) |>
