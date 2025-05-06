@@ -338,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ica/ica-uni.html">In-class Activities</a></li><li class="breadcrumb-item"><a href="../ica/ica-dates.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Dates</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
 <span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Dates</span>
-</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -407,8 +407,8 @@ Commenting/Uncommenting Code
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
@@ -420,8 +420,8 @@ Commenting/Uncommenting Code
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
 <pre><code>Rows: 344 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
@@ -433,12 +433,12 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Create a dataset with just Adelie and Chinstrap using %in%</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Create a dataset with just Adelie and Chinstrap using %in%</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="co"># Pipe this into `count(species)` to confirm that you only have these 2 species</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>penguins<span class="sc">|&gt;</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   species       n
   &lt;chr&gt;     &lt;int&gt;
@@ -447,12 +447,12 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Create a dataset with just Adelie and Chinstrap using !=</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Create a dataset with just Adelie and Chinstrap using !=</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co"># Pipe this into `count(species)` to confirm that you only have these 2 species</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">filter</span>() <span class="sc">|&gt;</span></span>
 <span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">count</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   species       n
   &lt;chr&gt;     &lt;int&gt;
@@ -464,8 +464,8 @@ dbl (5): bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, year
 </section><section id="part-b" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-b">Part b</h4>
 <p>Notice that some of our penguins have missing (<code>NA</code>) data on some values:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">head</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">head</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
   &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
@@ -494,10 +494,10 @@ Handeling <code>NA</code> Values
 <p><strong>Example 1</strong></p>
 <p>Suppose our research focus is <em>just</em> on <code>body_mass_g</code>. Two penguins are missing this info:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> the use of is.na()</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> the use of is.na()</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(body_mass_g)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   `sum(is.na(body_mass_g))`
                       &lt;int&gt;
@@ -506,25 +506,25 @@ Handeling <code>NA</code> Values
 </div>
 <p>Let’s define a new dataset that removes these penguins:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> the use of is.na()</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co"> the use of is.na()</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>penguins_w_body_mass <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> </span>
 <span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(body_mass_g))</span>
 <span id="cb13-4"><a href="#cb13-4"></a></span>
 <span id="cb13-5"><a href="#cb13-5"></a><span class="co"># Compare the number of penguins in this vs the original data</span></span>
 <span id="cb13-6"><a href="#cb13-6"></a><span class="fu">nrow</span>(penguins_w_body_mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 342</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 344</code></pre>
 </div>
 </div>
 <p>Note that some penguins in <code>penguins_w_body_mass</code> are missing info on <code>sex</code>, but we don’t care since that’s not related to our research question:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>penguins_w_body_mass <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>penguins_w_body_mass <span class="sc">|&gt;</span> </span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(sex)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   `sum(is.na(sex))`
               &lt;int&gt;
@@ -534,17 +534,18 @@ Handeling <code>NA</code> Values
 <p><strong>Example 2</strong></p>
 <p>In the <em>very rare case</em> that we need complete information on every variable for the specific task at hand, we can use <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> to get rid of <em>any</em> penguin that’s missing info on <em>any</em> variable:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>penguins_complete <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>penguins_complete <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> </span>
 <span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>How many penguins did this eliminate?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">nrow</span>(penguins_complete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">nrow</span>(penguins_complete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 333</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">nrow</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 344</code></pre>
 </div>
 </div>
@@ -560,19 +561,19 @@ Handeling <code>NA</code> Values
 </ul>
 <p>Use these <em>shortcuts</em> to create the following datasets.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># First: recall the variable names</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># First: recall the variable names</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="fu">names</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] "species"           "island"            "bill_length_mm"   
 [4] "bill_depth_mm"     "flipper_length_mm" "body_mass_g"      
 [7] "sex"               "year"             </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Use a shortcut to keep everything but the year and island variables</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Use a shortcut to keep everything but the year and island variables</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">select</span>(<span class="sc">-</span>island, <span class="sc">-</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 6
    species bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex   
    &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt; 
@@ -590,10 +591,10 @@ Handeling <code>NA</code> Values
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Use a shortcut to keep only species and the penguin characteristics measured in mm</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Use a shortcut to keep only species and the penguin characteristics measured in mm</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">select</span>(species, <span class="fu">ends_with</span>(<span class="st">"mm"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 4
    species bill_length_mm bill_depth_mm flipper_length_mm
    &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;
@@ -611,10 +612,10 @@ Handeling <code>NA</code> Values
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Use a shortcut to keep only species and bill-related measurements</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Use a shortcut to keep only species and bill-related measurements</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">select</span>(species, <span class="fu">starts_with</span>(<span class="st">"bill"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 3
    species bill_length_mm bill_depth_mm
    &lt;chr&gt;            &lt;dbl&gt;         &lt;dbl&gt;
@@ -632,10 +633,10 @@ Handeling <code>NA</code> Values
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Use a shortcut to keep only species and the length-related characteristics</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Use a shortcut to keep only species and the length-related characteristics</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">select</span>(species, <span class="fu">contains</span>(<span class="st">"length"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 3
    species bill_length_mm flipper_length_mm
    &lt;chr&gt;            &lt;dbl&gt;             &lt;dbl&gt;
@@ -656,12 +657,12 @@ Handeling <code>NA</code> Values
 </section><section id="exercise-3-arranging-counting-grouping-by-multiple-variables" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-3-arranging-counting-grouping-by-multiple-variables">Exercise 3: Arranging, Counting, &amp; Grouping by Multiple Variables</h3>
 <p>We’ve done examples where we need to <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> by more than one variable, or <code>select()</code> more than one variable. Use your intuition for how we can <code>arrange()</code>, <code>count()</code>, and <code>group_by()</code> more than one variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Change this code to sort the penguins by species, and then island name</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Change this code to sort the penguins by species, and then island name</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: The first row should be an Adelie penguin living on Biscoe island</span></span>
 <span id="cb34-3"><a href="#cb34-3"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">arrange</span>(species, island) <span class="sc">|&gt;</span></span>
 <span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
   &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
@@ -675,10 +676,10 @@ Handeling <code>NA</code> Values
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Change this code to count the number of male/female penguins observed for each species</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Change this code to count the number of male/female penguins observed for each species</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">count</span>(species,sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
   species   sex        n
   &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt;
@@ -693,11 +694,11 @@ Handeling <code>NA</code> Values
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Change this code to calculate the average body mass by species and sex</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Change this code to calculate the average body mass by species and sex</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">group_by</span>(species,sex) <span class="sc">|&gt;</span> </span>
 <span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</details><div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'species'. You can override using the
 `.groups` argument.</code></pre>
 </div>
@@ -720,77 +721,77 @@ Handeling <code>NA</code> Values
 </section><section id="exercise-4-dates" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-4-dates">Exercise 4: Dates</h3>
 <p>Before some wrangling practice, let’s explore another important concept: working with or mutating <em>date</em> variables. Dates are a whole special object type or class in R that automatically respect the order of time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Get today's date</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Get today's date</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="fu">as.Date</span>(<span class="fu">today</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] "2025-04-07"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Let's store this as "today" so we can work with it below</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Let's store this as "today" so we can work with it below</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>today <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">today</span>())</span>
 <span id="cb43-3"><a href="#cb43-3"></a></span>
 <span id="cb43-4"><a href="#cb43-4"></a><span class="co"># Check out the class of this object</span></span>
 <span id="cb43-5"><a href="#cb43-5"></a><span class="fu">class</span>(today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] "Date"</code></pre>
 </div>
 </div>
 <p>The <code>lubridate</code> package inside <code>tidyverse</code> contains functions that can extract various information from dates. Let’s learn about some of the most common functions by applying them to <code>today</code>. For each, make a comment on what the function does</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">year</span>(today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">year</span>(today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 2025</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># today's month</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># today's month</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a><span class="fu">month</span>(today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">month</span>(today, <span class="at">label =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">month</span>(today, <span class="at">label =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] Apr
 12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># now is the 9th week of the year </span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># now is the 9th week of the year </span></span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="fu">week</span>(today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 14</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># mday(): day of the month, yday(): day of the year</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># mday(): day of the month, yday(): day of the year</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a><span class="fu">mday</span>(today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">yday</span>(today)  <span class="co"># This is often called the "Julian day"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">yday</span>(today)  <span class="co"># This is often called the "Julian day"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 97</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># day of the week as a number or label</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># day of the week as a number or label</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a><span class="fu">wday</span>(today)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">wday</span>(today, <span class="at">label =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">wday</span>(today, <span class="at">label =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] Mon
 Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># today is before or after 2.14</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># today is before or after 2.14</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a>today <span class="sc">&gt;=</span> <span class="fu">ymd</span>(<span class="st">"2024-02-14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>today <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="st">"2024-02-14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>today <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="st">"2024-02-14"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>
@@ -799,8 +800,8 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <span class="header-section-number">17.2</span> Exercises Part 2: Application</h2>
 <p>The remaining exercises are <em>similar</em> to some of those on the homework. Hence, the solutions are not provided. Let’s apply these ideas to the daily <code>Birthdays</code> dataset in the <code>mosaic</code> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="fu">library</span>(mosaic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="fu">library</span>(mosaic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
 <pre><code>Registered S3 method overwritten by 'mosaic':
   method                           from   
   fortify.SpatialPolygonsDataFrame ggplot2</code></pre>
@@ -845,9 +846,9 @@ Attaching package: 'mosaic'</code></pre>
 
     max, mean, min, prod, range, sample, sum</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="fu">data</span>(<span class="st">"Birthdays"</span>)</span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="fu">data</span>(<span class="st">"Birthdays"</span>)</span>
 <span id="cb75-2"><a href="#cb75-2"></a><span class="fu">head</span>(Birthdays)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>  state year month day       date wday births
 1    AK 1969     1   1 1969-01-01  Wed     14
 2    AL 1969     1   1 1969-01-01  Wed    174
@@ -864,10 +865,10 @@ Attaching package: 'mosaic'</code></pre>
 </ul>
 <section id="exercise-5-warming-up" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-5-warming-up">Exercise 5: Warming up</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># How many days of data do we have for each state?</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># How many days of data do we have for each state?</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a>Birthdays <span class="sc">|&gt;</span></span>
 <span id="cb77-3"><a href="#cb77-3"></a>  <span class="fu">count</span>(state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>   state    n
 1     AK 7306
 2     AL 7312
@@ -921,18 +922,18 @@ Attaching package: 'mosaic'</code></pre>
 50    WV 7310
 51    WY 7305</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># How many total births were there in this time period?</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># How many total births were there in this time period?</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a>Birthdays <span class="sc">|&gt;</span></span>
 <span id="cb79-3"><a href="#cb79-3"></a>  <span class="fu">count</span>(<span class="at">total_birth =</span> <span class="fu">sum</span>(births))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>  total_birth      n
 1    70486538 372864</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># How many total births were there per state in this time period, sorted from low to high?</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># How many total births were there per state in this time period, sorted from low to high?</span></span>
 <span id="cb81-2"><a href="#cb81-2"></a>Birthdays<span class="sc">|&gt;</span></span>
 <span id="cb81-3"><a href="#cb81-3"></a>  <span class="fu">count</span>(<span class="at">total_birth =</span> <span class="fu">sum</span>(births)) <span class="sc">|&gt;</span></span>
 <span id="cb81-4"><a href="#cb81-4"></a>  <span class="fu">arrange</span>(total_birth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>  total_birth      n
 1    70486538 372864</code></pre>
 </div>
@@ -940,13 +941,13 @@ Attaching package: 'mosaic'</code></pre>
 </section><section id="exercise-6-homework-reprise" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-6-homework-reprise">Exercise 6: Homework Reprise</h3>
 <p>Create a new dataset named <code>daily_births</code> that includes the total number of births per day (across all states) and the corresponding day of the week, eg, Mon. NOTE: Name the column with total births so that it’s easier to wrangle and plot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>daily_births <span class="ot">&lt;-</span> Birthdays <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>daily_births <span class="ot">&lt;-</span> Birthdays <span class="sc">|&gt;</span> </span>
 <span id="cb83-2"><a href="#cb83-2"></a>  <span class="fu">group_by</span>(date) <span class="sc">|&gt;</span> </span>
 <span id="cb83-3"><a href="#cb83-3"></a>  <span class="fu">summarise</span>(<span class="at">total_births =</span> <span class="fu">sum</span>(births, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb83-4"><a href="#cb83-4"></a>  <span class="fu">mutate</span>(<span class="at">day_of_week =</span> <span class="fu">wday</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb83-5"><a href="#cb83-5"></a></span>
 <span id="cb83-6"><a href="#cb83-6"></a><span class="fu">head</span>(daily_births)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   date                total_births day_of_week
   &lt;dttm&gt;                     &lt;int&gt; &lt;ord&gt;      
@@ -960,7 +961,7 @@ Attaching package: 'mosaic'</code></pre>
 </div>
 <p>Using this data, construct a plot of <code>births</code> over time, indicating the day of week.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="fu">ggplot</span>(daily_births, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> total_births, <span class="at">color =</span> day_of_week)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="fu">ggplot</span>(daily_births, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> total_births, <span class="at">color =</span> day_of_week)) <span class="sc">+</span></span>
 <span id="cb85-2"><a href="#cb85-2"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
 <span id="cb85-3"><a href="#cb85-3"></a>  <span class="fu">labs</span>(</span>
 <span id="cb85-4"><a href="#cb85-4"></a>    <span class="at">title =</span> <span class="st">"Total Births Over Time by Day of the Week"</span>,</span>
@@ -968,7 +969,7 @@ Attaching package: 'mosaic'</code></pre>
 <span id="cb85-6"><a href="#cb85-6"></a>    <span class="at">y =</span> <span class="st">"Total Births"</span>,</span>
 <span id="cb85-7"><a href="#cb85-7"></a>    <span class="at">color =</span> <span class="st">"Day of Week"</span></span>
 <span id="cb85-8"><a href="#cb85-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="ica-dates_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -978,11 +979,11 @@ Attaching package: 'mosaic'</code></pre>
 </section><section id="exercise-7-wrangle-plot" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-7-wrangle-plot">Exercise 7: Wrangle &amp; Plot</h3>
 <p>For each prompt below, you can decide whether you want to: (1) wrangle and store data, then plot; or (2) wrangle data and pipe directly into ggplot. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb86-2"><a href="#cb86-2"></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb86-3"><a href="#cb86-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> bill_length_mm, <span class="at">x =</span> bill_depth_mm, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
 <span id="cb86-4"><a href="#cb86-4"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</details><div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
@@ -996,7 +997,7 @@ Attaching package: 'mosaic'</code></pre>
 <section id="part-a-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-a-1">Part a</h4>
 <p>Calculate the total number of births in each month and year, eg, Jan 1969, Feb 1969, …. Label month by names not numbers, eg, Jan not 1. Then, plot the births by month and comment on what you learn.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
 <span id="cb88-2"><a href="#cb88-2"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(date), </span>
 <span id="cb88-3"><a href="#cb88-3"></a>         <span class="at">month =</span> <span class="fu">month</span>(date, <span class="at">label =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb88-4"><a href="#cb88-4"></a>  <span class="fu">group_by</span>(year, month) <span class="sc">|&gt;</span> </span>
@@ -1006,7 +1007,7 @@ Attaching package: 'mosaic'</code></pre>
 <span id="cb88-8"><a href="#cb88-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Births by Month"</span>, </span>
 <span id="cb88-9"><a href="#cb88-9"></a>       <span class="at">x =</span> <span class="st">"Year"</span>, </span>
 <span id="cb88-10"><a href="#cb88-10"></a>       <span class="at">y =</span> <span class="st">"Total Births"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</details><div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'year'. You can override using the
 `.groups` argument.</code></pre>
 </div>
@@ -1020,7 +1021,7 @@ Attaching package: 'mosaic'</code></pre>
 </section><section id="part-b-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-b-1">Part b</h4>
 <p>In 1988, calculate the total number of births per week in each state. Get rid of week “53”, which isn’t a complete week! Then, make a line plot of births by week for each state and comment on what you learn. For example, do you notice any seasonal trends? Are these the same in every state? Any outliers?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
 <span id="cb90-2"><a href="#cb90-2"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(date) <span class="sc">==</span> <span class="dv">1988</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb90-3"><a href="#cb90-3"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">isoweek</span>(date)) <span class="sc">|&gt;</span> </span>
 <span id="cb90-4"><a href="#cb90-4"></a>  <span class="fu">filter</span>(week <span class="sc">&lt;</span> <span class="dv">53</span>) <span class="sc">|&gt;</span>  <span class="co"># Remove incomplete week 53</span></span>
@@ -1031,7 +1032,7 @@ Attaching package: 'mosaic'</code></pre>
 <span id="cb90-9"><a href="#cb90-9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Births per Week in 1988 by State"</span>, </span>
 <span id="cb90-10"><a href="#cb90-10"></a>       <span class="at">x =</span> <span class="st">"Week"</span>, </span>
 <span id="cb90-11"><a href="#cb90-11"></a>       <span class="at">y =</span> <span class="st">"Total Births"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</details><div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'state'. You can override using the
 `.groups` argument.</code></pre>
 </div>
@@ -1045,7 +1046,7 @@ Attaching package: 'mosaic'</code></pre>
 </section><section id="part-c-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-c-1">Part c</h4>
 <p>Repeat the above for just Minnesota (MN) and Louisiana (LA). MN has one of the coldest climates and LA has one of the warmest. How do their seasonal trends compare? Do you think these trends are similar in other colder and warmer states? Try it!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
 <span id="cb92-2"><a href="#cb92-2"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(date) <span class="sc">==</span> <span class="dv">1988</span>, state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"MN"</span>, <span class="st">"LA"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb92-3"><a href="#cb92-3"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">isoweek</span>(date)) <span class="sc">|&gt;</span> </span>
 <span id="cb92-4"><a href="#cb92-4"></a>  <span class="fu">filter</span>(week <span class="sc">&lt;</span> <span class="dv">53</span>) <span class="sc">|&gt;</span>  </span>
@@ -1056,7 +1057,7 @@ Attaching package: 'mosaic'</code></pre>
 <span id="cb92-9"><a href="#cb92-9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Comparison of Birth Trends in MN and LA (1988)"</span>, </span>
 <span id="cb92-10"><a href="#cb92-10"></a>       <span class="at">x =</span> <span class="st">"Week"</span>, </span>
 <span id="cb92-11"><a href="#cb92-11"></a>       <span class="at">y =</span> <span class="st">"Total Births"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</details><div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'state'. You can override using the
 `.groups` argument.</code></pre>
 </div>
@@ -1071,12 +1072,12 @@ Attaching package: 'mosaic'</code></pre>
 <section id="part-a-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-a-2">Part a</h4>
 <p>Create a dataset with only births in Massachusetts (MA) in 1979 and sort the days from those with the most births to those with the fewest.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
 <span id="cb94-2"><a href="#cb94-2"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(date) <span class="sc">==</span> <span class="dv">1979</span>, state <span class="sc">==</span> <span class="st">"MA"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb94-3"><a href="#cb94-3"></a>  <span class="fu">group_by</span>(date) <span class="sc">|&gt;</span> </span>
 <span id="cb94-4"><a href="#cb94-4"></a>  <span class="fu">summarise</span>(<span class="at">total_births =</span> <span class="fu">sum</span>(births, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb94-5"><a href="#cb94-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_births))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 365 × 2
    date                total_births
    &lt;dttm&gt;                     &lt;int&gt;
@@ -1096,13 +1097,13 @@ Attaching package: 'mosaic'</code></pre>
 </section><section id="part-b-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-b-2">Part b</h4>
 <p>Make a table showing the five states with the most births between September 9, 1979 and September 12, 1979, including the 9th and 12th. Arrange the table in descending order of births.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a>Birthdays <span class="sc">|&gt;</span> </span>
 <span id="cb96-2"><a href="#cb96-2"></a>  <span class="fu">filter</span>(date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"1979-09-09"</span>) <span class="sc">&amp;</span> date <span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">"1979-09-12"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb96-3"><a href="#cb96-3"></a>  <span class="fu">group_by</span>(state) <span class="sc">|&gt;</span> </span>
 <span id="cb96-4"><a href="#cb96-4"></a>  <span class="fu">summarise</span>(<span class="at">total_births =</span> <span class="fu">sum</span>(births, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb96-5"><a href="#cb96-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_births)) <span class="sc">|&gt;</span> </span>
 <span id="cb96-6"><a href="#cb96-6"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   state total_births
   &lt;chr&gt;        &lt;int&gt;

@@ -326,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ica/ica-uni.html">In-class Activities</a></li><li class="breadcrumb-item"><a href="../ica/ica-multi.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span></a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">
 <span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Mulivariate Viz</span>
-</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -344,10 +344,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-story" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="the-story">The story</h3>
 <p>Though far from a perfect assessment of academic preparedness, SAT scores have historically been used as one measurement of a state’s education system. The <code>education</code> dataset contains various education variables for each state:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Import and check out data</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Import and check out data</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>education <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/sat.csv"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">head</span>(education)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</details><div class="cell-output cell-output-stdout">
 <pre><code>       State expend ratio salary frac verbal math  sat  fracCat
 1    Alabama  4.405  17.2 31.144    8    491  538 1029   (0,15]
 2     Alaska  8.963  17.6 47.951   47    445  489  934 (45,100]
@@ -363,8 +363,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-a" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-a">Part a</h4>
 <p>Construct a plot of how the average <code>sat</code> scores vary from state to state. (Just use 1 variable – <code>sat</code> not <code>State</code>!)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
@@ -376,9 +376,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat)) <span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="ica-multi_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -392,12 +392,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The first question we’d like to answer is: Can the variability in <code>sat</code> scores from state to state be partially explained by how much a state spends on education, specifically its per pupil spending (<code>expend</code>) and typical teacher <code>salary</code>?</p>
 <section id="part-a-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-a-1">Part a</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Construct a plot of sat vs expend</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Construct a plot of sat vs expend</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="co"># Include a "best fit linear regression model" (HINT: method = "lm")</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x =</span> sat, <span class="at">y =</span> expend)) <span class="sc">+</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</details><div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
@@ -408,12 +408,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Construct a plot of sat vs salary</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Construct a plot of sat vs salary</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="co"># Include a "best fit linear regression model" (HINT: method = "lm")</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary)) <span class="sc">+</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</details><div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
@@ -428,9 +428,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section></section><section id="exercise-3-sat-scores-vs-per-pupil-spending-and-teacher-salaries" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-3-sat-scores-vs-per-pupil-spending-and-teacher-salaries">Exercise 3: SAT Scores vs Per Pupil Spending <em>and</em> Teacher Salaries</h3>
 <p>Construct <em>one</em> visualization of the relationship of <code>sat</code> with <code>salary</code> <em>and</em> <code>expend</code>. HINT: Start with just 2 variables and tweak that code to add the third variable. Try out a few things!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> expend)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> expend)) <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="ica-multi_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -441,9 +441,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>It can be tough to distinguish color scales and size scales for quantitative variables. Another option is to <em>discretize</em> a quantitative variable, or basically cut it up into <em>categories</em>.</p>
 <p>Construct the plot below. Check out the code and think about what’s happening here. What happens if you change “2” to “3”?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">3</span>))) <span class="sc">+</span> </span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">y =</span> sat, <span class="at">x =</span> salary, <span class="at">color =</span> <span class="fu">cut</span>(expend, <span class="dv">3</span>))) <span class="sc">+</span> </span>
 <span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Describe the trivariate relationship between <code>sat</code>, <code>salary</code>, and <code>expend</code>.</p>
 <p>states with lower salaries and expenditures have higher sat scores.</p>
@@ -452,9 +453,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="part-a-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="part-a-2">Part a</h4>
 <p>Build a univariate viz of <code>fracCat</code> to better understand how many states fall into each category.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x=</span> fracCat)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x=</span> fracCat)) <span class="sc">+</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="ica-multi_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -465,9 +466,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Build 2 bivariate visualizations that demonstrate the relationship between <code>sat</code> and <code>fracCat</code>. What story does your graphic tell and why does this make contextual sense?</p>
 <p>The more students to take sat, the lower score they got.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x=</span> sat, <span class="at">fill=</span> fracCat)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x=</span> sat, <span class="at">fill=</span> fracCat)) <span class="sc">+</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="ica-multi_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -478,10 +479,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Make a trivariate visualization that demonstrates the relationship of <code>sat</code> with <code>expend</code> AND <code>fracCat</code>. Highlight the differences in <code>fracCat</code> groups through color AND unique trend lines. What story does your graphic tell? Does it still seem that SAT scores decrease as spending increases?</p>
 <p>sat score is positively correlated with expenditure on students when control for the fraction of students who take sat</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x=</span> expend, <span class="at">y =</span> sat, <span class="at">color =</span> fracCat)) <span class="sc">+</span></span>
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(education, <span class="fu">aes</span>(<span class="at">x=</span> expend, <span class="at">y =</span> sat, <span class="at">color =</span> fracCat)) <span class="sc">+</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</details><div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
