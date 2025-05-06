@@ -345,10 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7"></a>    <span class="at">x =</span> <span class="st">"Republican Support in 2016 (%)"</span>,</span>
 <span id="cb2-8"><a href="#cb2-8"></a>    <span class="at">y =</span> <span class="st">"Republican Support in 2020 (%)"</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
+</details><div class="cell-output-display">
 <div>
 <figure class="figure"><p><img src="bw-bi_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
@@ -990,29 +987,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Bivariate Viz"</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">---</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="in">```</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="in">```{r}</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>elections <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/election_2020_county.csv"</span>)</span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="in">```</span></span>
-<span id="cb4-14"><a href="#cb4-14"></a></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="in">```{r}</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_16, <span class="at">y =</span> repub_pct_20)) <span class="sc">+</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span>  </span>
-<span id="cb4-20"><a href="#cb4-20"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span>  </span>
-<span id="cb4-21"><a href="#cb4-21"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-22"><a href="#cb4-22"></a>    <span class="at">title =</span> <span class="st">"2020 vs. 2016 Republican Support by County"</span>,</span>
-<span id="cb4-23"><a href="#cb4-23"></a>    <span class="at">subtitle =</span> <span class="st">"A strong positive relationship between Republican support in both elections"</span>,</span>
-<span id="cb4-24"><a href="#cb4-24"></a>    <span class="at">x =</span> <span class="st">"Republican Support in 2016 (%)"</span>,</span>
-<span id="cb4-25"><a href="#cb4-25"></a>    <span class="at">y =</span> <span class="st">"Republican Support in 2020 (%)"</span></span>
-<span id="cb4-26"><a href="#cb4-26"></a>  ) </span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "Bivariate Viz"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="an">execute:</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">  echo: true</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">  warning: false</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">  error: false</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">  html: </span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">    code-fold: true</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">---</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="in">```</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="in">```{r}</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>elections <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://mac-stat.github.io/data/election_2020_county.csv"</span>)</span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="in">```</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="in">```{r}</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="fu">ggplot</span>(elections, <span class="fu">aes</span>(<span class="at">x =</span> repub_pct_16, <span class="at">y =</span> repub_pct_20)) <span class="sc">+</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span>  </span>
+<span id="cb3-29"><a href="#cb3-29"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span>  </span>
+<span id="cb3-30"><a href="#cb3-30"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-31"><a href="#cb3-31"></a>    <span class="at">title =</span> <span class="st">"2020 vs. 2016 Republican Support by County"</span>,</span>
+<span id="cb3-32"><a href="#cb3-32"></a>    <span class="at">subtitle =</span> <span class="st">"A strong positive relationship between Republican support in both elections"</span>,</span>
+<span id="cb3-33"><a href="#cb3-33"></a>    <span class="at">x =</span> <span class="st">"Republican Support in 2016 (%)"</span>,</span>
+<span id="cb3-34"><a href="#cb3-34"></a>    <span class="at">y =</span> <span class="st">"Republican Support in 2020 (%)"</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a>  ) </span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
