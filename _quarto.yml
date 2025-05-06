@@ -10,14 +10,16 @@ book:
   page-navigation: true
   back-to-top-navigation: true
   bread-crumbs: true
-
+  
+  
   sidebar:
     title: "Yu Yan"
     collapse-level: 2
     style: "docked"
     pinned: true
     search: true
-
+  
+  
   chapters:
     - index.qmd
 
@@ -39,18 +41,20 @@ book:
 
     - part: "In-class Activities"
       chapters: 
-        - ica/ica-uni.qmd
-        - ica/ica-bi.qmd
-        - ica/ica-multi.qmd
-        - ica/ica-spatial.qmd
-        - ica/ica-effective.qmd
-        - ica/ica-wrangling.qmd
-        - ica/ica-dates.qmd
-        - ica/ica-reshaping.qmd
-        - ica/ica-joining.qmd
-        - ica/ica-factors.qmd
-        - ica/ica-strings.qmd
-        - ica/ica-data_import.qmd
+      - ica/ica-uni.qmd
+      - ica/ica-bi.qmd
+      - ica/ica-multi.qmd
+      - ica/ica-spatial.qmd
+      - ica/ica-effective.qmd
+      - ica/ica-wrangling.qmd
+      - ica/ica-dates.qmd
+      - ica/ica-reshaping.qmd
+      - ica/ica-joining.qmd
+      - ica/ica-factors.qmd
+      - ica/ica-strings.qmd
+      - ica/ica-data_import.qmd
+    
+    
 
 format:
   html:
@@ -64,10 +68,8 @@ format:
     code-copy: true
     code-link: true
     code-line-numbers: true
-    code-tools:
-      toggle: true
-      summary: "Show code"
-      collapse: true
+    code-tools: true
+    code-fold: true
 
 execute:
   cache: false
@@ -76,6 +78,7 @@ execute:
   warning: false
   error: false
 
+
 editor: 
   markdown:
-    wrap: sentence
+    wrap: sentence # Forces each sentence to be on its own line in source markdown, however, it doesn't affect how it is rendered hide the code
